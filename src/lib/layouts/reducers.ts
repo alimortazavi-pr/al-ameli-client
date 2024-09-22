@@ -1,0 +1,19 @@
+//Types
+import { ILayoutsState } from "@/common/interfaces/layouts";
+import { PayloadAction } from "@reduxjs/toolkit";
+
+//Tools
+
+const reducers = {
+  setDarkMode(
+    state: ILayoutsState,
+    action: PayloadAction<boolean>
+  ): ILayoutsState {
+    return {
+      ...state,
+      darkMode: action.payload,
+    };
+  },
+};
+
+export default reducers;

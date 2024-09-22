@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import the Material Design Icons font and CSS */
+@import "material-symbols";
+
+* {
+  font-family: "Noto Sans Arabic Variable", sans-serif;
+}
