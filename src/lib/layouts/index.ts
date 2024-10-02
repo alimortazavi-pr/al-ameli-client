@@ -8,6 +8,7 @@ import reducers from "@/lib/layouts/reducers";
 
 const initialState: ILayoutsState = {
   darkMode: false,
+  isOpenDrawer: false,
 };
 
 export const layoutsReducer = createSlice({

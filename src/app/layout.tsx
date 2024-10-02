@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 //Assets
 import "@/assets/css/globals.css";
 import "@fontsource-variable/noto-sans-arabic";
+import "react-modern-drawer/dist/index.css";
+
+//Components
+import { ClientProvider } from "@/components/providers/ClientProvider";
 
 export const metadata: Metadata = {
   title: "Al Ameli",
@@ -16,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body>{children}</body>
+      <body>
+        <ClientProvider>{children}</ClientProvider>
+      </body>
     </html>
   );
 }

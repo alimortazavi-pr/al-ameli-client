@@ -4,6 +4,7 @@ import { UseDisclosureProps } from "@nextui-org/react";
 
 export interface ILayoutsState {
   darkMode: boolean;
+  isOpenDrawer: boolean;
 }
 
 export interface INextUIModalProps extends UseDisclosureProps {

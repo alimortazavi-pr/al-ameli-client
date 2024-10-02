@@ -14,6 +14,15 @@ const reducers = {
       darkMode: action.payload,
     };
   },
+  setIsOpenDrawer(
+    state: ILayoutsState,
+    action: PayloadAction<boolean>
+  ): ILayoutsState {
+    return {
+      ...state,
+      isOpenDrawer: action.payload,
+    };
+  },
 };
 
 export default reducers;

@@ -4,14 +4,16 @@ import { ToastContainer } from "react-toastify";
 //Redux
 
 //Components
+import { DrawerContainer } from "../common/Drawer";
 
 //Utils
 
 const RootProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <div className="p-2">{children}</div>
+      <div className="">{children}</div>
       <ToastContainer />
+      <DrawerContainer />
     </>
   );
 };
