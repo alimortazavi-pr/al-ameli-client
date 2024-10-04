@@ -1,0 +1,9 @@
+import Link from "next/link";
+
+export const AsideBottomItems = () => {
+  return <div className="flex items-center gap-2 p-2">
+    <Link href={'#'} className="text-default-500 hover:text-default-700 text-sm xl:text-lg">حول الموقع</Link>
+    <span className="w-3 h-3 rounded-full bg-primary"></span>
+    <Link href={'#'} className="text-default-500 hover:text-default-700 text-sm xl:text-lg">الاتصال بنا</Link>
+  </div>;
+};
