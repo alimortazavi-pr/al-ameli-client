@@ -7,7 +7,7 @@ export const DrawerItems = () => {
       <DrawerItem title="الکـتب" link="#" />
       <DrawerItem title="صــــور" link="#" />
       <DrawerItem title="وثائق" link="#" />
-      <DrawerItem title="مقالات" link="#" />
+      <DrawerItem title="مقالات" link="/articles" />
       <DrawerItem title="صوتیات" link="#" />
       <DrawerItem title="محاضرات وبرامج" link="#" />
       <DrawerItem title="السیره الذاتیه" link="#" />

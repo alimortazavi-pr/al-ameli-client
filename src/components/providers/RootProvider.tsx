@@ -11,7 +11,7 @@ import { DrawerContainer } from "../common/Drawer";
 const RootProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <div className="">{children}</div>
+      <div className="overflow-x-hidden">{children}</div>
       <ToastContainer />
       <DrawerContainer />
     </>

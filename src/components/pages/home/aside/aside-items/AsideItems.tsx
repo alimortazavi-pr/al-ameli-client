@@ -7,7 +7,7 @@ export const AsideItems = () => {
       <AsideItem title="الکـتب" link="#" />
       <AsideItem title="صــــور" link="#" />
       <AsideItem title="وثائق" link="#" />
-      <AsideItem title="مقالات" link="#" />
+      <AsideItem title="مقالات" link="/articles" />
       <AsideItem title="صوتیات" link="#" />
       <AsideItem title="محاضرات وبرامج" link="#" />
       <AsideItem title="السیره الذاتیه" link="#" />
