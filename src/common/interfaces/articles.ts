@@ -2,8 +2,6 @@ import { ICategory, ITag } from ".";
 
 export interface IArticlesState {
   articles: IArticle[];
-  selectedArticle: IArticle | null;
-  isDeleting: boolean;
 }
 
 export interface IArticle {
@@ -11,6 +9,7 @@ export interface IArticle {
   title: string;
   slug: string;
   thumbnail: string;
+  description: string;
   content: string;
   category: ICategory;
   tags: { tag: ITag }[];
