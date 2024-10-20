@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "localhost",
         port: "7079",
       },
+      {
+        protocol: "https",
+        hostname: "al-ameli-back.pourhomestore.top",
+        pathname: "**",
+      },
     ],
   },
 };
