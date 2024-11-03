@@ -3,12 +3,14 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 //Reducers
 import layouts from "./layouts";
 import articles from "./articles";
+import images from "./images";
 
 export function makeStore() {
   return configureStore({
     reducer: {
       layouts: layouts,
       articles: articles,
+      images: images,
     },
   });
 }
