@@ -14,6 +14,8 @@ interface IProps {
 }
 export const ImagesItem: FC<IProps> = ({ imageByCategory, index }) => {
   const is7 = useMemo(() => {
+    console.log(imageByCategory.name, (index + 1) % 5);
+
     if ((index + 1) % 5 === 4) {
       return true;
     }
@@ -21,6 +23,8 @@ export const ImagesItem: FC<IProps> = ({ imageByCategory, index }) => {
   }, [index]);
 
   const is5 = useMemo(() => {
+    console.log(imageByCategory.name, (index + 1) % 5);
+
     if ((index + 1) % 5 === 0) {
       return true;
     }

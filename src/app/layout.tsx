@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import "@/assets/css/globals.css";
 import "@fontsource-variable/noto-sans-arabic";
 import "react-modern-drawer/dist/index.css";
+import 'react-photo-view/dist/react-photo-view.css';
 
 //Components
 import { ClientProvider } from "@/components/providers/ClientProvider";

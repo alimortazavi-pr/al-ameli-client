@@ -8,3 +8,7 @@
 * {
   font-family: "Noto Sans Arabic Variable", sans-serif;
 }
+
+.PhotoView-Portal{
+  direction: ltr !important;
+}
