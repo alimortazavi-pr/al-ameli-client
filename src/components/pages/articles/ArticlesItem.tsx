@@ -42,7 +42,7 @@ export const ArticlesItem: FC<IProps> = ({ article }) => {
           </div>
           <div className="">
             <Link
-              href={`${PATHS.ARTICLES}/${article.slug}`}
+              href={`${PATHS.ARTICLE(article.slug)}`}
               className="text-xl lg:text-4xl font-bold break-words"
             >
               {article.title}
@@ -75,7 +75,7 @@ export const ArticlesItem: FC<IProps> = ({ article }) => {
             color="primary"
             className="font-semibold lg:text-xl"
             as={Link}
-            href={`${PATHS.ARTICLES}/${article.slug}`}
+            href={`${PATHS.ARTICLE(article.slug)}`}
           >
             ﻣﻄﺎﻟﻌﺔ
           </Button>

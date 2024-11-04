@@ -4,6 +4,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import layouts from "./layouts";
 import articles from "./articles";
 import images from "./images";
+import documents from "./documents";
 
 export function makeStore() {
   return configureStore({
@@ -11,6 +12,7 @@ export function makeStore() {
       layouts: layouts,
       articles: articles,
       images: images,
+      documents: documents,
     },
   });
 }

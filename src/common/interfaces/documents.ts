@@ -2,8 +2,6 @@ import { ICategory, ITag } from ".";
 
 export interface IDocumentsState {
   documents: IDocument[];
-  selectedDocument: IDocument | null;
-  isDeleting: boolean;
 }
 
 export interface IDocument {
