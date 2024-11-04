@@ -5,7 +5,7 @@ import { FC } from "react";
 import { IDocument } from "@/common/interfaces";
 
 //Components
-import { DocumentImage, DocumentTags, DocumentTitle } from ".";
+import { DocumentDescription, DocumentImage, DocumentTags, DocumentTitle } from ".";
 
 interface IProps {
   document: IDocument | undefined;
@@ -21,6 +21,7 @@ export const DocumentPage: FC<IProps> = ({ document }) => {
           </div>
         </div>
         <DocumentImage document={document} />
+        <DocumentDescription document={document} />
       </div>
     </div>
   );
