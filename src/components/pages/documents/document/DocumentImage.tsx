@@ -1,19 +1,30 @@
+"use client";
+
 import { FC } from "react";
 import Image from "next/image";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Button, Spinner } from "@nextui-org/react";
+import { DocumentDownload, SearchZoomIn } from "iconsax-react";
 
 //Interface
 import { IDocument } from "@/common/interfaces";
 
 //Constants
 import { BASE_API_URL } from "@/common/constants";
-import { Button } from "@nextui-org/react";
-import { DocumentDownload, SearchZoomIn } from "iconsax-react";
+import FileSaver from "file-saver";
 
 interface IProps {
   document: IDocument | undefined;
 }
-
 export const DocumentImage: FC<IProps> = ({ document }) => {
+  //Functions
+  function downloadDocument() {
+    FileSaver.saveAs(
+      `${BASE_API_URL}${document?.url}`,
+      document?.category.name
+    );
+  }
+
   return (
     <div className="w-full bg-secondary-100 p-5 rounded-lg mb-8">
       <div className="flex items-center justify-center mb-3">
@@ -27,10 +38,22 @@ export const DocumentImage: FC<IProps> = ({ document }) => {
         </div>
       </div>
       <div className="flex items-center justify-end gap-3">
-        <Button isIconOnly color="primary" variant="flat" size="lg">
-          <SearchZoomIn className="w-7 h-7" />
-        </Button>
-        <Button isIconOnly color="primary" variant="flat" size="lg">
+        <PhotoProvider loadingElement={<Spinner />}>
+          <div>
+            <PhotoView src={`${BASE_API_URL}${document?.url}`}>
+              <Button isIconOnly color="primary" variant="flat" size="lg">
+                <SearchZoomIn className="w-7 h-7" />
+              </Button>
+            </PhotoView>
+          </div>
+        </PhotoProvider>
+        <Button
+          isIconOnly
+          color="primary"
+          variant="flat"
+          size="lg"
+          onClick={downloadDocument}
+        >
           <DocumentDownload className="w-7 h-7" />
         </Button>
       </div>

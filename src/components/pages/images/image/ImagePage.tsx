@@ -1,14 +1,13 @@
 "use client";
 import { FC } from "react";
-import { PhotoProvider, PhotoView } from "react-photo-view";
+import { PhotoProvider } from "react-photo-view";
+import { Spinner } from "@nextui-org/react";
 
 //Interface
 import { ICategoryImage } from "@/common/interfaces";
 
 //Components
-import { ImageTitle } from ".";
-import Image from "next/image";
-import { BASE_API_URL } from "@/common/constants";
+import { ImageTitle, SingleImage } from ".";
 
 interface IProps {
   imagesByCategory: ICategoryImage | undefined;
@@ -20,28 +19,10 @@ export const ImagePage: FC<IProps> = ({ imagesByCategory }) => {
         <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 mb-10">
           <ImageTitle imagesByCategory={imagesByCategory} />
         </div>
-        <PhotoProvider>
+        <PhotoProvider loadingElement={<Spinner />}>
           <div className="w-full grid grid-cols-12 gap-2">
             {imagesByCategory?.images?.map((image) => (
-              <div
-                key={image._id}
-                className="relative col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 h-64"
-              >
-                <PhotoView src={`${BASE_API_URL}${image?.url}`}>
-                  <Image
-                    src={`${BASE_API_URL}${image?.thumbnail}`}
-                    fill
-                    alt=""
-                    className="object-cover rounded-lg cursor-pointer"
-                  />
-                </PhotoView>
-
-                {image?.description && (
-                  <div className="absolute w-full bottom-0 rounded-b-lg bg-secondary-500/60 flex items-center justify-center h-20 text-default-50 p-2">
-                    {image.description}
-                  </div>
-                )}
-              </div>
+              <SingleImage key={image._id} image={image} />
             ))}
           </div>
         </PhotoProvider>
