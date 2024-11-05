@@ -19,10 +19,21 @@ export const ImagePage: FC<IProps> = ({ imagesByCategory }) => {
         <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 mb-10">
           <ImageTitle imagesByCategory={imagesByCategory} />
         </div>
-        <PhotoProvider loadingElement={<Spinner />}>
+        <PhotoProvider
+          loadingElement={<Spinner />}
+          overlayRender={({ overlay }) => (
+            <div className="w-full min-h-20 p-3 bg-default-900/50 absolute bottom-0 start-0 z-50">
+              {overlay}
+            </div>
+          )}
+        >
           <div className="w-full grid grid-cols-12 gap-2">
             {imagesByCategory?.images?.map((image) => (
-              <SingleImage key={image._id} image={image} />
+              <SingleImage
+                key={image._id}
+                image={image}
+                imageTitle={`${imagesByCategory.name} - ${imagesByCategory._id}`}
+              />
             ))}
           </div>
         </PhotoProvider>
