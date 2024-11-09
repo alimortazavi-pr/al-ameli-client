@@ -1,7 +1,5 @@
 export interface ITagsState {
   tags: ITag[];
-  selectedTag: ITag | null;
-  isDeleting: boolean;
 }
 
 export interface ITag {

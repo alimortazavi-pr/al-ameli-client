@@ -5,6 +5,8 @@ import layouts from "./layouts";
 import articles from "./articles";
 import images from "./images";
 import documents from "./documents";
+import categories from "./categories";
+import tags from "./tags";
 
 export function makeStore() {
   return configureStore({
@@ -13,6 +15,8 @@ export function makeStore() {
       articles: articles,
       images: images,
       documents: documents,
+      categories: categories,
+      tags: tags,
     },
   });
 }

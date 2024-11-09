@@ -1,13 +1,15 @@
-'use client'
+"use client";
 
 import { FC, useEffect } from "react";
 
 //Interfaces
-import { IArticle } from "@/common/interfaces";
+import { IArticle, ICategory, ITag } from "@/common/interfaces";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
 import { setArticles } from "@/lib/articles/actions";
+import { setCategories } from "@/lib/categories/actions";
+import { setTags } from "@/lib/tags/actions";
 
 //Components
 import { ArticlesItems } from ".";
@@ -15,14 +17,18 @@ import { FilterSectionContainer } from "./FIlterSection";
 
 interface IProps {
   articles: IArticle[];
+  tags: ITag[];
+  categories: ICategory[];
 }
-export const ArticlesPage: FC<IProps> = ({ articles }) => {
+export const ArticlesPage: FC<IProps> = ({ articles, categories, tags }) => {
   //Redux
   const dispatch = useAppDispatch();
 
   //Lifecycle
   useEffect(() => {
     dispatch(setArticles(articles));
+    dispatch(setCategories(categories));
+    dispatch(setTags(tags));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [articles]);
 
