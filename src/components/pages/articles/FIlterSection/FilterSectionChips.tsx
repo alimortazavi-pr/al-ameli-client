@@ -1,12 +1,15 @@
 import { Chip } from "@nextui-org/react";
 import { useRouter } from "next-nprogress-bar";
 import useQuery from "next-app-use-query";
+import { TickCircle } from "iconsax-react";
 
 //Redux
 import { categoriesSelector } from "@/lib/categories/selectors";
 import { useAppSelector } from "@/lib/hooks";
 import { tagsSelector } from "@/lib/tags/selectors";
-import { TickCircle } from "iconsax-react";
+
+//Constants
+import { PATHS } from "@/common/constants";
 
 export const FilterSectionChips = () => {
   //Redux
@@ -22,9 +25,9 @@ export const FilterSectionChips = () => {
   //Functions
   function selectCategory(category: string) {
     if (query.get("category") === category) {
-      router.replace(`/articles${query.delete("category")}`);
+      router.replace(`${PATHS.ARTICLES}${query.delete("category")}`);
     } else {
-      router.replace(`/articles${query.add("category", category)}`);
+      router.replace(`${PATHS.ARTICLES}${query.add("category", category)}`);
     }
   }
 
@@ -34,7 +37,7 @@ export const FilterSectionChips = () => {
       ? tagsQuery.filter((t) => t !== tag)
       : [...tagsQuery, tag];
 
-    router.replace(`/articles${query.add("tags", newTagsQuery.join(","))}`);
+    router.replace(`${PATHS.ARTICLES}${query.add("tags", newTagsQuery.join(","))}`);
   }
 
   function checkTag(tag: string) {

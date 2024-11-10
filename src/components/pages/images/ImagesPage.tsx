@@ -1,13 +1,15 @@
-'use client'
+"use client";
 
 import { FC, useEffect } from "react";
 
 //Interfaces
-import { ICategoryImage } from "@/common/interfaces";
+import { ICategory, ICategoryImage, ITag } from "@/common/interfaces";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
 import { setImagesByCategories } from "@/lib/images/actions";
+import { setCategories } from "@/lib/categories/actions";
+import { setTags } from "@/lib/tags/actions";
 
 //Components
 import { ImagesItems } from ".";
@@ -15,14 +17,23 @@ import { FilterSectionContainer } from "./FIlterSection";
 
 interface IProps {
   imagesByCategories: ICategoryImage[];
+  allCategories: ICategory[];
+  tags: ITag[];
 }
-export const ImagesPage: FC<IProps> = ({ imagesByCategories }) => {
+export const ImagesPage: FC<IProps> = ({
+  imagesByCategories,
+  tags,
+  allCategories,
+}) => {
   //Redux
   const dispatch = useAppDispatch();
 
   //Lifecycle
   useEffect(() => {
     dispatch(setImagesByCategories(imagesByCategories));
+    dispatch(setTags(tags));
+    dispatch(setCategories(allCategories));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagesByCategories]);
 

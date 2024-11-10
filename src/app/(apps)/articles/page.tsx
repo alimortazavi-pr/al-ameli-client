@@ -14,12 +14,12 @@ async function getArticles({ searchParams }: IProps) {
   let categories: ICategory[] = [];
   let tags: ITag[] = [];
   let res: AxiosResponse;
-  const { query, tags: tagsQuery, category } = searchParams;
+  const { search, tags: tagsQuery, category } = searchParams;
 
   try {
-    if (query || tagsQuery || category) {
+    if (search || tagsQuery || category) {
       res = await axiosInstance.get(
-        `/articles/search?${query ? `q=${query}` : ""}${
+        `/articles/search?${search ? `q=${search}` : ""}${
           tagsQuery ? `&tags=${tagsQuery}` : ""
         }${category ? `&category=${category}` : ""}`
       );
@@ -40,7 +40,7 @@ export const dynamic = "force-dynamic";
 
 interface IProps {
   searchParams: {
-    query: string;
+    search: string;
     tags: string;
     category: string;
   };
