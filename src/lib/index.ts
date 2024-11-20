@@ -7,6 +7,7 @@ import images from "./images";
 import documents from "./documents";
 import categories from "./categories";
 import tags from "./tags";
+import videos from "./videos";
 
 export function makeStore() {
   return configureStore({
@@ -17,6 +18,7 @@ export function makeStore() {
       documents: documents,
       categories: categories,
       tags: tags,
+      videos: videos,
     },
   });
 }

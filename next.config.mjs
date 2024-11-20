@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: "al-ameli-back.pourhomestore.top",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        pathname: "**",
+      },
     ],
   },
 };

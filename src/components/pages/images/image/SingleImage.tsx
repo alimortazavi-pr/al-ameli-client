@@ -45,7 +45,7 @@ export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
       </PhotoView>
 
       {image?.description && (
-        <div className="absolute w-full bottom-0 rounded-b-lg bg-secondary-500/60 flex items-center justify-center min-h-20 text-default-50 p-2">
+        <div className="absolute w-full bottom-0 rounded-b-lg bg-secondary-400/60 flex items-center justify-center min-h-20 text-default-50 p-2">
           {image.description}
         </div>
       )}

@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { FC } from "react";
+import { Chip } from "@nextui-org/react";
+import Image from "next/image";
 
 //Interfaces
 import { IDocument } from "@/common/interfaces";
-import Image from "next/image";
+
+//Constants
 import { BASE_API_URL, PATHS } from "@/common/constants";
-import { Chip } from "@nextui-org/react";
 
 interface IProps {
   document: IDocument;
@@ -23,7 +25,7 @@ export const DocumentsItem: FC<IProps> = ({ document }) => {
         alt={document.category?.name}
         className="rounded-2xl object-cover"
       />
-      <div className="absolute bottom-0 p-3 min-h-52 w-full rounded-b-2xl bg-secondary-500/70 z-10 overflow-hidden">
+      <div className="absolute bottom-0 p-3 min-h-52 w-full rounded-b-2xl bg-secondary-400/60 z-10 overflow-hidden">
         <Link
           href={PATHS.DOCUMENT(document._id)}
           className="text-default-50 text-2xl font-semibold truncate mb-3"
