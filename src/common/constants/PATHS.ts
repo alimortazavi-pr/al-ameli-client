@@ -6,6 +6,6 @@ export const PATHS = {
   IMAGE: (imageId: string) => `/images/${imageId}`,
   DOCUMENTS: "/documents",
   DOCUMENT: (documentId: string) => `/documents/${documentId}`,
-  VIDEOS: "/videos",
-  VIDEO: (videoId: string) => `/videos/${videoId}`,
+  PLAYLISTS: "/videos",
+  PLAYLIST: (videoId: string) => `/videos/${videoId}`,
 };

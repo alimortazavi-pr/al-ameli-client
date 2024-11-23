@@ -3,34 +3,32 @@
 import { FC, useEffect } from "react";
 
 //Interfaces
-import { IVideo } from "@/common/interfaces";
+import { IPlaylist } from "@/common/interfaces";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
-import { setVideos } from "@/lib/videos/actions";
+import { setPlaylists } from "@/lib/videos/actions";
 
 //Components
-import { VideosItems } from ".";
+import { PlaylistsItems } from ".";
 // import { FilterSectionContainer } from "./FIlterSection";
 
 interface IProps {
-  videos: IVideo[];
+  playlists: IPlaylist[];
 }
-export const VideosPage: FC<IProps> = ({ videos }) => {
+export const PlaylistsPage: FC<IProps> = ({ playlists }) => {
   //Redux
   const dispatch = useAppDispatch();
 
   //Lifecycle
   useEffect(() => {
-    dispatch(setVideos(videos));
+    dispatch(setPlaylists(playlists));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videos]);
+  }, [playlists]);
 
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-3 lg:gap-12 mt-5">
-      <VideosItems />
-      {/* <VideosItems />
-      <FilterSectionContainer /> */}
+      <PlaylistsItems />
     </div>
   );
 };

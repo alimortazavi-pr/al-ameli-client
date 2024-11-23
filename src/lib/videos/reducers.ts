@@ -1,17 +1,17 @@
 //Types
-import { IVideosState, IVideo } from "@/common/interfaces";
+import { IVideosState, IPlaylist } from "@/common/interfaces";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 //Tools
 
 const reducers = {
-  setVideos(
+  setPlaylists(
     state: IVideosState,
-    action: PayloadAction<IVideo[]>
+    action: PayloadAction<IPlaylist[]>
   ): IVideosState {
     return {
       ...state,
-      videos: action.payload,
+      playlists: action.payload,
     };
   },
 };

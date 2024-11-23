@@ -1,13 +1,13 @@
 import axios, { AxiosResponse } from "axios";
 
 //Interfaces
-import { IVideo } from "@/common/interfaces";
+import { IPlaylist } from "@/common/interfaces";
 
 //Components
-import { VideosPage } from "@/components/pages/videos";
+import { PlaylistsPage } from "@/components/pages/videos";
 
-async function getVideos({ searchParams }: IProps) {
-  let videos: IVideo[] = [];
+async function getPlaylists({ searchParams }: IProps) {
+  let playlists: IPlaylist[] = [];
   let res: AxiosResponse;
   const {} = searchParams;
 
@@ -16,12 +16,12 @@ async function getVideos({ searchParams }: IProps) {
       `https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyBsD-GtMeVLlcQjdiEche9qYWFgvDN8DFM&channelId=UC-O1hJzH8jLx_oz62aZpW6Q&part=snippet,contentDetails&maxResults=30`
     );
 
-    videos = res.data.items;
+    playlists = res.data.items;
   } catch (error) {
     console.log(error, "error");
   }
 
-  return { videos };
+  return { playlists };
 }
 export const dynamic = "force-dynamic";
 
@@ -33,7 +33,7 @@ interface IProps {
   };
 }
 export default async function page({ searchParams }: IProps) {
-  const { videos } = await getVideos({ searchParams });
+  const { playlists } = await getPlaylists({ searchParams });
 
-  return <VideosPage videos={videos} />;
+  return <PlaylistsPage playlists={playlists} />;
 }

@@ -7,7 +7,7 @@ import { IVideosState } from "@/common/interfaces";
 import reducers from "@/lib/videos/reducers";
 
 const initialState: IVideosState = {
-  videos: [],
+  playlists: [],
 };
 
 export const videosReducer = createSlice({

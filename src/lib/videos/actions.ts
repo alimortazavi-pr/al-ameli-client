@@ -4,7 +4,7 @@
 import { videosReducer } from ".";
 
 //Actions from reducer
-export const { setVideos } = videosReducer.actions;
+export const { setPlaylists } = videosReducer.actions;
 
 //Interfaces
 

@@ -1,15 +1,16 @@
 import { FC } from "react";
-import { Button } from "@nextui-org/react";
+import { Button, Chip } from "@nextui-org/react";
 import { ArrowRight } from "iconsax-react";
 import { useRouter } from "next-nprogress-bar";
 
 //Interface
-import { IArticle } from "@/common/interfaces";
+import { IPlaylist } from "@/common/interfaces";
+import convertToPersian from "num-to-persian";
 
 interface IProps {
-  article: IArticle | undefined;
+  playlist: IPlaylist | undefined;
 }
-export const ArticleTitle: FC<IProps> = ({ article }) => {
+export const PlaylistTitle: FC<IProps> = ({ playlist }) => {
   //Next
   const router = useRouter();
 
@@ -24,8 +25,11 @@ export const ArticleTitle: FC<IProps> = ({ article }) => {
         <ArrowRight className="w-7 h-7 xl:w-9 xl:h-9 text-default-900" />
       </Button>
       <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate">
-        {article?.title}
+        {playlist?.snippet.title}
       </h6>
+      <Chip color="primary" size="lg" variant="flat">
+        {convertToPersian(playlist?.contentDetails.itemCount || 0)} فيديو
+      </Chip>
     </div>
   );
 };

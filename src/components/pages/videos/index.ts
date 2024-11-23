@@ -1,3 +1,3 @@
-export * from "./VideosPage";
-export * from "./VideosItems";
-export * from "./VideosItem";
+export * from "./PlaylistsPage";
+export * from "./PlaylistsItems";
+export * from "./PlaylistsItem";
