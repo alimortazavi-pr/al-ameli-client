@@ -8,6 +8,7 @@ import documents from "./documents";
 import categories from "./categories";
 import tags from "./tags";
 import videos from "./videos";
+import audios from "./audios";
 
 export function makeStore() {
   return configureStore({
@@ -19,6 +20,7 @@ export function makeStore() {
       categories: categories,
       tags: tags,
       videos: videos,
+      audios: audios,
     },
   });
 }

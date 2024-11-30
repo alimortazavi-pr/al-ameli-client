@@ -8,4 +8,6 @@ export const PATHS = {
   DOCUMENT: (documentId: string) => `/documents/${documentId}`,
   PLAYLISTS: "/videos",
   PLAYLIST: (videoId: string) => `/videos/${videoId}`,
+  AUDIOS: "/audios",
+  AUDIO: (audioId: string) => `/audios/${audioId}`,
 };

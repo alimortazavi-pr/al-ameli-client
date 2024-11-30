@@ -6,3 +6,4 @@ export * from "./tags";
 export * from "./images";
 export * from "./documents";
 export * from "./videos";
+export * from "./audios";
