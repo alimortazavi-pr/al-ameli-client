@@ -41,7 +41,7 @@ export const SingleAudio: FC<IProps> = ({ audio }) => {
           <p className="text-default-600 mb-2 line-clamp-1">
             {audio.category?.name}
           </p>
-          <p className="text-default-600 line-clamp-2 min-h-14">
+          <p className="text-default-600 line-clamp-2 md:mb-1">
             {audio.description}
           </p>
           <p className="hidden md:flex items-center gap-1">
