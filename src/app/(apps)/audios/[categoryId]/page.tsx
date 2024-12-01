@@ -1,5 +1,5 @@
 //Components
-import { AudioPage } from "@/components/pages/audios/audio";
+import { AudiosPlaylistPage } from "@/components/pages/audios/audio-playlist";
 
 //Interfaces
 import { ICategoryAudio } from "@/common/interfaces";
@@ -30,5 +30,5 @@ interface IProps {
 export default async function page({ params }: IProps) {
   const { audiosByCategory } = await getAudiosByCategory({ params });
 
-  return <AudioPage audiosByCategory={audiosByCategory} />;
+  return <AudiosPlaylistPage audiosByCategory={audiosByCategory} />;
 }

@@ -9,7 +9,7 @@ import { ICategoryAudio } from "@/common/interfaces";
 interface IProps {
   audiosByCategory: ICategoryAudio | undefined;
 }
-export const AudioTitle: FC<IProps> = ({ audiosByCategory }) => {
+export const AudiosPlaylistTitle: FC<IProps> = ({ audiosByCategory }) => {
   //Next
   const router = useRouter();
 

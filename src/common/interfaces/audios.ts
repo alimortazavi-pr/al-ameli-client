@@ -12,6 +12,7 @@ export interface IAudio {
   thumbnail: string;
   category: ICategory;
   tags: { tag: ITag }[];
+  createdAt: string;
 }
 
 export interface ICategoryAudio extends ICategory {

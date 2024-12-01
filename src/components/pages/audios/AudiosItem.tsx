@@ -1,55 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import { FC, useMemo } from "react";
+import { FC } from "react";
+import Image from "next/image";
+import convertToPersian from "num-to-persian";
+import { Chip } from "@nextui-org/react";
+import { AudioSquare } from "iconsax-react";
 
 //Interfaces
 import { ICategoryAudio } from "@/common/interfaces";
-import Image from "next/image";
+
+//Constants
 import { BASE_API_URL, PATHS } from "@/common/constants";
 
 interface IProps {
   audioByCategory: ICategoryAudio;
-  index: number;
 }
-export const AudiosItem: FC<IProps> = ({ audioByCategory, index }) => {
-  const is7 = useMemo(() => {
-    console.log(audioByCategory.name, (index + 1) % 5);
-
-    if ((index + 1) % 5 === 4) {
-      return true;
-    }
-    return false;
-  }, [index]);
-
-  const is5 = useMemo(() => {
-    console.log(audioByCategory.name, (index + 1) % 5);
-
-    if ((index + 1) % 5 === 0) {
-      return true;
-    }
-    return false;
-  }, [index]);
-
+export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
   return (
     audioByCategory.audios?.length !== 0 && (
-      <div
-        className={`col-span-12 md:col-span-6 ${
-          is7 ? "lg:col-span-7" : is5 ? "lg:col-span-5" : "lg:col-span-4"
-        } h-96 lg:h-72 xl:h-96 bg-white/90 shadow-lg rounded-2xl relative`}
-      >
-        <Image
-          src={`${BASE_API_URL}/${audioByCategory.audios[0].thumbnail}`}
-          fill
-          alt={audioByCategory.name}
-          className="rounded-2xl object-cover"
-        />
-        <div className="absolute bottom-0 p-3 h-24 w-full rounded-b-2xl bg-secondary-400/60 z-10 flex items-center justify-center">
+      <div className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400 h-fit">
+        <div className={`h-32 bg-white/90 shadow-lg rounded-2xl relative`}>
+          <Image
+            src={`${BASE_API_URL}/${audioByCategory.audios[0].thumbnail}`}
+            fill
+            alt={audioByCategory.name}
+            className="rounded-2xl object-cover"
+          />
+          <Chip
+            className="absolute bottom-2 start-2 bg-secondary-400/70"
+            endContent={<AudioSquare className="w-5 h-5" />}
+            color="secondary"
+          >
+            {convertToPersian(audioByCategory.audios.length)} صوت
+          </Chip>
+        </div>
+        <div className="p-3">
+          <h6 className="w-full text-default-50 text-base font-semibold truncate mb-1">
+            {audioByCategory.name}
+          </h6>
           <Link
             href={PATHS.AUDIO(audioByCategory._id)}
-            className="text-default-50 text-3xl truncate"
+            className="text-default-50 text-xs"
           >
-            {audioByCategory.name}
+            مشاهدة هذه المجموعة
           </Link>
         </div>
       </div>

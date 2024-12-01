@@ -27,9 +27,6 @@ export const PlaylistsItem: FC<IProps> = ({ playlist }) => {
             alt={playlist.snippet.title}
             className="rounded-2xl object-cover"
           />
-          {/* <div className="absolute bottom-2 start-2 flex items-center p-1">
-
-          </div> */}
           <Chip
             className="absolute bottom-2 start-2 bg-secondary-400/70"
             endContent={<VideoVertical className="w-5 h-5" />}

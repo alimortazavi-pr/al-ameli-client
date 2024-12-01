@@ -13,8 +13,11 @@ export const AudiosItems = () => {
 
   return (
     <div className="grid grid-cols-12 gap-3 mb-3 w-full lg:w-8/12">
-      {audiosByCategories?.map((audioByCategory, i) => (
-        <AudiosItem key={audioByCategory._id} audioByCategory={audioByCategory} index={i} />
+      {audiosByCategories?.map((audioByCategory) => (
+        <AudiosItem
+          key={audioByCategory._id}
+          audioByCategory={audioByCategory}
+        />
       ))}
     </div>
   );
