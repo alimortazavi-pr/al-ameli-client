@@ -7,3 +7,4 @@ export * from "./images";
 export * from "./documents";
 export * from "./videos";
 export * from "./audios";
+export * from "./books";
