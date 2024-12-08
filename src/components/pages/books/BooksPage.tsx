@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useEffect } from "react";
+import { useDisclosure } from "@nextui-org/react";
 
 //Interfaces
 import { IBook, ICategory, ITag } from "@/common/interfaces";
@@ -13,6 +14,8 @@ import { setTags } from "@/lib/tags/actions";
 
 //Components
 // import { FilterSectionContainer } from "./FIlterSection";
+import { BookListContainer } from "./BookList";
+import { BookDetailModal } from "./BookDetail";
 
 interface IProps {
   books: IBook[];
@@ -22,6 +25,9 @@ interface IProps {
 export const BooksPage: FC<IProps> = ({ books, categories, tags }) => {
   //Redux
   const dispatch = useAppDispatch();
+
+  //NextUI
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   //Lifecycle
   useEffect(() => {
@@ -33,7 +39,14 @@ export const BooksPage: FC<IProps> = ({ books, categories, tags }) => {
 
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-3 lg:gap-12 mt-5">
+      <BookListContainer />
       {/* <FilterSectionContainer /> */}
+      <BookDetailModal
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onOpenChange={onOpenChange}
+        onClose={onClose}
+      />
     </div>
   );
 };

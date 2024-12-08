@@ -9,10 +9,12 @@ import { SortDirection } from "@/grpc/proto/ablibrary/types/common_pb";
 export interface IBooksState {
   books: IBook[];
   hasFilters: boolean;
+  selectedBookIdForBookDetail: string | undefined;
+  selectedBookDetail: Book | undefined;
 }
 
 export interface IBook extends Book {
-  id : string
+  id: string;
 }
 
 export interface IListBooksRequest extends ListRequest {

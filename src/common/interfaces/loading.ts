@@ -1,3 +1,6 @@
 export interface ILoadingState {
-  isLoading: boolean;
+  loadingStatus: boolean;
+  isLoadingGlobal: boolean;
+  isLoadingBooksList: boolean;
+  isLoadingBookDetail: boolean;
 }

@@ -2,6 +2,7 @@
 
 //Types
 import { IBook, IBooksState } from "@/common/interfaces/books";
+import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 const reducers = {
@@ -15,6 +16,24 @@ const reducers = {
     return {
       ...state,
       hasFilters: action.payload,
+    };
+  },
+  setSelectedBookIdForBookDetail(
+    state: any,
+    action: PayloadAction<string | undefined>
+  ): IBooksState {
+    return {
+      ...state,
+      selectedBookIdForBookDetail: action.payload,
+    };
+  },
+  setSelectedBookDetail(
+    state: any,
+    action: PayloadAction<Book | undefined>
+  ): IBooksState {
+    return {
+      ...state,
+      selectedBookDetail: action.payload,
     };
   },
 };

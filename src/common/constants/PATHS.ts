@@ -10,4 +10,6 @@ export const PATHS = {
   PLAYLIST: (videoId: string) => `/videos/${videoId}`,
   AUDIOS: "/audios",
   AUDIO: (audioId: string) => `/audios/${audioId}`,
+  BOOKS: "/books",
+  BOOK: (bookSlug: string) => `/books/${bookSlug}`,
 };

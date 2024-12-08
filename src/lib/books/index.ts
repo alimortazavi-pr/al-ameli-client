@@ -9,6 +9,8 @@ import reducers from "@/lib/books/reducers";
 const initialState: IBooksState = {
   books: [],
   hasFilters: false,
+  selectedBookIdForBookDetail: undefined,
+  selectedBookDetail: undefined,
 };
 
 export const booksReducer = createSlice({

@@ -9,7 +9,12 @@
 import { booksReducer } from ".";
 
 //Actions from reducer
-export const { setBooks, setHasFilters } = booksReducer.actions;
+export const {
+  setBooks,
+  setHasFilters,
+  setSelectedBookDetail,
+  setSelectedBookIdForBookDetail,
+} = booksReducer.actions;
 
 //Interfaces
 

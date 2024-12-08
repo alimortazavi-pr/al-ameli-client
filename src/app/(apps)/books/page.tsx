@@ -62,7 +62,13 @@ const Home: FC<IProps> = async ({ searchParams }) => {
   //Fetch Data
   const { books } = await getBooks({ searchParams });
 
-  return <BooksPage books={books} categories={[]} tags={[]} />;
+  return (
+    <BooksPage
+      books={JSON.parse(JSON.stringify(books)) || []}
+      categories={[]}
+      tags={[]}
+    />
+  );
 };
 
 export default Home;

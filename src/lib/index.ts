@@ -10,6 +10,7 @@ import tags from "./tags";
 import videos from "./videos";
 import audios from "./audios";
 import books from "./books";
+import loading from "./loading";
 
 export function makeStore() {
   return configureStore({
@@ -23,6 +24,7 @@ export function makeStore() {
       videos: videos,
       audios: audios,
       books: books,
+      loading: loading,
     },
   });
 }
