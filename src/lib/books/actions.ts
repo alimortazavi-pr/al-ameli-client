@@ -14,6 +14,7 @@ export const {
   setHasFilters,
   setSelectedBookDetail,
   setSelectedBookIdForBookDetail,
+  setBooksAttach,
 } = booksReducer.actions;
 
 //Interfaces

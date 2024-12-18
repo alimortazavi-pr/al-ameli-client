@@ -5,14 +5,18 @@ import { bookServiceClient } from "@/grpc/services/book/book.service";
 import { ListRequest_Sort } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 //Types
-import { IBook } from "@/common/interfaces";
+import { IBook, IBookAttach } from "@/common/interfaces";
 import { SortDirection } from "@/grpc/proto/ablibrary/types/common_pb";
 
 //Components
 import { BooksPage } from "@/components/pages/books";
 
+//Constants
+import { axiosInstance } from "@/common/axiosInstance";
+
 async function getBooks({ searchParams }: IProps) {
   let books: IBook[] = [];
+  let booksAttach: IBookAttach[] = [];
 
   try {
     const { books: booksResult } = await bookServiceClient.list({
@@ -31,17 +35,18 @@ async function getBooks({ searchParams }: IProps) {
       ],
       query: searchParams.query ? searchParams.query : "",
     });
+    const booksAttachResult = await axiosInstance.get("/books");
 
     books = booksResult;
+    booksAttach = booksAttachResult.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.log(error);
-
-    error = error.message;
   }
 
   return {
     books: books,
+    booksAttach: booksAttach,
   };
 }
 
@@ -49,24 +54,17 @@ interface IProps {
   searchParams: {
     "sort-by": ListRequest_Sort | undefined;
     "sort-dir": SortDirection | undefined;
-    title?: string;
-    publisher?: string;
-    author?: string;
     query?: string;
-    languages?: string;
-    categories?: string;
-    "death-dates"?: string;
   };
 }
 const Home: FC<IProps> = async ({ searchParams }) => {
   //Fetch Data
-  const { books } = await getBooks({ searchParams });
+  const { books, booksAttach } = await getBooks({ searchParams });
 
   return (
     <BooksPage
       books={JSON.parse(JSON.stringify(books)) || []}
-      categories={[]}
-      tags={[]}
+      booksAttach={booksAttach || []}
     />
   );
 };

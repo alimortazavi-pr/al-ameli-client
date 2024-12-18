@@ -8,6 +8,7 @@ import { SortDirection } from "@/grpc/proto/ablibrary/types/common_pb";
 
 export interface IBooksState {
   books: IBook[];
+  booksAttach: IBookAttach[];
   hasFilters: boolean;
   selectedBookIdForBookDetail: string | undefined;
   selectedBookDetail: Book | undefined;
@@ -15,6 +16,13 @@ export interface IBooksState {
 
 export interface IBook extends Book {
   id: string;
+}
+
+export interface IBookAttach {
+  bookId: string;
+  thumbnail: string;
+  pdfAttach: string;
+  wordAttach: string;
 }
 
 export interface IListBooksRequest extends ListRequest {

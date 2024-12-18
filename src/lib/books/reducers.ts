@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 //Types
-import { IBook, IBooksState } from "@/common/interfaces/books";
+import { IBook, IBookAttach, IBooksState } from "@/common/interfaces/books";
 import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 import { PayloadAction } from "@reduxjs/toolkit";
 
@@ -10,6 +10,15 @@ const reducers = {
     return {
       ...state,
       books: action.payload,
+    };
+  },
+  setBooksAttach(
+    state: any,
+    action: PayloadAction<IBookAttach[]>
+  ): IBooksState {
+    return {
+      ...state,
+      booksAttach: action.payload,
     };
   },
   setHasFilters(state: any, action: PayloadAction<boolean>): IBooksState {

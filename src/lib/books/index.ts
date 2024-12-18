@@ -8,6 +8,7 @@ import reducers from "@/lib/books/reducers";
 
 const initialState: IBooksState = {
   books: [],
+  booksAttach: [],
   hasFilters: false,
   selectedBookIdForBookDetail: undefined,
   selectedBookDetail: undefined,

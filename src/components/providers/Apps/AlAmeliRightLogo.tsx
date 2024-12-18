@@ -9,7 +9,7 @@ import { PATHS } from "@/common/constants";
 
 export const AlAmeliRightLogo = () => {
   return (
-    <Link href={PATHS.HOME}>
+    <Link href={PATHS.HOME} className="w-fit block">
       <Image className="hidden lg:block" src={alAmeliRightLogo} alt="Logo" />
     </Link>
   );

@@ -4,4 +4,5 @@ export enum CategoryTypeEnum {
   DOCUMENT = "2",
   ALL = "3",
   AUDIO = "4",
+  BOOK = "5",
 }

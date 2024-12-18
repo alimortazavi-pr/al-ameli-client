@@ -7,6 +7,12 @@ export function booksSelector(state: RootState): IBooksState["books"] {
   return state.books.books;
 }
 
+export function booksAttachSelector(
+  state: RootState
+): IBooksState["booksAttach"] {
+  return state.books.booksAttach;
+}
+
 export function hasFiltersSelector(state: RootState): boolean {
   return state.books.hasFilters;
 }
