@@ -1,0 +1,15 @@
+export type ContentTypes =
+  | "text"
+  | "paragraph"
+  | "heading"
+  | "link"
+  | "footnote"
+  | "table"
+  | "table_row"
+  | "table_cell"
+  | "image"
+  | "ref"
+  | "poem"
+  | "remark"
+  | "horizontal_line"
+  | "line_break";

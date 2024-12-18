@@ -12,3 +12,39 @@
 .PhotoView-Portal{
   direction: ltr !important;
 }
+
+@layer components {
+  .my-react-select-container .my-react-select__control {
+    @apply bg-transparent min-h-[3rem] border-default-200 rounded-xl border-[1px] hover:border-default-400 focus:border-primary;
+  }
+
+  .my-react-select-container .my-react-select__control--is-focused {
+    @apply border-primary hover:border-default-700 shadow-none;
+  }
+
+  .my-react-select-container .my-react-select__menu {
+    @apply bg-default-50 border-[1px] border-default-300 rounded-xl;
+  }
+
+  .my-react-select-container .my-react-select__option {
+    @apply text-default-800 hover:bg-default-100 bg-default-50 rounded-xl;
+  }
+
+  .my-react-select-container .my-react-select__indicator-separator {
+    @apply bg-default-400 rounded-xl;
+  }
+
+  .my-react-select-container .my-react-select__input-container,
+  .my-react-select-container .my-react-select__placeholder,
+  .my-react-select-container .my-react-select__single-value {
+    @apply text-default-800 rounded-xl;
+  }
+
+  .swiper-button-prev {
+    @apply !text-default-900;
+  }
+
+  .swiper-button-next {
+    @apply !text-default-900;
+  }
+}

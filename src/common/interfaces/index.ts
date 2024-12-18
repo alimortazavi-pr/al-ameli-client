@@ -8,3 +8,4 @@ export * from "./documents";
 export * from "./videos";
 export * from "./audios";
 export * from "./books";
+export * from "./book";
