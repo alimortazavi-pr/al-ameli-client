@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { useDisclosure } from "@nextui-org/react";
 
 //Interfaces
@@ -11,12 +11,11 @@ import { useAppDispatch } from "@/lib/hooks";
 import { setBookDetail, setSelectedBook } from "@/lib/book/actions";
 
 //Components
-import { BookDesktop } from "./desktop";
-import { BookMobile } from "./mobile";
 import { BookDetailModal } from "./book-detail";
+import { BookAttach, BookCategories, BookTitle } from ".";
+import { ContentContainer } from "./content";
 
 //Responsive
-import { useMediaQuery } from "react-responsive";
 
 interface IProps {
   book: IPage[];
@@ -27,21 +26,13 @@ export const BookPage: FC<IProps> = ({ book, bookDetail }) => {
   const dispatch = useAppDispatch();
 
   //States
-  const [isClient, setIsClient] = useState(false);
 
   //Responsive
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 905px)",
-  });
 
   //NextUI
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   //Life cycle
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   useEffect(() => {
     dispatch(setSelectedBook(book));
   }, [book]);
@@ -52,18 +43,19 @@ export const BookPage: FC<IProps> = ({ book, bookDetail }) => {
 
   return (
     <>
-      {isClient ? (
-        isDesktopOrLaptop ? (
-          <BookDesktop />
-        ) : (
-          <BookMobile />
-        )
-      ) : (
-        <div className="hidden">
-          <BookDesktop />
-          <BookMobile />
+      <div className="flex flex-col-reverse lg:flex-row gap-3 lg:gap-12 py-5">
+        <div className="bg-background w-full min-h-fit z-20 rounded-xl shadow p-3 lg:py-6 lg:px-8">
+          <div className="flex flex-col gap-2 lg:gap-4 mb-10">
+            <BookTitle />
+            <div className="flex justify-between items-end lg:items-center flex-1 flex-wrap gap-2">
+              <BookCategories />
+              <BookAttach />
+            </div>
+          </div>
+          {/* <BookContent /> */}
+          <ContentContainer />
         </div>
-      )}
+      </div>
       <BookDetailModal
         isOpen={isOpen}
         onOpen={onOpen}
