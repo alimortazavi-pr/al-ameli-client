@@ -1,27 +1,28 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
+import { useDisclosure } from "@nextui-org/react";
 
 //Interfaces
-import { IPage } from "@/common/interfaces";
+import { IBook, IPage } from "@/common/interfaces";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
-import { setSelectedBook } from "@/lib/book/actions";
+import { setBookDetail, setSelectedBook } from "@/lib/book/actions";
 
 //Components
 import { BookDesktop } from "./desktop";
 import { BookMobile } from "./mobile";
+import { BookDetailModal } from "./book-detail";
 
 //Responsive
 import { useMediaQuery } from "react-responsive";
 
 interface IProps {
-  book : IPage[]
+  book: IPage[];
+  bookDetail: IBook | undefined;
 }
-export const BookPage: FC<IProps> = ({
-  book
-}) => {
+export const BookPage: FC<IProps> = ({ book, bookDetail }) => {
   //Redux
   const dispatch = useAppDispatch();
 
@@ -33,6 +34,9 @@ export const BookPage: FC<IProps> = ({
     query: "(min-width: 905px)",
   });
 
+  //NextUI
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+
   //Life cycle
   useEffect(() => {
     setIsClient(true);
@@ -42,16 +46,30 @@ export const BookPage: FC<IProps> = ({
     dispatch(setSelectedBook(book));
   }, [book]);
 
-  return isClient ? (
-    isDesktopOrLaptop ? (
-      <BookDesktop />
-    ) : (
-      <BookMobile />
-    )
-  ) : (
-    <div className="hidden">
-      <BookDesktop />
-      <BookMobile />
-    </div>
+  useEffect(() => {
+    dispatch(setBookDetail(bookDetail));
+  }, [bookDetail]);
+
+  return (
+    <>
+      {isClient ? (
+        isDesktopOrLaptop ? (
+          <BookDesktop />
+        ) : (
+          <BookMobile />
+        )
+      ) : (
+        <div className="hidden">
+          <BookDesktop />
+          <BookMobile />
+        </div>
+      )}
+      <BookDetailModal
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onOpenChange={onOpenChange}
+        onClose={onClose}
+      />
+    </>
   );
 };

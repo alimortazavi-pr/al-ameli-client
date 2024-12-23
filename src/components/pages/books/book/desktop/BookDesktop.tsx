@@ -1,9 +1,6 @@
 //Redux
 import { useAppSelector } from "@/lib/hooks";
-import {
-  isOpenBookInfoSelector,
-  isOpenTableOfContentSelector,
-} from "@/lib/book/selectors";
+import { isOpenTableOfContentSelector } from "@/lib/book/selectors";
 
 //Components
 import { TableOfContent } from "./table-of-content";
@@ -14,23 +11,18 @@ import { ContentContainer } from "./../content";
 export const BookDesktop = () => {
   //Redux
   const isOpenTableOfContent = useAppSelector(isOpenTableOfContentSelector);
-  const isOpenBookInfo = useAppSelector(isOpenBookInfoSelector);
 
   return (
-    <div className="max-w-full w-full max-h-full h-full">
-      <div
-        className={`bg-background rounded-2xl pb-4 flex flex-col max-h-full h-full`}
-      >
+    <div className="max-w-full w-full mt-5 rounded-2xl z-10 relative h-[calc(100dvh-200px)] overflow-y-hidden">
+      <div className={`bg-background rounded-2xl pb-4 flex flex-col h-full`}>
         <ToolBar />
-        <div className={`flex flex-auto overflow-hidden`}>
+        <div className={`flex flex-auto overflow-hidden h-full`}>
           <TableOfContent />
           {/* <BookInfo /> */}
           <div
             className={`${
-              isOpenTableOfContent || isOpenBookInfo
-                ? "w-6/12 lg:w-8/12 xl:w-9/12 2xl:w-10/12"
-                : "w-full"
-            }`}
+              isOpenTableOfContent ? "w-6/12 2xl:w-8/12" : "w-full"
+            } h-full overflow-y-auto`}
           >
             <ContentContainer />
           </div>

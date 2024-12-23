@@ -73,8 +73,8 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
   return (
     <>
       <div
-        className={`tracking-wide bg-primary/10 break-words h-fit mx-1 md:ms-4 md:me-1.5} leading-loose relative p-3 ${
-          pageIndex - 1 === 0 ? "rounded-b-xl" : "rounded-xl"
+        className={`tracking-wide bg-secondary/10 break-words h-fit mx-1 md:ms-4 md:me-4 leading-loose relative p-3 ${
+          pageIndex === 0 ? "rounded-b-xl" : "rounded-xl"
         } mb-1`}
       >
         <div className="flex items-center mb-1">

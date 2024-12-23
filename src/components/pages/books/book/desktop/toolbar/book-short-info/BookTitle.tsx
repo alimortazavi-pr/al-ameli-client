@@ -23,7 +23,7 @@ export const BookTitle = () => {
   // const convertNumbersFormat = useConvertNumbersFormat();
 
   return (
-    <div className="flex items-center gap-1 border-e border-default-300 pe-4 w-fit max-w-[66%] ps-3 py-2 bg-primary-100 rounded-s-xl">
+    <div className="flex items-center gap-1 border-e border-default-300 pe-4 w-fit max-w-[66%] ps-3 py-2 bg-secondary-100 rounded-s-xl">
       <span className="text-sm truncate">{bookDetail?.title || ""}</span>
       {bookDetail?.volumeLabel ? (
         <Chip className="rounded-md" color="primary" variant="flat" size="sm">

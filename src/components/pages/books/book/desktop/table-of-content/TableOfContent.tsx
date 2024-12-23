@@ -175,7 +175,7 @@ export const TableOfContent = () => {
     <div
       className={`${
         isOpenTableOfContent ? "flex" : "hidden"
-      } w-6/12 lg:w-4/12 xl:w-3/12 2xl:w-2/12 max-h-full min-h-full border-e border-default-200 px-6 pt-4 overflow-hidden flex-col`}
+      } w-6/12 2xl:w-4/12 max-h-full min-h-full border-e border-default-200 px-6 pt-4 overflow-hidden flex-col`}
     >
       <div className="flex items-center gap-2 mb-6">
         <span className="font-semibold">
