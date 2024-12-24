@@ -1,4 +1,5 @@
 //Types
+import { IBookAttach } from "@/common/interfaces";
 import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 import { Page } from "@/grpc/proto/ablibrary/types/page_pb";
 import { RootState } from "@/lib/index";
@@ -17,4 +18,8 @@ export function selectedBookSelector(state: RootState): Page[] {
 
 export function bookDetailSelector(state: RootState): Book | undefined {
   return state.book.bookDetail;
+}
+
+export function bookAttachSelector(state: RootState): IBookAttach | undefined {
+  return state.book.bookAttach;
 }

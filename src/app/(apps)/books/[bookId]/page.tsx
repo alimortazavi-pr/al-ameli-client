@@ -1,19 +1,22 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react";
 
 //gRPC
 import { bookServiceClient } from "@/grpc/services/book/book.service";
 
 //Types
-import { IBook, IPage } from "@/common/interfaces";
+import { IBook, IBookAttach, IPage } from "@/common/interfaces";
 
 //Components
 import { BookPage } from "@/components/pages/books/book";
+import { axiosInstance } from "@/common/axiosInstance";
 
 //Constants
 
 async function getBook({ params }: IProps) {
   let book: IPage[] = [];
   let bookDetail: IBook | undefined = undefined;
+  let bookAttach: IBookAttach | undefined = undefined;
 
   try {
     const { pages } = await bookServiceClient.contents({
@@ -30,9 +33,18 @@ async function getBook({ params }: IProps) {
     console.log(error);
   }
 
+  try {
+    const bookAttachRes = await axiosInstance.get(`/books/${params.bookId}`);
+    bookAttach = bookAttachRes.data.book;
+  } catch (error: any) {
+    console.log(error);
+    bookAttach = undefined;
+  }
+
   return {
     book: book,
     bookDetail: bookDetail,
+    bookAttach: bookAttach,
   };
 }
 
@@ -41,12 +53,13 @@ interface IProps {
 }
 const Book: FC<IProps> = async ({ params }) => {
   //Fetch Data
-  const { book, bookDetail } = await getBook({ params });
+  const { book, bookDetail, bookAttach } = await getBook({ params });
 
   return (
     <BookPage
       book={JSON.parse(JSON.stringify(book)) || []}
       bookDetail={JSON.parse(JSON.stringify(bookDetail)) || undefined}
+      bookAttach={bookAttach}
     />
   );
 };

@@ -11,6 +11,7 @@ const initialState: IBookState = {
   isOpenBookInfo: false,
   selectedBook: [],
   bookDetail: undefined,
+  bookAttach: undefined,
 };
 
 export const bookReducer = createSlice({

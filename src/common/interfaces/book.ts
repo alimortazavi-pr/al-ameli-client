@@ -18,12 +18,14 @@ import {
   PageContentText,
 } from "@/grpc/proto/ablibrary/types/page_content_pb";
 import { Page } from "@/grpc/proto/ablibrary/types/page_pb";
+import { IBookAttach } from "./books";
 
 export interface IBookState {
   isOpenTableOfContent: boolean;
   isOpenBookInfo: boolean;
   selectedBook: Page[];
   bookDetail: Book | undefined;
+  bookAttach: IBookAttach | undefined;
 }
 
 export interface IBookRequest {

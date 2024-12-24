@@ -14,6 +14,7 @@ export const {
   setIsOpenBookInfo,
   setSelectedBook,
   setBookDetail,
+  setBookAttach
 } = bookReducer.actions;
 
 //Interfaces

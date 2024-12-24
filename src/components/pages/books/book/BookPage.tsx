@@ -4,11 +4,15 @@ import { FC, useEffect } from "react";
 import { useDisclosure } from "@nextui-org/react";
 
 //Interfaces
-import { IBook, IPage } from "@/common/interfaces";
+import { IBook, IBookAttach, IPage } from "@/common/interfaces";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
-import { setBookDetail, setSelectedBook } from "@/lib/book/actions";
+import {
+  setBookAttach,
+  setBookDetail,
+  setSelectedBook,
+} from "@/lib/book/actions";
 
 //Components
 import { BookDetailModal } from "./book-detail";
@@ -20,8 +24,9 @@ import { ContentContainer } from "./content";
 interface IProps {
   book: IPage[];
   bookDetail: IBook | undefined;
+  bookAttach: IBookAttach | undefined;
 }
-export const BookPage: FC<IProps> = ({ book, bookDetail }) => {
+export const BookPage: FC<IProps> = ({ book, bookDetail, bookAttach }) => {
   //Redux
   const dispatch = useAppDispatch();
 
@@ -40,6 +45,12 @@ export const BookPage: FC<IProps> = ({ book, bookDetail }) => {
   useEffect(() => {
     dispatch(setBookDetail(bookDetail));
   }, [bookDetail]);
+
+  useEffect(() => {
+    if (bookAttach) {
+      dispatch(setBookAttach(bookAttach));
+    }
+  }, [bookAttach]);
 
   return (
     <>

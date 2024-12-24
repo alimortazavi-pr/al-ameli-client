@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 //Types
 import { PayloadAction } from "@reduxjs/toolkit";
-import { IBookState, IPage } from "@/common/interfaces";
+import { IBookAttach, IBookState, IPage } from "@/common/interfaces";
 import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 
 const reducers = {
@@ -39,6 +39,12 @@ const reducers = {
     return {
       ...state,
       bookDetail: action.payload,
+    };
+  },
+  setBookAttach(state: any, action: PayloadAction<IBookAttach>): IBookState {
+    return {
+      ...state,
+      bookAttach: action.payload,
     };
   },
 };
