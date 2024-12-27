@@ -47,6 +47,12 @@ const reducers = {
       bookAttach: action.payload,
     };
   },
+  setScrollToPage(state: any, action: PayloadAction<boolean>): IBookState {
+    return {
+      ...state,
+      scrollToPage: action.payload,
+    };
+  },
 };
 
 export default reducers;

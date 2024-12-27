@@ -1,13 +1,14 @@
 import { FC, useEffect, useState } from "react";
 import useQuery from "next-app-use-query";
+import convertAPToEnglish from "ap-to-english";
 
 //Types
 import { IPageContentRef } from "@/common/interfaces";
 import convertToPersian from "num-to-persian";
 
 //Redux
-// import { useAppDispatch } from "@/lib/hooks";
-// import { setScrollToPage } from "@/lib/book/actions";
+import { useAppDispatch } from "@/lib/hooks";
+import { setScrollToPage } from "@/lib/book/actions";
 
 //Translation
 // import { useConvertNumbersFormat } from "@/hooks/translation";
@@ -18,7 +19,7 @@ interface IProps {
 }
 export const RenderItem: FC<IProps> = ({ item, onClose }) => {
   //Redux
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   //Translation
   // const convertNumbersFormat = useConvertNumbersFormat();
@@ -44,23 +45,22 @@ export const RenderItem: FC<IProps> = ({ item, onClose }) => {
   }, [query.get("page")]);
 
   //Functions
-  // async function goToPageHandler() {
-  //   await dispatch(setScrollToPage(true));
-  //   window.history.replaceState(
-  //     null,
-  //     "",
-  //     query.addMany({
-  //       page: convertAPToEnglish(item.pageNumber.toString()),
-  //       "page-label": item.pageLabel || item.pageNumber.toString(),
-  //     })
-  //   );
-  //   onClose();
-  // }
+  async function goToPageHandler() {
+    await window.history.replaceState(
+      null,
+      "",
+      query.addMany({
+        page: convertAPToEnglish(item.pageNumber.toString()),
+      })
+    );
+    await dispatch(setScrollToPage(true));
+    onClose();
+  }
 
   return (
     <div>
       <span
-        // onClick={goToPageHandler}
+        onClick={goToPageHandler}
         className={`flex flex-col py-1.5 cursor-pointer border-b px-2 ${
           isSelected ? "bg-primary-50" : ""
         }`}

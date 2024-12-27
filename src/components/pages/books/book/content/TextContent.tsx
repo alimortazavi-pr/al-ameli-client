@@ -1,27 +1,43 @@
-import { FC, useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FC, useEffect, useRef, useState } from "react";
 import { Divider } from "@nextui-org/react";
+import { useInView } from "react-intersection-observer";
+import convertToPersian from "num-to-persian";
+import useQuery from "next-app-use-query";
+import mergeRefs from "merge-refs";
 
 //Interfaces
 import { IPage, IPageContent } from "@/common/interfaces";
 
-// //Redux
-// import { useAppSelector } from "@/lib/hooks";
+//Redux
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { scrollToPageSelector } from "@/lib/book/selectors";
+import { setScrollToPage } from "@/lib/book/actions";
 
 // //Utils
 // import { storage } from "@/common/utils";
 
 //Components
 import { RenderContent } from ".";
-import convertToPersian from "num-to-persian";
 
 interface IProps {
   pageData: IPage;
   pageIndex: number;
 }
 export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
+  //Redux
+  const dispatch = useAppDispatch()
+  const scrollToPage = useAppSelector(scrollToPageSelector);
+
   //Translation
   // const { t } = useClientTranslation(storage.getLanguage());
   // const convertNumbersFormat = useConvertNumbersFormat();
+
+  //Other hooks
+  const query = useQuery();
+
+  //Refs
+  const contentRef = useRef<HTMLDivElement>(null);
 
   //States
   const [footnotes, setFootnotes] = useState<IPageContent[]>([]);
@@ -33,12 +49,12 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
   const remarksVar: IPageContent[] = [];
 
   //Refs
-  // const { ref } = useInView({
-  //   threshold: 0,
-  //   rootMargin: "-50% 0% -50% 0%",
-  //   root: parentRef.current,
-  //   onChange: onChangeHandler,
-  // });
+  const { ref } = useInView({
+    threshold: 0,
+    rootMargin: "-50% 0% -50% 0%",
+    // root: parentRef.current,
+    onChange: onChangeHandler,
+  });
 
   //Life cycle
   useEffect(() => {
@@ -48,19 +64,33 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
     }
   }, [currentPageIndex]);
 
+  useEffect(() => {
+    goToPageHandler();
+  }, [scrollToPage]);
+
   //Functions
-  // async function onChangeHandler(inView: boolean) {
-  //   if (inView && !scrollToPage) {
-  //     window.history.replaceState(
-  //       null,
-  //       "",
-  //       query.addMany({
-  //         page: pageIndex.toString(),
-  //         "page-label": pageData.label || pageData.number.toString(),
-  //       })
-  //     );
-  //   }
-  // }
+  async function goToPageHandler() {
+    const page = query.get("page");
+    if (scrollToPage && pageIndex === parseInt(page)) {
+      await contentRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      dispatch(setScrollToPage(false))
+    }
+  }
+
+  async function onChangeHandler(inView: boolean) {
+    if (inView && !scrollToPage) {
+      window.history.replaceState(
+        null,
+        "",
+        query.addMany({
+          page: pageIndex.toString(),
+        })
+      );
+    }
+  }
 
   function addFootnotesFunc(footnoteChildren: IPageContent) {
     footnotesVar.push(footnoteChildren);
@@ -76,6 +106,7 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
         className={`tracking-wide bg-secondary/10 break-words h-fit mx-1 md:ms-4 md:me-4 leading-loose relative p-3 ${
           pageIndex === 0 ? "rounded-b-xl" : "rounded-xl"
         } mb-1`}
+        ref={mergeRefs(contentRef, ref as any)}
       >
         <div className="flex items-center mb-1">
           <span className={`min-w-fit text-default-800 font-semibold`}>

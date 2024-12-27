@@ -23,3 +23,7 @@ export function bookDetailSelector(state: RootState): Book | undefined {
 export function bookAttachSelector(state: RootState): IBookAttach | undefined {
   return state.book.bookAttach;
 }
+
+export function scrollToPageSelector(state: RootState): boolean {
+  return state.book.scrollToPage;
+}

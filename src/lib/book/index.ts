@@ -12,6 +12,7 @@ const initialState: IBookState = {
   selectedBook: [],
   bookDetail: undefined,
   bookAttach: undefined,
+  scrollToPage: false,
 };
 
 export const bookReducer = createSlice({

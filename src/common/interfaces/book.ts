@@ -26,6 +26,7 @@ export interface IBookState {
   selectedBook: Page[];
   bookDetail: Book | undefined;
   bookAttach: IBookAttach | undefined;
+  scrollToPage: boolean;
 }
 
 export interface IBookRequest {

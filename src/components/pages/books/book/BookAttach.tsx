@@ -69,7 +69,7 @@ export const BookAttach: FC = ({}) => {
             <Image
               src={pdfIcon}
               alt="pdf-icon"
-              className="w-5 h-5 md:w-7 md:h-7"
+              className="w-5 h-5 lg:w-7 lg:h-7"
             />
           </Button>
         )}
@@ -84,7 +84,7 @@ export const BookAttach: FC = ({}) => {
             <Image
               src={wordIcon}
               alt="pdf-icon"
-              className="w-5 h-5 md:w-7 md:h-7"
+              className="w-5 h-5 lg:w-7 lg:h-7"
             />
           </Button>
         )}
