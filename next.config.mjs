@@ -13,12 +13,18 @@ const nextConfig = {
         pathname: "**",
       },
       {
+        protocol: "http",
+        hostname: "al-ameli-back",
+        pathname: "**",
+      },
+      {
         protocol: "https",
         hostname: "i.ytimg.com",
         pathname: "**",
       },
     ],
   },
+  output: "standalone",
 };
 
 export default nextConfig;
