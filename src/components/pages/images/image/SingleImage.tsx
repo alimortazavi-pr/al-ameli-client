@@ -11,7 +11,7 @@ import FileSaver from "file-saver";
 import { IImage } from "@/common/interfaces";
 
 //Constants
-import { BASE_API_URL } from "@/common/constants";
+import { SERVER_BASE_API_URL } from "@/common/constants";
 
 interface IProps {
   image: IImage;
@@ -20,13 +20,13 @@ interface IProps {
 export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
   //Functions
   function downloadImage() {
-    FileSaver.saveAs(`${BASE_API_URL}${image?.url}`, imageTitle);
+    FileSaver.saveAs(`${SERVER_BASE_API_URL}${image?.url}`, imageTitle);
   }
 
   return (
     <div className="relative col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 h-64">
       <PhotoView
-        src={`${BASE_API_URL}${image?.url}`}
+        src={`${SERVER_BASE_API_URL}${image?.url}`}
         overlay={
           <div className="flex flex-col gap-2 h-full w-full items-center justify-center">
             <span className="text-default-50">{image.description}</span>
@@ -37,7 +37,7 @@ export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
         }
       >
         <Image
-          src={`${BASE_API_URL}${image?.thumbnail}`}
+          src={`${SERVER_BASE_API_URL}${image?.thumbnail}`}
           fill
           alt=""
           className="object-cover rounded-lg cursor-pointer"

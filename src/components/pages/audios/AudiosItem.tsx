@@ -11,7 +11,7 @@ import { AudioSquare } from "iconsax-react";
 import { ICategoryAudio } from "@/common/interfaces";
 
 //Constants
-import { BASE_API_URL, PATHS } from "@/common/constants";
+import { SERVER_BASE_API_URL, PATHS } from "@/common/constants";
 
 interface IProps {
   audioByCategory: ICategoryAudio;
@@ -22,7 +22,7 @@ export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
       <div className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400 h-fit">
         <div className={`h-32 bg-white/90 shadow-lg rounded-2xl relative`}>
           <Image
-            src={`${BASE_API_URL}/${audioByCategory.audios[0].thumbnail}`}
+            src={`${SERVER_BASE_API_URL}/${audioByCategory.audios[0].thumbnail}`}
             fill
             alt={audioByCategory.name}
             className="rounded-2xl object-cover"

@@ -9,7 +9,7 @@ import Image from "next/image";
 import { IDocument } from "@/common/interfaces";
 
 //Constants
-import { BASE_API_URL, PATHS } from "@/common/constants";
+import { SERVER_BASE_API_URL, PATHS } from "@/common/constants";
 
 interface IProps {
   document: IDocument;
@@ -20,7 +20,7 @@ export const DocumentsItem: FC<IProps> = ({ document }) => {
       className={`col-span-12 md:col-span-6 lg:col-span-4 h-96 lg:h-72 xl:h-96 bg-white/90 shadow-lg rounded-2xl relative`}
     >
       <Image
-        src={`${BASE_API_URL}/${document.url}`}
+        src={`${SERVER_BASE_API_URL}/${document.url}`}
         fill
         alt={document.category?.name}
         className="rounded-2xl object-cover"

@@ -10,7 +10,7 @@ import { IAudio } from "@/common/interfaces";
 import { AudioPlayer } from "./AudioPlayer";
 
 //Constants
-import { BASE_API_URL } from "@/common/constants";
+import { SERVER_BASE_API_URL } from "@/common/constants";
 
 //Utils
 import { formatTime } from "@/common/utils";
@@ -28,7 +28,7 @@ export const SingleAudio: FC<IProps> = ({ audio }) => {
       <div className="flex flex-col md:flex-row items-stretch gap-4 mb-3">
         <div className="relative min-w-40 h-40">
           <Image
-            src={`${BASE_API_URL}${audio?.thumbnail}`}
+            src={`${SERVER_BASE_API_URL}${audio?.thumbnail}`}
             alt={audio.title}
             fill
             className="rounded-xl object-cover"

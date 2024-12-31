@@ -8,7 +8,7 @@ import { useMediaQuery } from "react-responsive";
 //Interfaces
 import { IArticle } from "@/common/interfaces";
 import Image from "next/image";
-import { BASE_API_URL, PATHS } from "@/common/constants";
+import { SERVER_BASE_API_URL, PATHS } from "@/common/constants";
 
 interface IProps {
   article: IArticle;
@@ -32,7 +32,7 @@ export const ArticlesItem: FC<IProps> = ({ article }) => {
           <div className="bg-white shadow rounded-xl w-32 h-44 self-center md:min-w-52 md:h-72 p-4 md:p-6">
             <div className="w-full h-full relative">
               <Image
-                src={`${BASE_API_URL}${article.thumbnail}`}
+                src={`${SERVER_BASE_API_URL}${article.thumbnail}`}
                 fill
                 alt=""
                 className="object-cover rounded-xl"

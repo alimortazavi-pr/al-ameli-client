@@ -6,7 +6,7 @@ import { FC, useMemo } from "react";
 //Interfaces
 import { ICategoryImage } from "@/common/interfaces";
 import Image from "next/image";
-import { BASE_API_URL, PATHS } from "@/common/constants";
+import { SERVER_BASE_API_URL, PATHS } from "@/common/constants";
 
 interface IProps {
   imageByCategory: ICategoryImage;
@@ -39,7 +39,7 @@ export const ImagesItem: FC<IProps> = ({ imageByCategory, index }) => {
         } h-96 lg:h-72 xl:h-96 bg-white/90 shadow-lg rounded-2xl relative`}
       >
         <Image
-          src={`${BASE_API_URL}/${imageByCategory.images[0].thumbnail}`}
+          src={`${SERVER_BASE_API_URL}/${imageByCategory.images[0].thumbnail}`}
           fill
           alt={imageByCategory.name}
           className="rounded-2xl object-cover"
