@@ -9,7 +9,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "al-ameli-back.pourhomestore.top",
+        hostname: "api.alameli.org",
         pathname: "**",
       },
       {
