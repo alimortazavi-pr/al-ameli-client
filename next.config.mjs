@@ -13,6 +13,11 @@ const nextConfig = {
         pathname: "**",
       },
       {
+        protocol: "https",
+        hostname: "al-ameli-back.pourhomestore.top",
+        pathname: "**",
+      },
+      {
         protocol: "http",
         hostname: "al-ameli-back",
         pathname: "**",
