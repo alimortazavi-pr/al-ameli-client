@@ -14,7 +14,7 @@ import FileSaver from "file-saver";
 import { IAudio } from "@/common/interfaces";
 
 //Constants
-import { SERVER_BASE_API_URL } from "@/common/constants";
+import { BASE_API_URL } from "@/common/constants";
 
 //Utils
 import { formatTime } from "@/common/utils";
@@ -74,14 +74,14 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
   }
 
   function downloadAudio() {
-    FileSaver.saveAs(`${SERVER_BASE_API_URL}${audio?.url}`, audio.title);
+    FileSaver.saveAs(`${BASE_API_URL}${audio?.url}`, audio.title);
   }
 
   return (
     <div className="flex flex-col gap-1" dir="ltr">
       <audio
         ref={audioRef}
-        src={`${SERVER_BASE_API_URL}${audio.url}`}
+        src={`${BASE_API_URL}${audio.url}`}
         onTimeUpdate={updateProgress}
         onLoadedMetadata={handleLoadedMetadata}
       />
