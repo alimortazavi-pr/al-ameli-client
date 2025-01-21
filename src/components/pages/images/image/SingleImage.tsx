@@ -11,7 +11,7 @@ import FileSaver from "file-saver";
 import { IImage } from "@/common/interfaces";
 
 //Constants
-import { SERVER_BASE_API_URL } from "@/common/constants";
+import { BASE_API_URL, SERVER_BASE_API_URL } from "@/common/constants";
 
 interface IProps {
   image: IImage;
@@ -26,7 +26,7 @@ export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
   return (
     <div className="relative col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 h-64">
       <PhotoView
-        src={`${SERVER_BASE_API_URL}${image?.url}`}
+        src={`${BASE_API_URL}${image?.url}`}
         overlay={
           <div className="flex flex-col gap-2 h-full w-full items-center justify-center">
             <span className="text-default-50">{image.description}</span>
