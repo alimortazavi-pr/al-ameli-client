@@ -30,19 +30,23 @@ export const DocumentsItem: FC<IProps> = ({ document }) => {
           href={PATHS.DOCUMENT(document._id)}
           className="text-default-50 text-2xl font-semibold truncate mb-3"
         >
-          {document.category.name}
+          {document.title}
         </Link>
-        <p className="text-default-50 whitespace-pre-wrap text-sm mb-3">
-          {document.description.slice(0, 200) +
-            (document.description.length > 200 && "...")}
-        </p>
-        <div className="flex items-center gap-2">
-          {document.tags.map((tag) => (
-            <Chip className="font-medium" color="secondary" key={tag.tag._id}>
-              {tag.tag.name}
-            </Chip>
-          ))}
-        </div>
+        {document.description && (
+          <p className="text-default-50 whitespace-pre-wrap text-sm mb-3">
+            {document.description.slice(0, 200) +
+              (document.description.length > 200 && "...")}
+          </p>
+        )}
+        {document.tags?.length > 0 && (
+          <div className="flex items-center gap-2">
+            {document.tags?.map((tag) => (
+              <Chip className="font-medium" color="secondary" key={tag.tag._id}>
+                {tag.tag.name}
+              </Chip>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
