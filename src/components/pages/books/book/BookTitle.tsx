@@ -26,7 +26,7 @@ export const BookTitle: FC = () => {
       <Button isIconOnly variant="light" onClick={onBackHandler}>
         <ArrowRight className="w-7 h-7 xl:w-9 xl:h-9 text-default-900" />
       </Button>
-      <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate">
+      <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate py-3">
         {bookDetail?.title}
       </h6>
     </div>

@@ -68,9 +68,9 @@ export const FilterSectionChips = () => {
       {tags?.map((tag) => (
         <Chip
           key={tag._id}
-          variant={checkTag(tag._id) ? "faded" : "solid"}
+          variant={checkTag(tag._id) ? "faded" : "light"}
           color="primary"
-          className="cursor-pointer"
+          className={`cursor-pointer ${checkTag(tag._id) ? "" : "text-primary-50"}`}
           onClick={() => selectTags(tag._id)}
           startContent={
             checkTag(tag._id) ? (
@@ -78,7 +78,7 @@ export const FilterSectionChips = () => {
             ) : undefined
           }
         >
-          {tag.name}
+          #{tag.name}
         </Chip>
       ))}
     </div>

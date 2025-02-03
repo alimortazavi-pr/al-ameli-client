@@ -23,7 +23,7 @@ export const AudiosPlaylistTitle: FC<IProps> = ({ audiosByCategory }) => {
       <Button isIconOnly variant="light" onClick={onBackHandler}>
         <ArrowRight className="w-7 h-7 xl:w-9 xl:h-9 text-default-900" />
       </Button>
-      <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate py-2">
+      <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate py-3 py-2">
         {audiosByCategory?.name}
       </h6>
     </div>
