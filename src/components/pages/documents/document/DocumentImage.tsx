@@ -10,7 +10,7 @@ import { DocumentDownload, SearchZoomIn } from "iconsax-react";
 import { IDocument } from "@/common/interfaces";
 
 //Constants
-import { SERVER_BASE_API_URL } from "@/common/constants";
+import { BASE_API_URL, SERVER_BASE_API_URL } from "@/common/constants";
 import FileSaver from "file-saver";
 
 interface IProps {
@@ -40,7 +40,7 @@ export const DocumentImage: FC<IProps> = ({ document }) => {
       <div className="flex items-center justify-end gap-3">
         <PhotoProvider loadingElement={<Spinner />}>
           <div>
-            <PhotoView src={`${SERVER_BASE_API_URL}${document?.url}`}>
+            <PhotoView src={`${BASE_API_URL}${document?.url}`}>
               <Button isIconOnly color="primary" variant="flat" size="lg">
                 <SearchZoomIn className="w-7 h-7" />
               </Button>
