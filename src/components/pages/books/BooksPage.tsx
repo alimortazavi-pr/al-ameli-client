@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useEffect } from "react";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 
 //Interfaces
 import { IBook, IBookAttach, ICategory } from "@/common/interfaces";

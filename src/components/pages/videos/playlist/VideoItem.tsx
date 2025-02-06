@@ -4,7 +4,7 @@ import { FC } from "react";
 import { IVideo } from "@/common/interfaces";
 import moment from "moment";
 import convertToPersian from "num-to-persian";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { ArrowDown } from "iconsax-react";
 
 interface IProps {

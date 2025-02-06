@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import { DocumentDownload, Pause, Play, Stop } from "iconsax-react";
-import { Button, Progress } from "@nextui-org/react";
+import { Button, Progress } from "@heroui/react";
 import FileSaver from "file-saver";
 
 //Interfaces
@@ -100,7 +100,7 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
       <div className="flex items-center justify-center gap-1">
         <Button
           isIconOnly
-          onClick={downloadAudio}
+          onPress={downloadAudio}
           className=""
           color="primary"
           variant="flat"
@@ -110,7 +110,7 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
         </Button>
         <Button
           isIconOnly
-          onClick={togglePlayPause}
+          onPress={togglePlayPause}
           className=""
           color="primary"
           variant="flat"
@@ -124,7 +124,7 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
         </Button>
         <Button
           isIconOnly
-          onClick={stopAudio}
+          onPress={stopAudio}
           className=""
           color="primary"
           variant="flat"

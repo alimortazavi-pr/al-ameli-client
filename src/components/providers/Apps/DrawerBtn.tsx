@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { More } from "iconsax-react";
 
 //Redux
@@ -21,7 +21,7 @@ export const DrawerBtn = () => {
       isIconOnly
       className="rounded-s-none absolute start-0 top-14 lg:top-20 z-10"
       color="primary"
-      onClick={onOpenHandler}
+      onPress={onOpenHandler}
     >
       <More className="rotate-90" />
     </Button>

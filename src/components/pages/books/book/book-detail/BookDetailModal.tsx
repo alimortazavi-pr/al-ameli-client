@@ -4,7 +4,7 @@ import {
   ModalBody,
   Spinner,
   ModalHeader,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { FC, useEffect } from "react";
 
 //Types

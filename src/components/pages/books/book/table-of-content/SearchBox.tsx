@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Input } from "@nextui-org/react";
+import { Input } from "@heroui/react";
 import { Dispatch, FC, SetStateAction } from "react";
 
 //Translation

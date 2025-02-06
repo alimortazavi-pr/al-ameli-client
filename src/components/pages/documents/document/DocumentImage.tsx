@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Button, Spinner } from "@nextui-org/react";
+import { Button, Spinner } from "@heroui/react";
 import { DocumentDownload, SearchZoomIn } from "iconsax-react";
 
 //Interface
@@ -52,7 +52,7 @@ export const DocumentImage: FC<IProps> = ({ document }) => {
           color="primary"
           variant="flat"
           size="lg"
-          onClick={downloadDocument}
+          onPress={downloadDocument}
         >
           <DocumentDownload className="w-7 h-7" />
         </Button>

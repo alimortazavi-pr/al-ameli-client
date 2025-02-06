@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 
 //Assets
 import youtubeLogo from "@/assets/images/svgs/youtube-logo.svg";

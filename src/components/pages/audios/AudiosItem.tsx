@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC } from "react";
 import Image from "next/image";
 import convertToPersian from "num-to-persian";
-import { Chip } from "@nextui-org/react";
+import { Chip } from "@heroui/react";
 import { AudioSquare } from "iconsax-react";
 
 //Interfaces

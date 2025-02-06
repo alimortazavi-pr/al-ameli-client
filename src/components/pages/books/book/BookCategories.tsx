@@ -1,6 +1,6 @@
 "use client";
 
-import { Chip } from "@nextui-org/react";
+import { Chip } from "@heroui/react";
 import { FC, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 

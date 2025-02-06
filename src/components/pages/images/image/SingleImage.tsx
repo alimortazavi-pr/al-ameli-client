@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { PhotoView } from "react-photo-view";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { DocumentDownload } from "iconsax-react";
 import FileSaver from "file-saver";
 
@@ -30,7 +30,7 @@ export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
         overlay={
           <div className="flex flex-col gap-2 h-full w-full items-center justify-center">
             <span className="text-default-50">{image.description}</span>
-            <Button isIconOnly variant="light" onClick={downloadImage}>
+            <Button isIconOnly variant="light" onPress={downloadImage}>
               <DocumentDownload className="w-6 h-6 text-default-300" />
             </Button>
           </div>

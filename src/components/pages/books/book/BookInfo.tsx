@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Tooltip } from "@nextui-org/react";
+import { Button, Tooltip } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { InfoCircle } from "iconsax-react";

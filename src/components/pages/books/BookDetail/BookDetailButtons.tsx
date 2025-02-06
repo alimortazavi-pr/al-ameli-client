@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { useRouter } from "next-nprogress-bar";
 
 //Redux
@@ -27,7 +27,7 @@ export const BookDetailButtons = () => {
   return (
     <div className="flex items-center justify-center gap-2 p-6">
       <Button
-        onClick={() => {
+        onPress={() => {
           router.push(PATHS.BOOK(bookDetail?.id || ""));
         }}
         color="primary"

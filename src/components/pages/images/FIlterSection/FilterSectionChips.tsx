@@ -1,4 +1,4 @@
-import { Chip } from "@nextui-org/react";
+import { Chip } from "@heroui/react";
 import { useRouter } from "next-nprogress-bar";
 import useQuery from "next-app-use-query";
 import { TickCircle } from "iconsax-react";

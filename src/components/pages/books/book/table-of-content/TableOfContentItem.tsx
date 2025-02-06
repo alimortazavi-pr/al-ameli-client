@@ -1,4 +1,4 @@
-import { Button, useDisclosure } from "@nextui-org/react";
+import { Button, useDisclosure } from "@heroui/react";
 
 //Components
 import { TableOfContentModal } from ".";
@@ -15,7 +15,7 @@ export const TableOfContentItem = () => {
         variant="solid"
         aria-label="tab-bar-book-detail"
         className="w-14 h-14 rounded-2xl"
-        onClick={onOpen}
+        onPress={onOpen}
       >
         <span className="material-symbols-outlined">list_alt</span>
       </Button>

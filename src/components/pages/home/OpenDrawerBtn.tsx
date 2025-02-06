@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
@@ -20,7 +20,7 @@ export const OpenDrawerBtn = () => {
       isIconOnly
       className="w-11 h-11 rounded-full"
       color="primary"
-      onClick={onOpenHandler}
+      onPress={onOpenHandler}
     >
       <span className="material-symbols-outlined">arrow_back_ios_new</span>
     </Button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Chip } from "@nextui-org/react";
+import { Button, Chip } from "@heroui/react";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";

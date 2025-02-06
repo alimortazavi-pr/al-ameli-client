@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Chip } from "@nextui-org/react";
+import { Button, Chip } from "@heroui/react";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -104,7 +104,7 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
               size={isMd ? "lg" : "sm"}
               color="primary"
               variant="flat"
-              onClick={downloadPdfAttach}
+              onPress={downloadPdfAttach}
             >
               <Image
                 src={pdfIcon}
@@ -119,7 +119,7 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
               size={isMd ? "lg" : "sm"}
               color="primary"
               variant="flat"
-              onClick={downloadWordAttach}
+              onPress={downloadWordAttach}
             >
               <Image
                 src={wordIcon}

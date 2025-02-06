@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FC } from "react";
-import { Chip } from "@nextui-org/react";
+import { Chip } from "@heroui/react";
 import Image from "next/image";
 
 //Interfaces

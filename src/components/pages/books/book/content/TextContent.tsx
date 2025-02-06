@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useEffect, useRef, useState } from "react";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 import { useInView } from "react-intersection-observer";
 import convertToPersian from "num-to-persian";
 import useQuery from "next-app-use-query";

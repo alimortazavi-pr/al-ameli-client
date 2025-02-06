@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@nextui-org/react";
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
 
 //Types
 import { INextUIModalProps } from "@/common/interfaces";

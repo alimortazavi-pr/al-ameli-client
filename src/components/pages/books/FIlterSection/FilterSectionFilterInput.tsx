@@ -1,4 +1,4 @@
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input } from "@heroui/react";
 import { SearchNormal } from "iconsax-react";
 import useQuery from "next-app-use-query";
 import { useRouter } from "next-nprogress-bar";
@@ -57,7 +57,7 @@ export const FilterSectionFilterInput = () => {
           variant="light"
           color="primary"
           size="sm"
-          onClick={handleSearch}
+          onPress={handleSearch}
         >
           <SearchNormal className="w-5 h-5 text-primary-500" />
         </Button>

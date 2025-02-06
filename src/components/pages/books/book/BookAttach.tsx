@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { FC } from "react";
@@ -64,7 +64,7 @@ export const BookAttach: FC = ({}) => {
             size={isLg ? "lg" : "sm"}
             color="primary"
             variant="flat"
-            onClick={downloadPdfAttach}
+            onPress={downloadPdfAttach}
           >
             <Image
               src={pdfIcon}
@@ -79,7 +79,7 @@ export const BookAttach: FC = ({}) => {
             size={isLg ? "lg" : "sm"}
             color="primary"
             variant="flat"
-            onClick={downloadWordAttach}
+            onPress={downloadWordAttach}
           >
             <Image
               src={wordIcon}

@@ -1,4 +1,4 @@
-import { UseDisclosureProps } from "@nextui-org/react";
+import { UseDisclosureProps } from "@heroui/react";
 
 //Types
 

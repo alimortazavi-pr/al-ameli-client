@@ -1,7 +1,7 @@
 "use client";
 import { FC } from "react";
 import { PhotoProvider } from "react-photo-view";
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@heroui/react";
 
 //Interface
 import { ICategoryImage } from "@/common/interfaces";

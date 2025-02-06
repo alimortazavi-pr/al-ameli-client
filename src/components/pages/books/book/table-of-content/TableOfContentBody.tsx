@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Virtuoso, VirtuosoHandle } from "react-virtuoso";
 import { FC, useEffect, useRef, useState } from "react";
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@heroui/react";
 import useQuery from "next-app-use-query";
 
 //Types

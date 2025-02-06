@@ -1,14 +1,14 @@
 "use client";
 
 import { FC, PropsWithChildren, useEffect } from "react";
-import { NextUIProvider as NxUIProvider } from "@nextui-org/react";
+import { HeroUIProvider as NxUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
 import { darkModeCheckerAction } from "@/lib/layouts/actions";
 
-const NextUIProvider: FC<PropsWithChildren> = ({ children }) => {
+const HeroUIProvider: FC<PropsWithChildren> = ({ children }) => {
   //Redux
   const dispatch = useAppDispatch();
 
@@ -26,4 +26,4 @@ const NextUIProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default NextUIProvider;
+export default HeroUIProvider;

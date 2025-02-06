@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FC } from "react";
 import Image from "next/image";
-import { Chip } from "@nextui-org/react";
+import { Chip } from "@heroui/react";
 import convertToPersian from "num-to-persian";
 import { VideoVertical } from "iconsax-react";
 
