@@ -15,7 +15,7 @@ export const DrawerItem: FC<IProps> = ({ link, title }) => {
       href={link}
       className={`${
         pathname.includes(link) ? "text-default-900" : "text-default-600"
-      } font-medium text-2xl hover:text-default-500 duration-300 rounded-xl p-2 w-full flex`}
+      } font-bold text-2xl hover:text-default-500 duration-300 rounded-xl p-2 w-full flex`}
     >
       {title}
     </Link>

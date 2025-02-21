@@ -8,6 +8,7 @@ import {
   DrawerBtn,
   PageTitle,
 } from ".";
+import { BackToTopButton } from "@/components/common/BackToTopButton";
 
 export const AppsProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -23,6 +24,7 @@ export const AppsProvider: FC<PropsWithChildren> = ({ children }) => {
         <>{children}</>
         <BackLineLogo />
       </div>
+      <BackToTopButton />
     </div>
   );
 };
