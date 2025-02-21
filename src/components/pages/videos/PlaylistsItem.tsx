@@ -19,7 +19,7 @@ interface IProps {
 export const PlaylistsItem: FC<IProps> = ({ playlist }) => {
   return (
     playlist.contentDetails.itemCount > 0 && (
-      <div className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400">
+      <Link href={PATHS.PLAYLIST(playlist.id)} className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400">
         <div className={`h-32 bg-white/90 shadow-lg rounded-2xl relative`}>
           <Image
             src={playlist.snippet.thumbnails.high.url}
@@ -39,14 +39,8 @@ export const PlaylistsItem: FC<IProps> = ({ playlist }) => {
           <h6 className="w-full text-default-50 text-base font-semibold truncate mb-1">
             {playlist.snippet.title}
           </h6>
-          <Link
-            href={PATHS.PLAYLIST(playlist.id)}
-            className="text-default-50 text-xs"
-          >
-            مشاهدة هذه المجموعة
-          </Link>
         </div>
-      </div>
+      </Link>
     )
   );
 };

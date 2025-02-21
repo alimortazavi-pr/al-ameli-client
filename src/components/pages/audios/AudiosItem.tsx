@@ -19,7 +19,10 @@ interface IProps {
 export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
   return (
     audioByCategory.audios?.length !== 0 && (
-      <div className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400 h-fit">
+      <Link
+        href={PATHS.AUDIO(audioByCategory._id)}
+        className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400 h-fit"
+      >
         <div className={`h-32 bg-white/90 shadow-lg rounded-2xl relative`}>
           <Image
             src={`${SERVER_BASE_API_URL}/${audioByCategory.audios[0].thumbnail}`}
@@ -39,14 +42,8 @@ export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
           <h6 className="w-full text-default-50 text-base font-semibold truncate mb-1">
             {audioByCategory.name}
           </h6>
-          <Link
-            href={PATHS.AUDIO(audioByCategory._id)}
-            className="text-default-50 text-xs"
-          >
-            مشاهدة هذه المجموعة
-          </Link>
         </div>
-      </div>
+      </Link>
     )
   );
 };
