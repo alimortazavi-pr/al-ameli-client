@@ -15,7 +15,7 @@ import pdfIcon from "@/assets/images/svgs/pdf-svgrepo-com.svg";
 import wordIcon from "@/assets/images/svgs/word-file-svgrepo-com.svg";
 
 //Constants
-import { SERVER_BASE_API_URL, PATHS } from "@/common/constants";
+import { SERVER_BASE_API_URL, PATHS, BASE_API_URL } from "@/common/constants";
 
 interface IProps {
   book: IBook;
@@ -35,11 +35,11 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
 
   //Functions
   function downloadPdfAttach() {
-    FileSaver.saveAs(`${SERVER_BASE_API_URL}${bookAttach?.pdfAttach}`, book.title);
+    FileSaver.saveAs(`${BASE_API_URL}${bookAttach?.pdfAttach}`, book.title);
   }
 
   function downloadWordAttach() {
-    FileSaver.saveAs(`${SERVER_BASE_API_URL}${bookAttach?.wordAttach}`, book.title);
+    FileSaver.saveAs(`${BASE_API_URL}${bookAttach?.wordAttach}`, book.title);
   }
 
   return (

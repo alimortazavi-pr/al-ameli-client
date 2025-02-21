@@ -20,7 +20,7 @@ import { BookInfo } from ".";
 import { TableOfContentsIcon } from "./table-of-content/TableOfContentsIcon";
 
 //Constants
-import { SERVER_BASE_API_URL } from "@/common/constants";
+import { BASE_API_URL } from "@/common/constants";
 
 export const BookAttach: FC = ({}) => {
   //Redux
@@ -41,14 +41,14 @@ export const BookAttach: FC = ({}) => {
   //Functions
   function downloadPdfAttach() {
     FileSaver.saveAs(
-      `${SERVER_BASE_API_URL}${bookAttach?.pdfAttach}`,
+      `${BASE_API_URL}${bookAttach?.pdfAttach}`,
       `${bookDetail?.title}`
     );
   }
 
   function downloadWordAttach() {
     FileSaver.saveAs(
-      `${SERVER_BASE_API_URL}${bookAttach?.wordAttach}`,
+      `${BASE_API_URL}${bookAttach?.wordAttach}`,
       bookDetail?.title
     );
   }

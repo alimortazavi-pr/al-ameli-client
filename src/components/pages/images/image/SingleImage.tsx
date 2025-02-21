@@ -20,7 +20,7 @@ interface IProps {
 export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
   //Functions
   function downloadImage() {
-    FileSaver.saveAs(`${SERVER_BASE_API_URL}${image?.url}`, imageTitle);
+    FileSaver.saveAs(`${BASE_API_URL}${image?.url}`, imageTitle);
   }
 
   return (

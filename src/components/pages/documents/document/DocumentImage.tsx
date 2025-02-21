@@ -20,7 +20,7 @@ export const DocumentImage: FC<IProps> = ({ document }) => {
   //Functions
   function downloadDocument() {
     FileSaver.saveAs(
-      `${SERVER_BASE_API_URL}${document?.url}`,
+      `${BASE_API_URL}${document?.url}`,
       document?.category.name
     );
   }
