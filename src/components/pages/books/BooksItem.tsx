@@ -63,7 +63,7 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
           <div className="">
             <Link
               href={`${PATHS.BOOK(book.id)}`}
-              className="text-xl md:text-4xl font-bold break-words"
+              className="text-xl md:text-3xl font-bold break-words"
             >
               {book.title}
             </Link>
