@@ -24,31 +24,30 @@ export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
   }
 
   return (
-    <div className="relative col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 h-64">
-      <PhotoView
-        src={`${BASE_API_URL}${image?.url}`}
-        overlay={
-          <div className="flex flex-col gap-2 h-full w-full items-center justify-center">
-            <span className="text-default-50">{image.description}</span>
-            <Button isIconOnly variant="light" onPress={downloadImage}>
-              <DocumentDownload className="w-6 h-6 text-default-300" />
-            </Button>
-          </div>
-        }
-      >
+    <PhotoView
+      src={`${BASE_API_URL}${image?.url}`}
+      overlay={
+        <div className="flex flex-col gap-2 h-full w-full items-center justify-center">
+          <span className="text-default-50">{image.description}</span>
+          <Button isIconOnly variant="light" onPress={downloadImage}>
+            <DocumentDownload className="w-6 h-6 text-default-300" />
+          </Button>
+        </div>
+      }
+    >
+      <div className="relative col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 h-64 cursor-pointer">
         <Image
           src={`${SERVER_BASE_API_URL}${image?.thumbnail}`}
           fill
           alt=""
-          className="object-cover rounded-lg cursor-pointer"
+          className="object-cover rounded-lg"
         />
-      </PhotoView>
-
-      {image?.description && (
-        <div className="absolute w-full bottom-0 rounded-b-lg bg-secondary-400/60 flex items-center justify-center min-h-20 text-default-50 p-2">
-          {image.description}
-        </div>
-      )}
-    </div>
+        {image?.description && (
+          <div className="absolute w-full bottom-0 rounded-b-lg bg-secondary-400/60 flex items-center justify-center min-h-20 text-default-50 p-2">
+            {image.description}
+          </div>
+        )}
+      </div>
+    </PhotoView>
   );
 };
