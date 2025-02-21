@@ -5,6 +5,7 @@ import { UseDisclosureProps } from "@heroui/react";
 export interface ILayoutsState {
   darkMode: boolean;
   isOpenDrawer: boolean;
+  pageTitle: string;
 }
 
 export interface INextUIModalProps extends UseDisclosureProps {

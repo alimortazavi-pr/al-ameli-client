@@ -10,6 +10,7 @@ import { useAppDispatch } from "@/lib/hooks";
 import { setArticles } from "@/lib/articles/actions";
 import { setCategories } from "@/lib/categories/actions";
 import { setTags } from "@/lib/tags/actions";
+import { setPageTitle } from "@/lib/layouts/actions";
 
 //Components
 import { ArticlesItems } from ".";
@@ -25,6 +26,10 @@ export const ArticlesPage: FC<IProps> = ({ articles, categories, tags }) => {
   const dispatch = useAppDispatch();
 
   //Lifecycle
+  useEffect(()=>{
+    dispatch(setPageTitle('مقالات'))
+  },[])
+
   useEffect(() => {
     dispatch(setArticles(articles));
     dispatch(setCategories(categories));

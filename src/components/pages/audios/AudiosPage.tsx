@@ -10,6 +10,7 @@ import { useAppDispatch } from "@/lib/hooks";
 import { setAudiosByCategories } from "@/lib/audios/actions";
 import { setCategories } from "@/lib/categories/actions";
 import { setTags } from "@/lib/tags/actions";
+import { setPageTitle } from "@/lib/layouts/actions";
 
 //Components
 import { AudiosItems } from ".";
@@ -29,6 +30,10 @@ export const AudiosPage: FC<IProps> = ({
   const dispatch = useAppDispatch();
 
   //Lifecycle
+  useEffect(() => {
+    dispatch(setPageTitle("صوتیات"));
+  }, []);
+
   useEffect(() => {
     dispatch(setAudiosByCategories(audiosByCategories));
     dispatch(setTags(tags));

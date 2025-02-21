@@ -10,6 +10,7 @@ import { useAppDispatch } from "@/lib/hooks";
 import { setDocuments } from "@/lib/documents/actions";
 import { setCategories } from "@/lib/categories/actions";
 import { setTags } from "@/lib/tags/actions";
+import { setPageTitle } from "@/lib/layouts/actions";
 
 //Components
 import { DocumentsItems } from ".";
@@ -25,6 +26,10 @@ export const DocumentsPage: FC<IProps> = ({ documents, categories, tags }) => {
   const dispatch = useAppDispatch();
 
   //Lifecycle
+  useEffect(() => {
+    dispatch(setPageTitle("وثائق"));
+  }, []);
+
   useEffect(() => {
     dispatch(setDocuments(documents));
     dispatch(setCategories(categories));

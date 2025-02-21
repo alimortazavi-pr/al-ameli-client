@@ -23,6 +23,15 @@ const reducers = {
       isOpenDrawer: action.payload,
     };
   },
+  setPageTitle(
+    state: ILayoutsState,
+    action: PayloadAction<string>
+  ): ILayoutsState {
+    return {
+      ...state,
+      pageTitle: action.payload,
+    };
+  },
 };
 
 export default reducers;

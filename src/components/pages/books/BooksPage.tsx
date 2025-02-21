@@ -13,6 +13,7 @@ import { CategoryTypeEnum } from "@/common/enums";
 import { useAppDispatch } from "@/lib/hooks";
 import { setBooks, setBooksAttach } from "@/lib/books/actions";
 import { setCategories } from "@/lib/categories/actions";
+import { setPageTitle } from "@/lib/layouts/actions";
 
 //Components
 import { FilterSectionContainer } from "./FIlterSection";
@@ -31,6 +32,10 @@ export const BooksPage: FC<IProps> = ({ books, booksAttach }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   //Lifecycle
+  useEffect(() => {
+    dispatch(setPageTitle("الکتب"));
+  }, []);
+
   useEffect(() => {
     dispatch(setBooks(books));
     dispatch(setBooksAttach(booksAttach));

@@ -10,6 +10,7 @@ import { useAppDispatch } from "@/lib/hooks";
 import { setImagesByCategories } from "@/lib/images/actions";
 import { setCategories } from "@/lib/categories/actions";
 import { setTags } from "@/lib/tags/actions";
+import { setPageTitle } from "@/lib/layouts/actions";
 
 //Components
 import { ImagesItems } from ".";
@@ -29,6 +30,10 @@ export const ImagesPage: FC<IProps> = ({
   const dispatch = useAppDispatch();
 
   //Lifecycle
+  useEffect(() => {
+    dispatch(setPageTitle("صــــور"));
+  }, []);
+
   useEffect(() => {
     dispatch(setImagesByCategories(imagesByCategories));
     dispatch(setTags(tags));

@@ -8,3 +8,7 @@ export function darkModeSelector(state: RootState): boolean {
 export function isOpenDrawerSelector(state: RootState): boolean {
   return state.layouts.isOpenDrawer;
 }
+
+export function pageTitleSelector(state: RootState): string {
+  return state.layouts.pageTitle;
+}
