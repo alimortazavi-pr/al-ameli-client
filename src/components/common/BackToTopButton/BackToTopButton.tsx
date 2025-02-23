@@ -5,8 +5,10 @@ import { ArrowUp } from "iconsax-react";
 import { useState, useEffect } from "react";
 
 export const BackToTopButton = () => {
+  //States
   const [isVisible, setIsVisible] = useState(false);
 
+  //Lifecycle
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
@@ -20,6 +22,7 @@ export const BackToTopButton = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
+  //Functions
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
