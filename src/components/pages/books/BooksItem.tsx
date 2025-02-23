@@ -10,9 +10,8 @@ import FileSaver from "file-saver";
 //Interfaces
 import { IBook, IBookAttach } from "@/common/interfaces";
 
-//Assets
-import pdfIcon from "@/assets/images/svgs/pdf-svgrepo-com.svg";
-import wordIcon from "@/assets/images/svgs/word-file-svgrepo-com.svg";
+//Components
+import { PDFIcon, WordIcon } from "@/components/common/Icons";
 
 //Constants
 import { SERVER_BASE_API_URL, PATHS, BASE_API_URL } from "@/common/constants";
@@ -106,11 +105,7 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
               variant="flat"
               onPress={downloadPdfAttach}
             >
-              <Image
-                src={pdfIcon}
-                alt="pdf-icon"
-                className="w-5 h-5 md:w-8 md:h-8"
-              />
+              <PDFIcon className="w-6 h-6 lg:w-8 lg:h-8" filled />
             </Button>
           )}
           {bookAttach?.wordAttach && (
@@ -121,11 +116,7 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
               variant="flat"
               onPress={downloadWordAttach}
             >
-              <Image
-                src={wordIcon}
-                alt="word-icon"
-                className="w-5 h-5 md:w-8 md:h-8"
-              />
+              <WordIcon className="w-6 h-6 lg:w-8 lg:h-8" filled />
             </Button>
           )}
         </div>

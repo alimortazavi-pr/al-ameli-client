@@ -5,11 +5,6 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { FC } from "react";
 import FileSaver from "file-saver";
-import Image from "next/image";
-
-//Assets
-import pdfIcon from "@/assets/images/svgs/pdf-svgrepo-com.svg";
-import wordIcon from "@/assets/images/svgs/word-file-svgrepo-com.svg";
 
 //Redux
 import { useAppSelector } from "@/lib/hooks";
@@ -18,6 +13,7 @@ import { bookAttachSelector, bookDetailSelector } from "@/lib/book/selectors";
 //Components
 import { BookInfo } from ".";
 import { TableOfContentsIcon } from "./table-of-content/TableOfContentsIcon";
+import { PDFIcon, WordIcon } from "@/components/common/Icons";
 
 //Constants
 import { BASE_API_URL } from "@/common/constants";
@@ -66,11 +62,7 @@ export const BookAttach: FC = ({}) => {
             variant="flat"
             onPress={downloadPdfAttach}
           >
-            <Image
-              src={pdfIcon}
-              alt="pdf-icon"
-              className="w-5 h-5 lg:w-7 lg:h-7"
-            />
+            <PDFIcon className="w-6 h-6 lg:w-8 lg:h-8" filled />
           </Button>
         )}
         {bookAttach?.wordAttach && (
@@ -81,11 +73,7 @@ export const BookAttach: FC = ({}) => {
             variant="flat"
             onPress={downloadWordAttach}
           >
-            <Image
-              src={wordIcon}
-              alt="pdf-icon"
-              className="w-5 h-5 lg:w-7 lg:h-7"
-            />
+            <WordIcon className="w-6 h-6 lg:w-8 lg:h-8" filled />
           </Button>
         )}
       </div>
