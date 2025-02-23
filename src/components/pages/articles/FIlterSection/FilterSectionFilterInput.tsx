@@ -1,5 +1,5 @@
 import { Button, Input } from "@heroui/react";
-import { SearchNormal } from "iconsax-react";
+import { CloseCircle, SearchNormal } from "iconsax-react";
 import useQuery from "next-app-use-query";
 import { useRouter } from "next-nprogress-bar";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
@@ -41,9 +41,12 @@ export const FilterSectionFilterInput = () => {
     if ((!searchQuery && !value) || searchQuery === value) {
       return;
     }
-    console.log("searching for:", value);
-
     router.replace(`${PATHS.ARTICLES}${query.add("search", value)}`);
+  }
+
+  function handleClear() {
+    setValue("");
+    router.replace(`${PATHS.ARTICLES}${query.delete("search")}`);
   }
 
   return (
@@ -53,15 +56,27 @@ export const FilterSectionFilterInput = () => {
         inputWrapper: "pe-1",
       }}
       endContent={
-        <Button
-          isIconOnly
-          variant="light"
-          color="primary"
-          size="sm"
-          onPress={handleSearch}
-        >
-          <SearchNormal className="w-5 h-5 text-primary-500" />
-        </Button>
+        <div className="flex items-center gap-1">
+          <Button
+            isIconOnly
+            variant="light"
+            color="primary"
+            size="sm"
+            onPress={handleClear}
+            className={`${value.length > 0 ? "opacity-100" : "opacity-0"} duration-300`}
+          >
+            <CloseCircle className="w-5 h-5 text-primary-500" />
+          </Button>
+          <Button
+            isIconOnly
+            variant="light"
+            color="primary"
+            size="sm"
+            onPress={handleSearch}
+          >
+            <SearchNormal className="w-5 h-5 text-primary-500" />
+          </Button>
+        </div>
       }
       value={value}
       onChange={handleInputChange}
