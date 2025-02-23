@@ -2,19 +2,20 @@
 
 import { FC, useState } from "react";
 import Image from "next/image";
+import moment from "moment";
 
 //Interfaces
 import { IAudio } from "@/common/interfaces";
 
 //Components
 import { AudioPlayer } from "./AudioPlayer";
+import { AudioDescriptionButton } from "./audio-description";
 
 //Constants
 import { SERVER_BASE_API_URL } from "@/common/constants";
 
 //Utils
 import { formatTime } from "@/common/utils";
-import moment from "moment";
 
 interface IProps {
   audio: IAudio;
@@ -44,10 +45,13 @@ export const SingleAudio: FC<IProps> = ({ audio }) => {
           <p className="text-default-600 line-clamp-2 md:mb-1">
             {audio.description}
           </p>
-          <p className="hidden md:flex items-center gap-1">
-            <span>{moment(audio.createdAt).format("DD MMM")}</span> -
-            <span>{formatTime(duration)}</span>
-          </p>
+          <div className="flex items-center justify-between gap-2">
+            <p className="hidden md:flex items-center gap-1">
+              <span>{moment(audio.createdAt).format("DD MMM")}</span> -
+              <span>{formatTime(duration)}</span>
+            </p>
+            <AudioDescriptionButton audio={audio} />
+          </div>
         </div>
       </div>
       <AudioPlayer
