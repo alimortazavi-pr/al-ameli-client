@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { AnalyzeRequest, AnalyzeResponse, ClearStorageRequest, ClearStorageResponse, ClearTempRequest, ClearTempResponse, DeleteAllBooksRequest, DeleteAllBooksResponse, DeleteBookRequest, DeleteBookResponse, DeleteByPathRequest, DeleteByPathResponse, GetSettingsRequest, GetSettingsResponse, SetSettingsRequest, SetSettingsResponse, StatusRequest, StatusResponse } from "./storage_service_pb";
+import { AnalyzeRequest, AnalyzeResponse, ClearStorageRequest, ClearStorageResponse, ClearTempRequest, ClearTempResponse, DeleteAllBooksRequest, DeleteAllBooksResponse, DeleteBookRequest, DeleteBookResponse, GetSettingsRequest, GetSettingsResponse, SetSettingsRequest, SetSettingsResponse, StatusRequest, StatusResponse } from "./storage_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -46,15 +46,6 @@ export const StorageService = {
       name: "DeleteAllBooks",
       I: DeleteAllBooksRequest,
       O: DeleteAllBooksResponse,
-      kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.storage_service.StorageService.DeleteByPath
-     */
-    deleteByPath: {
-      name: "DeleteByPath",
-      I: DeleteByPathRequest,
-      O: DeleteByPathResponse,
       kind: MethodKind.Unary,
     },
     /**

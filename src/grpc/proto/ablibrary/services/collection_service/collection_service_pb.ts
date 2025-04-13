@@ -8,6 +8,7 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { FieldMask } from "../../types/field_mask_pb";
 import { Bookmark, Collection } from "../../types/bookmark_pb";
 import { Pagination } from "../../types/pagination_pb";
+import { Bookmark as Bookmark$1, BookmarkFilters } from "../../schema/composite_pb";
 
 /**
  * @generated from message ablibrary.services.collection_service.ListRequest
@@ -318,6 +319,185 @@ export class DeleteResponse extends Message<DeleteResponse> {
 }
 
 /**
+ * @generated from message ablibrary.services.collection_service.BookCollection
+ */
+export class BookCollection extends Message<BookCollection> {
+  /**
+   * @generated from field: string collection_id = 1;
+   */
+  collectionId = "";
+
+  /**
+   * @generated from field: string book_id = 2;
+   */
+  bookId = "";
+
+  constructor(data?: PartialMessage<BookCollection>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.BookCollection";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "collection_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "book_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BookCollection {
+    return new BookCollection().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): BookCollection {
+    return new BookCollection().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): BookCollection {
+    return new BookCollection().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: BookCollection | PlainMessage<BookCollection> | undefined, b: BookCollection | PlainMessage<BookCollection> | undefined): boolean {
+    return proto3.util.equals(BookCollection, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.collection_service.AddBookToCollectionRequest
+ */
+export class AddBookToCollectionRequest extends Message<AddBookToCollectionRequest> {
+  /**
+   * @generated from field: repeated ablibrary.services.collection_service.BookCollection items = 1;
+   */
+  items: BookCollection[] = [];
+
+  constructor(data?: PartialMessage<AddBookToCollectionRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.AddBookToCollectionRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "items", kind: "message", T: BookCollection, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddBookToCollectionRequest {
+    return new AddBookToCollectionRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AddBookToCollectionRequest {
+    return new AddBookToCollectionRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AddBookToCollectionRequest {
+    return new AddBookToCollectionRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: AddBookToCollectionRequest | PlainMessage<AddBookToCollectionRequest> | undefined, b: AddBookToCollectionRequest | PlainMessage<AddBookToCollectionRequest> | undefined): boolean {
+    return proto3.util.equals(AddBookToCollectionRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.collection_service.AddBookToCollectionResponse
+ */
+export class AddBookToCollectionResponse extends Message<AddBookToCollectionResponse> {
+  constructor(data?: PartialMessage<AddBookToCollectionResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.AddBookToCollectionResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddBookToCollectionResponse {
+    return new AddBookToCollectionResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AddBookToCollectionResponse {
+    return new AddBookToCollectionResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AddBookToCollectionResponse {
+    return new AddBookToCollectionResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: AddBookToCollectionResponse | PlainMessage<AddBookToCollectionResponse> | undefined, b: AddBookToCollectionResponse | PlainMessage<AddBookToCollectionResponse> | undefined): boolean {
+    return proto3.util.equals(AddBookToCollectionResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.collection_service.RemoveBookFromCollectionRequest
+ */
+export class RemoveBookFromCollectionRequest extends Message<RemoveBookFromCollectionRequest> {
+  /**
+   * @generated from field: repeated ablibrary.services.collection_service.BookCollection items = 1;
+   */
+  items: BookCollection[] = [];
+
+  constructor(data?: PartialMessage<RemoveBookFromCollectionRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.RemoveBookFromCollectionRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "items", kind: "message", T: BookCollection, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RemoveBookFromCollectionRequest {
+    return new RemoveBookFromCollectionRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): RemoveBookFromCollectionRequest {
+    return new RemoveBookFromCollectionRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): RemoveBookFromCollectionRequest {
+    return new RemoveBookFromCollectionRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: RemoveBookFromCollectionRequest | PlainMessage<RemoveBookFromCollectionRequest> | undefined, b: RemoveBookFromCollectionRequest | PlainMessage<RemoveBookFromCollectionRequest> | undefined): boolean {
+    return proto3.util.equals(RemoveBookFromCollectionRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.collection_service.RemoveBookFromCollectionResponse
+ */
+export class RemoveBookFromCollectionResponse extends Message<RemoveBookFromCollectionResponse> {
+  constructor(data?: PartialMessage<RemoveBookFromCollectionResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.RemoveBookFromCollectionResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RemoveBookFromCollectionResponse {
+    return new RemoveBookFromCollectionResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): RemoveBookFromCollectionResponse {
+    return new RemoveBookFromCollectionResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): RemoveBookFromCollectionResponse {
+    return new RemoveBookFromCollectionResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: RemoveBookFromCollectionResponse | PlainMessage<RemoveBookFromCollectionResponse> | undefined, b: RemoveBookFromCollectionResponse | PlainMessage<RemoveBookFromCollectionResponse> | undefined): boolean {
+    return proto3.util.equals(RemoveBookFromCollectionResponse, a, b);
+  }
+}
+
+/**
  * @generated from message ablibrary.services.collection_service.UpsertBookmarkRequest
  */
 export class UpsertBookmarkRequest extends Message<UpsertBookmarkRequest> {
@@ -462,6 +642,80 @@ export class DeleteBookmarkResponse extends Message<DeleteBookmarkResponse> {
 
   static equals(a: DeleteBookmarkResponse | PlainMessage<DeleteBookmarkResponse> | undefined, b: DeleteBookmarkResponse | PlainMessage<DeleteBookmarkResponse> | undefined): boolean {
     return proto3.util.equals(DeleteBookmarkResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.collection_service.ListBookmarksRequest
+ */
+export class ListBookmarksRequest extends Message<ListBookmarksRequest> {
+  /**
+   * @generated from field: optional ablibrary.schema.BookmarkFilters filters = 1;
+   */
+  filters?: BookmarkFilters;
+
+  constructor(data?: PartialMessage<ListBookmarksRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.ListBookmarksRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "filters", kind: "message", T: BookmarkFilters, opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListBookmarksRequest {
+    return new ListBookmarksRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListBookmarksRequest {
+    return new ListBookmarksRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListBookmarksRequest {
+    return new ListBookmarksRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ListBookmarksRequest | PlainMessage<ListBookmarksRequest> | undefined, b: ListBookmarksRequest | PlainMessage<ListBookmarksRequest> | undefined): boolean {
+    return proto3.util.equals(ListBookmarksRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.collection_service.ListBookmarksResponse
+ */
+export class ListBookmarksResponse extends Message<ListBookmarksResponse> {
+  /**
+   * @generated from field: repeated ablibrary.schema.Bookmark bookmarks = 2;
+   */
+  bookmarks: Bookmark$1[] = [];
+
+  constructor(data?: PartialMessage<ListBookmarksResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.collection_service.ListBookmarksResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 2, name: "bookmarks", kind: "message", T: Bookmark$1, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListBookmarksResponse {
+    return new ListBookmarksResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListBookmarksResponse {
+    return new ListBookmarksResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListBookmarksResponse {
+    return new ListBookmarksResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ListBookmarksResponse | PlainMessage<ListBookmarksResponse> | undefined, b: ListBookmarksResponse | PlainMessage<ListBookmarksResponse> | undefined): boolean {
+    return proto3.util.equals(ListBookmarksResponse, a, b);
   }
 }
 

@@ -51,7 +51,7 @@ export const ArticlesItem: FC<IProps> = ({ article }) => {
             </div>
             <div className="flex flex-wrap items-center gap-1">
               <Chip
-                className="text-white font-medium"
+                className="font-medium"
                 size={isMd ? "lg" : "md"}
               >
                 {article.category.name}
@@ -59,7 +59,7 @@ export const ArticlesItem: FC<IProps> = ({ article }) => {
               {article.tags?.map((tag, index) => (
                 <Chip
                   key={index}
-                  className="text-white font-medium"
+                  className="font-medium"
                   size={isMd ? "lg" : "md"}
                 >
                   {tag.tag.name}

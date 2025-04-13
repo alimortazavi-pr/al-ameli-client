@@ -5,209 +5,438 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import type { DateTime } from "../../types/common_pb";
+import type { DateTime, DateTimeRange, Duration, SortDirection } from "../../types/common_pb";
+import type { Paginate, Pagination } from "../../types/pagination_pb";
+import type { Page } from "../../types/page_pb";
+import type { Book } from "../../types/book_pb";
 
 /**
- * @generated from enum ablibrary.services.search_service.ModelName
+ * @generated from enum ablibrary.services.search_service.Scope
  */
-export declare enum ModelName {
+export declare enum Scope {
   /**
-   * @generated from enum value: MODEL_NAME_BOOK = 0;
+   * @generated from enum value: SCOPE_UNSPECIFIED = 0;
    */
-  BOOK = 0,
+  UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: MODEL_NAME_CONTRIBUTOR = 1;
+   * @generated from enum value: SCOPE_TEXT = 1;
    */
-  CONTRIBUTOR = 1,
+  TEXT = 1,
 
   /**
-   * @generated from enum value: MODEL_NAME_PUBLISHER = 2;
+   * @generated from enum value: SCOPE_REMARK = 2;
    */
-  PUBLISHER = 2,
+  REMARK = 2,
 
   /**
-   * @generated from enum value: MODEL_NAME_CONTRIBUTION = 3;
+   * @generated from enum value: SCOPE_FOOTNOTE = 3;
    */
-  CONTRIBUTION = 3,
-
-  /**
-   * @generated from enum value: MODEL_NAME_CATEGORY = 4;
-   */
-  CATEGORY = 4,
-
-  /**
-   * @generated from enum value: MODEL_NAME_LANGUAGE = 5;
-   */
-  LANGUAGE = 5,
-
-  /**
-   * @generated from enum value: MODEL_NAME_TAG = 6;
-   */
-  TAG = 6,
-
-  /**
-   * @generated from enum value: MODEL_NAME_COUNTRY = 7;
-   */
-  COUNTRY = 7,
+  FOOTNOTE = 3,
 }
 
 /**
- * @generated from message ablibrary.services.search_service.BooksListSearchHistoryRequest
+ * @generated from enum ablibrary.services.search_service.SuggestionType
  */
-export declare class BooksListSearchHistoryRequest extends Message<BooksListSearchHistoryRequest> {
-  constructor(data?: PartialMessage<BooksListSearchHistoryRequest>);
+export declare enum SuggestionType {
+  /**
+   * @generated from enum value: SUGGESTION_TYPE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
 
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.BooksListSearchHistoryRequest";
-  static readonly fields: FieldList;
+  /**
+   * @generated from enum value: SUGGESTION_TYPE_BOOK = 1;
+   */
+  BOOK = 1,
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BooksListSearchHistoryRequest;
+  /**
+   * @generated from enum value: SUGGESTION_TYPE_CONTRIBUTOR = 2;
+   */
+  CONTRIBUTOR = 2,
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): BooksListSearchHistoryRequest;
+  /**
+   * @generated from enum value: SUGGESTION_TYPE_PUBLISHER = 3;
+   */
+  PUBLISHER = 3,
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): BooksListSearchHistoryRequest;
+  /**
+   * @generated from enum value: SUGGESTION_TYPE_CONTRIBUTION = 4;
+   */
+  CONTRIBUTION = 4,
 
-  static equals(a: BooksListSearchHistoryRequest | PlainMessage<BooksListSearchHistoryRequest> | undefined, b: BooksListSearchHistoryRequest | PlainMessage<BooksListSearchHistoryRequest> | undefined): boolean;
+  /**
+   * @generated from enum value: SUGGESTION_TYPE_CATEGORY = 5;
+   */
+  CATEGORY = 5,
 }
 
 /**
- * @generated from message ablibrary.services.search_service.BooksListSearchHistoryResponse
+ * @generated from enum ablibrary.services.search_service.HistorySource
  */
-export declare class BooksListSearchHistoryResponse extends Message<BooksListSearchHistoryResponse> {
-  constructor(data?: PartialMessage<BooksListSearchHistoryResponse>);
+export declare enum HistorySource {
+  /**
+   * @generated from enum value: HISTORY_SOURCE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
 
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.BooksListSearchHistoryResponse";
-  static readonly fields: FieldList;
+  /**
+   * @generated from enum value: HISTORY_SOURCE_SEARCH = 1;
+   */
+  SEARCH = 1,
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BooksListSearchHistoryResponse;
+  /**
+   * @generated from enum value: HISTORY_SOURCE_FIND_IN_BOOK = 2;
+   */
+  FIND_IN_BOOK = 2,
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): BooksListSearchHistoryResponse;
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): BooksListSearchHistoryResponse;
-
-  static equals(a: BooksListSearchHistoryResponse | PlainMessage<BooksListSearchHistoryResponse> | undefined, b: BooksListSearchHistoryResponse | PlainMessage<BooksListSearchHistoryResponse> | undefined): boolean;
+  /**
+   * @generated from enum value: HISTORY_SOURCE_BOOK_LIST = 3;
+   */
+  BOOK_LIST = 3,
 }
 
 /**
- * @generated from message ablibrary.services.search_service.SearchHistoryRequest
+ * @generated from message ablibrary.services.search_service.SearchRequest
  */
-export declare class SearchHistoryRequest extends Message<SearchHistoryRequest> {
-  constructor(data?: PartialMessage<SearchHistoryRequest>);
+export declare class SearchRequest extends Message<SearchRequest> {
+  /**
+   * @generated from field: string query = 1;
+   */
+  query: string;
+
+  /**
+   * Search scope (text, remark, footnote)
+   *
+   * @generated from field: repeated ablibrary.services.search_service.Scope scope = 2;
+   */
+  scope: Scope[];
+
+  /**
+   * An optional list containing book IDs, titles, or ISBNs.
+   *
+   * @generated from field: repeated string books = 3;
+   */
+  books: string[];
+
+  /**
+   * An optional list of contributor IDs or names.
+   *
+   * @generated from field: repeated string contributors = 4;
+   */
+  contributors: string[];
+
+  /**
+   * An optional list of contributor died_at date ranges.
+   *
+   * @generated from field: repeated ablibrary.types.DateTimeRange died_at = 5;
+   */
+  diedAt: DateTimeRange[];
+
+  /**
+   * An optional list of publisher IDs or names.
+   *
+   * @generated from field: repeated string publishers = 6;
+   */
+  publishers: string[];
+
+  /**
+   * An optional list of language IDs.
+   *
+   * @generated from field: repeated string language_ids = 7;
+   */
+  languageIds: string[];
+
+  /**
+   * An optional list of category IDs.
+   *
+   * @generated from field: repeated string category_ids = 8;
+   */
+  categoryIds: string[];
+
+  /**
+   * @generated from field: optional ablibrary.types.Paginate paginate = 9;
+   */
+  paginate?: Paginate;
+
+  /**
+   * @generated from field: optional ablibrary.services.search_service.SearchRequest.Sort sort_by = 10;
+   */
+  sortBy?: SearchRequest_Sort;
+
+  /**
+   * @generated from field: optional ablibrary.types.SortDirection sort_dir = 11;
+   */
+  sortDir?: SortDirection;
+
+  constructor(data?: PartialMessage<SearchRequest>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.SearchHistoryRequest";
+  static readonly typeName = "ablibrary.services.search_service.SearchRequest";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchHistoryRequest;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchRequest;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchHistoryRequest;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchRequest;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchHistoryRequest;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchRequest;
 
-  static equals(a: SearchHistoryRequest | PlainMessage<SearchHistoryRequest> | undefined, b: SearchHistoryRequest | PlainMessage<SearchHistoryRequest> | undefined): boolean;
+  static equals(a: SearchRequest | PlainMessage<SearchRequest> | undefined, b: SearchRequest | PlainMessage<SearchRequest> | undefined): boolean;
 }
 
 /**
- * @generated from message ablibrary.services.search_service.SearchHistoryResponse
+ * @generated from enum ablibrary.services.search_service.SearchRequest.Sort
  */
-export declare class SearchHistoryResponse extends Message<SearchHistoryResponse> {
-  constructor(data?: PartialMessage<SearchHistoryResponse>);
+export declare enum SearchRequest_Sort {
+  /**
+   * @generated from enum value: SORT_RELEVANCE = 0;
+   */
+  RELEVANCE = 0,
 
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.SearchHistoryResponse";
-  static readonly fields: FieldList;
+  /**
+   * @generated from enum value: SORT_TITLE = 1;
+   */
+  TITLE = 1,
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchHistoryResponse;
+  /**
+   * @generated from enum value: SORT_CONTRIBUTOR = 2;
+   */
+  CONTRIBUTOR = 2,
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchHistoryResponse;
+  /**
+   * @generated from enum value: SORT_DIED_AT = 3;
+   */
+  DIED_AT = 3,
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchHistoryResponse;
+  /**
+   * @generated from enum value: SORT_PUBLISHER = 4;
+   */
+  PUBLISHER = 4,
 
-  static equals(a: SearchHistoryResponse | PlainMessage<SearchHistoryResponse> | undefined, b: SearchHistoryResponse | PlainMessage<SearchHistoryResponse> | undefined): boolean;
+  /**
+   * @generated from enum value: SORT_RECENT = 5;
+   */
+  RECENT = 5,
 }
 
 /**
- * @generated from message ablibrary.services.search_service.FindInBookHistoryRequest
+ * @generated from message ablibrary.services.search_service.SearchResponse
  */
-export declare class FindInBookHistoryRequest extends Message<FindInBookHistoryRequest> {
-  constructor(data?: PartialMessage<FindInBookHistoryRequest>);
+export declare class SearchResponse extends Message<SearchResponse> {
+  /**
+   * @generated from field: repeated ablibrary.services.search_service.SearchResult results = 1;
+   */
+  results: SearchResult[];
+
+  /**
+   * @generated from field: ablibrary.types.Pagination pagination = 2;
+   */
+  pagination?: Pagination;
+
+  /**
+   * @generated from field: ablibrary.services.search_service.SearchStats stats = 3;
+   */
+  stats?: SearchStats;
+
+  constructor(data?: PartialMessage<SearchResponse>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.FindInBookHistoryRequest";
+  static readonly typeName = "ablibrary.services.search_service.SearchResponse";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FindInBookHistoryRequest;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchResponse;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FindInBookHistoryRequest;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchResponse;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FindInBookHistoryRequest;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchResponse;
 
-  static equals(a: FindInBookHistoryRequest | PlainMessage<FindInBookHistoryRequest> | undefined, b: FindInBookHistoryRequest | PlainMessage<FindInBookHistoryRequest> | undefined): boolean;
+  static equals(a: SearchResponse | PlainMessage<SearchResponse> | undefined, b: SearchResponse | PlainMessage<SearchResponse> | undefined): boolean;
 }
 
 /**
- * @generated from message ablibrary.services.search_service.FindInBookHistoryResponse
+ * @generated from message ablibrary.services.search_service.SearchInBookRequest
  */
-export declare class FindInBookHistoryResponse extends Message<FindInBookHistoryResponse> {
-  constructor(data?: PartialMessage<FindInBookHistoryResponse>);
+export declare class SearchInBookRequest extends Message<SearchInBookRequest> {
+  /**
+   * @generated from field: string book_id = 1;
+   */
+  bookId: string;
+
+  /**
+   * @generated from field: string query = 2;
+   */
+  query: string;
+
+  /**
+   * Search scope (text, remark, footnote)
+   *
+   * @generated from field: repeated ablibrary.services.search_service.Scope scope = 3;
+   */
+  scope: Scope[];
+
+  constructor(data?: PartialMessage<SearchInBookRequest>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.FindInBookHistoryResponse";
+  static readonly typeName = "ablibrary.services.search_service.SearchInBookRequest";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FindInBookHistoryResponse;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchInBookRequest;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FindInBookHistoryResponse;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchInBookRequest;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FindInBookHistoryResponse;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchInBookRequest;
 
-  static equals(a: FindInBookHistoryResponse | PlainMessage<FindInBookHistoryResponse> | undefined, b: FindInBookHistoryResponse | PlainMessage<FindInBookHistoryResponse> | undefined): boolean;
+  static equals(a: SearchInBookRequest | PlainMessage<SearchInBookRequest> | undefined, b: SearchInBookRequest | PlainMessage<SearchInBookRequest> | undefined): boolean;
 }
 
 /**
- * @generated from message ablibrary.services.search_service.DeleteHistoryRecordRequest
+ * @generated from message ablibrary.services.search_service.SearchInBookResponse
  */
-export declare class DeleteHistoryRecordRequest extends Message<DeleteHistoryRecordRequest> {
-  constructor(data?: PartialMessage<DeleteHistoryRecordRequest>);
+export declare class SearchInBookResponse extends Message<SearchInBookResponse> {
+  /**
+   * @generated from field: repeated ablibrary.types.Page pages = 1;
+   */
+  pages: Page[];
+
+  constructor(data?: PartialMessage<SearchInBookResponse>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.DeleteHistoryRecordRequest";
+  static readonly typeName = "ablibrary.services.search_service.SearchInBookResponse";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteHistoryRecordRequest;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchInBookResponse;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteHistoryRecordRequest;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchInBookResponse;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteHistoryRecordRequest;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchInBookResponse;
 
-  static equals(a: DeleteHistoryRecordRequest | PlainMessage<DeleteHistoryRecordRequest> | undefined, b: DeleteHistoryRecordRequest | PlainMessage<DeleteHistoryRecordRequest> | undefined): boolean;
+  static equals(a: SearchInBookResponse | PlainMessage<SearchInBookResponse> | undefined, b: SearchInBookResponse | PlainMessage<SearchInBookResponse> | undefined): boolean;
 }
 
 /**
- * @generated from message ablibrary.services.search_service.DeleteHistoryRecordResponse
+ * @generated from message ablibrary.services.search_service.HistoryRequest
  */
-export declare class DeleteHistoryRecordResponse extends Message<DeleteHistoryRecordResponse> {
-  constructor(data?: PartialMessage<DeleteHistoryRecordResponse>);
+export declare class HistoryRequest extends Message<HistoryRequest> {
+  /**
+   * @generated from field: optional ablibrary.types.DateTimeRange range = 1;
+   */
+  range?: DateTimeRange;
+
+  /**
+   * @generated from field: repeated ablibrary.services.search_service.HistorySource sources = 2;
+   */
+  sources: HistorySource[];
+
+  /**
+   * @generated from field: optional string book_id = 3;
+   */
+  bookId?: string;
+
+  /**
+   * @generated from field: optional string query = 4;
+   */
+  query?: string;
+
+  /**
+   * @generated from field: optional ablibrary.types.Paginate paginate = 5;
+   */
+  paginate?: Paginate;
+
+  constructor(data?: PartialMessage<HistoryRequest>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.DeleteHistoryRecordResponse";
+  static readonly typeName = "ablibrary.services.search_service.HistoryRequest";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteHistoryRecordResponse;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): HistoryRequest;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteHistoryRecordResponse;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): HistoryRequest;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteHistoryRecordResponse;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): HistoryRequest;
 
-  static equals(a: DeleteHistoryRecordResponse | PlainMessage<DeleteHistoryRecordResponse> | undefined, b: DeleteHistoryRecordResponse | PlainMessage<DeleteHistoryRecordResponse> | undefined): boolean;
+  static equals(a: HistoryRequest | PlainMessage<HistoryRequest> | undefined, b: HistoryRequest | PlainMessage<HistoryRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.search_service.HistoryResponse
+ */
+export declare class HistoryResponse extends Message<HistoryResponse> {
+  /**
+   * @generated from field: repeated ablibrary.services.search_service.History history = 1;
+   */
+  history: History[];
+
+  /**
+   * @generated from field: ablibrary.types.Pagination pagination = 2;
+   */
+  pagination?: Pagination;
+
+  constructor(data?: PartialMessage<HistoryResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.search_service.HistoryResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): HistoryResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): HistoryResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): HistoryResponse;
+
+  static equals(a: HistoryResponse | PlainMessage<HistoryResponse> | undefined, b: HistoryResponse | PlainMessage<HistoryResponse> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.search_service.DeleteHistoryRequest
+ */
+export declare class DeleteHistoryRequest extends Message<DeleteHistoryRequest> {
+  /**
+   * @generated from field: repeated string ids = 1;
+   */
+  ids: string[];
+
+  constructor(data?: PartialMessage<DeleteHistoryRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.search_service.DeleteHistoryRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteHistoryRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteHistoryRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteHistoryRequest;
+
+  static equals(a: DeleteHistoryRequest | PlainMessage<DeleteHistoryRequest> | undefined, b: DeleteHistoryRequest | PlainMessage<DeleteHistoryRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.search_service.DeleteHistoryResponse
+ */
+export declare class DeleteHistoryResponse extends Message<DeleteHistoryResponse> {
+  constructor(data?: PartialMessage<DeleteHistoryResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.search_service.DeleteHistoryResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteHistoryResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteHistoryResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteHistoryResponse;
+
+  static equals(a: DeleteHistoryResponse | PlainMessage<DeleteHistoryResponse> | undefined, b: DeleteHistoryResponse | PlainMessage<DeleteHistoryResponse> | undefined): boolean;
 }
 
 /**
  * @generated from message ablibrary.services.search_service.ClearHistoryRequest
  */
 export declare class ClearHistoryRequest extends Message<ClearHistoryRequest> {
+  /**
+   * @generated from field: optional ablibrary.types.DateTimeRange range = 1;
+   */
+  range?: DateTimeRange;
+
   constructor(data?: PartialMessage<ClearHistoryRequest>);
 
   static readonly runtime: typeof proto3;
@@ -240,6 +469,64 @@ export declare class ClearHistoryResponse extends Message<ClearHistoryResponse> 
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ClearHistoryResponse;
 
   static equals(a: ClearHistoryResponse | PlainMessage<ClearHistoryResponse> | undefined, b: ClearHistoryResponse | PlainMessage<ClearHistoryResponse> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.search_service.SuggestRequest
+ */
+export declare class SuggestRequest extends Message<SuggestRequest> {
+  /**
+   * @generated from field: string query = 1;
+   */
+  query: string;
+
+  /**
+   * @generated from field: repeated ablibrary.services.search_service.SuggestionType types = 2;
+   */
+  types: SuggestionType[];
+
+  /**
+   * @generated from field: optional ablibrary.types.Paginate paginate = 3;
+   */
+  paginate?: Paginate;
+
+  constructor(data?: PartialMessage<SuggestRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.search_service.SuggestRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SuggestRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SuggestRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SuggestRequest;
+
+  static equals(a: SuggestRequest | PlainMessage<SuggestRequest> | undefined, b: SuggestRequest | PlainMessage<SuggestRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.search_service.SuggestResponse
+ */
+export declare class SuggestResponse extends Message<SuggestResponse> {
+  /**
+   * @generated from field: repeated ablibrary.services.search_service.SuggestionResult suggestions = 1;
+   */
+  suggestions: SuggestionResult[];
+
+  constructor(data?: PartialMessage<SuggestResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.search_service.SuggestResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SuggestResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SuggestResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SuggestResponse;
+
+  static equals(a: SuggestResponse | PlainMessage<SuggestResponse> | undefined, b: SuggestResponse | PlainMessage<SuggestResponse> | undefined): boolean;
 }
 
 /**
@@ -329,61 +616,110 @@ export declare class SetSettingsResponse extends Message<SetSettingsResponse> {
 }
 
 /**
- * @generated from message ablibrary.services.search_service.Search
+ * @generated from message ablibrary.services.search_service.SearchResult
  */
-export declare class Search extends Message<Search> {
-  constructor(data?: PartialMessage<Search>);
+export declare class SearchResult extends Message<SearchResult> {
+  /**
+   * @generated from field: ablibrary.types.Book book = 1;
+   */
+  book?: Book;
+
+  /**
+   * @generated from field: ablibrary.types.Page page = 2;
+   */
+  page?: Page;
+
+  /**
+   * @generated from field: int32 hit_count = 3;
+   */
+  hitCount: number;
+
+  /**
+   * @generated from field: int32 page_count = 4;
+   */
+  pageCount: number;
+
+  constructor(data?: PartialMessage<SearchResult>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.Search";
+  static readonly typeName = "ablibrary.services.search_service.SearchResult";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Search;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchResult;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Search;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchResult;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Search;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchResult;
 
-  static equals(a: Search | PlainMessage<Search> | undefined, b: Search | PlainMessage<Search> | undefined): boolean;
+  static equals(a: SearchResult | PlainMessage<SearchResult> | undefined, b: SearchResult | PlainMessage<SearchResult> | undefined): boolean;
 }
 
 /**
- * @generated from message ablibrary.services.search_service.FindInBook
+ * @generated from message ablibrary.services.search_service.SearchStats
  */
-export declare class FindInBook extends Message<FindInBook> {
+export declare class SearchStats extends Message<SearchStats> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: ablibrary.types.Duration duration = 1;
    */
-  id: string;
+  duration?: Duration;
 
   /**
-   * @generated from field: string book_id = 2;
+   * @generated from field: int32 window_count = 2;
    */
-  bookId: string;
+  windowCount: number;
 
   /**
-   * @generated from field: string query = 3;
+   * @generated from field: int32 book_count = 3;
    */
-  query: string;
+  bookCount: number;
 
-  /**
-   * @generated from field: ablibrary.types.DateTime timestamp = 4;
-   */
-  timestamp?: DateTime;
-
-  constructor(data?: PartialMessage<FindInBook>);
+  constructor(data?: PartialMessage<SearchStats>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.FindInBook";
+  static readonly typeName = "ablibrary.services.search_service.SearchStats";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FindInBook;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SearchStats;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FindInBook;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SearchStats;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FindInBook;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SearchStats;
 
-  static equals(a: FindInBook | PlainMessage<FindInBook> | undefined, b: FindInBook | PlainMessage<FindInBook> | undefined): boolean;
+  static equals(a: SearchStats | PlainMessage<SearchStats> | undefined, b: SearchStats | PlainMessage<SearchStats> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.search_service.SuggestionResult
+ */
+export declare class SuggestionResult extends Message<SuggestionResult> {
+  /**
+   * @generated from field: ablibrary.services.search_service.SuggestionType type = 1;
+   */
+  type: SuggestionType;
+
+  /**
+   * @generated from field: repeated ablibrary.services.search_service.Suggestion items = 2;
+   */
+  items: Suggestion[];
+
+  /**
+   * @generated from field: ablibrary.types.Pagination pagination = 3;
+   */
+  pagination?: Pagination;
+
+  constructor(data?: PartialMessage<SuggestionResult>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.search_service.SuggestionResult";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SuggestionResult;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SuggestionResult;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SuggestionResult;
+
+  static equals(a: SuggestionResult | PlainMessage<SuggestionResult> | undefined, b: SuggestionResult | PlainMessage<SuggestionResult> | undefined): boolean;
 }
 
 /**
@@ -391,9 +727,9 @@ export declare class FindInBook extends Message<FindInBook> {
  */
 export declare class Suggestion extends Message<Suggestion> {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: optional string id = 1;
    */
-  id: string;
+  id?: string;
 
   /**
    * @generated from field: string label = 2;
@@ -416,61 +752,42 @@ export declare class Suggestion extends Message<Suggestion> {
 }
 
 /**
- * @generated from message ablibrary.services.search_service.SuggestRequest
+ * @generated from message ablibrary.services.search_service.History
  */
-export declare class SuggestRequest extends Message<SuggestRequest> {
+export declare class History extends Message<History> {
   /**
-   * @generated from field: ablibrary.services.search_service.ModelName model = 1;
+   * @generated from field: string id = 1;
    */
-  model: ModelName;
+  id: string;
 
   /**
    * @generated from field: string query = 2;
    */
   query: string;
 
-  constructor(data?: PartialMessage<SuggestRequest>);
-
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.SuggestRequest";
-  static readonly fields: FieldList;
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SuggestRequest;
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SuggestRequest;
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SuggestRequest;
-
-  static equals(a: SuggestRequest | PlainMessage<SuggestRequest> | undefined, b: SuggestRequest | PlainMessage<SuggestRequest> | undefined): boolean;
-}
-
-/**
- * @generated from message ablibrary.services.search_service.SuggestResponse
- */
-export declare class SuggestResponse extends Message<SuggestResponse> {
   /**
-   * @generated from field: ablibrary.services.search_service.ModelName model = 1;
+   * @generated from field: ablibrary.services.search_service.HistorySource source = 3;
    */
-  model: ModelName;
+  source: HistorySource;
 
   /**
-   * @generated from field: repeated ablibrary.services.search_service.Suggestion suggestions = 2;
+   * @generated from field: ablibrary.types.DateTime created_at = 4;
    */
-  suggestions: Suggestion[];
+  createdAt?: DateTime;
 
-  constructor(data?: PartialMessage<SuggestResponse>);
+  constructor(data?: PartialMessage<History>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.search_service.SuggestResponse";
+  static readonly typeName = "ablibrary.services.search_service.History";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SuggestResponse;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): History;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SuggestResponse;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): History;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SuggestResponse;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): History;
 
-  static equals(a: SuggestResponse | PlainMessage<SuggestResponse> | undefined, b: SuggestResponse | PlainMessage<SuggestResponse> | undefined): boolean;
+  static equals(a: History | PlainMessage<History> | undefined, b: History | PlainMessage<History> | undefined): boolean;
 }
 
 /**

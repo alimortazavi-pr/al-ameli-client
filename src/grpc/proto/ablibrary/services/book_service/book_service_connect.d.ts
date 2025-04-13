@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ContentsRequest, ContentsResponse, DetailsRequest, DetailsResponse, FindRequest, FindResponse, GetSettingsRequest, GetSettingsResponse, HTMLContentsRequest, HTMLContentsResponse, ListRequest, ListResponse, PDFContentsRequest, PDFContentsResponse, SetSettingsRequest, SetSettingsResponse, TableOfContentsRequest, TableOfContentsResponse } from "./book_service_pb";
+import { CloseBookRequest, CloseBookResponse, ContentsRequest, ContentsResponse, DetailsRequest, DetailsResponse, FindRequest, FindResponse, GetSettingsRequest, GetSettingsResponse, HTMLContentsRequest, HTMLContentsResponse, ListRequest, ListResponse, PDFContentsRequest, PDFContentsResponse, SetSettingsRequest, SetSettingsResponse, TableOfContentsRequest, TableOfContentsResponse } from "./book_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -73,6 +73,15 @@ export declare const BookService: {
       readonly name: "Find",
       readonly I: typeof FindRequest,
       readonly O: typeof FindResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.book_service.BookService.CloseBook
+     */
+    readonly closeBook: {
+      readonly name: "CloseBook",
+      readonly I: typeof CloseBookRequest,
+      readonly O: typeof CloseBookResponse,
       readonly kind: MethodKind.Unary,
     },
     /**

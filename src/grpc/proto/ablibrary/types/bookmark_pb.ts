@@ -47,12 +47,17 @@ export class Bookmark extends Message<Bookmark> {
   pageNumber?: number;
 
   /**
-   * @generated from field: optional string notes = 8;
+   * @generated from field: optional string page_label = 8;
+   */
+  pageLabel?: string;
+
+  /**
+   * @generated from field: optional string notes = 9;
    */
   notes?: string;
 
   /**
-   * @generated from field: optional ablibrary.types.Metadata metadata = 9;
+   * @generated from field: optional ablibrary.types.Metadata metadata = 10;
    */
   metadata?: Metadata;
 
@@ -71,8 +76,9 @@ export class Bookmark extends Message<Bookmark> {
     { no: 5, name: "page_id", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
     { no: 6, name: "page_content_id", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
     { no: 7, name: "page_number", kind: "scalar", T: 5 /* ScalarType.INT32 */, opt: true },
-    { no: 8, name: "notes", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
-    { no: 9, name: "metadata", kind: "message", T: Metadata, opt: true },
+    { no: 8, name: "page_label", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 9, name: "notes", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 10, name: "metadata", kind: "message", T: Metadata, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Bookmark {
@@ -122,12 +128,17 @@ export class Collection extends Message<Collection> {
   isPublic = false;
 
   /**
-   * @generated from field: repeated ablibrary.types.Bookmark bookmarks = 6;
+   * @generated from field: optional int32 book_count = 6;
+   */
+  bookCount?: number;
+
+  /**
+   * @generated from field: repeated ablibrary.types.Bookmark bookmarks = 7;
    */
   bookmarks: Bookmark[] = [];
 
   /**
-   * @generated from field: optional ablibrary.types.Metadata metadata = 7;
+   * @generated from field: optional ablibrary.types.Metadata metadata = 8;
    */
   metadata?: Metadata;
 
@@ -144,8 +155,9 @@ export class Collection extends Message<Collection> {
     { no: 3, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "description", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
     { no: 5, name: "is_public", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 6, name: "bookmarks", kind: "message", T: Bookmark, repeated: true },
-    { no: 7, name: "metadata", kind: "message", T: Metadata, opt: true },
+    { no: 6, name: "book_count", kind: "scalar", T: 5 /* ScalarType.INT32 */, opt: true },
+    { no: 7, name: "bookmarks", kind: "message", T: Bookmark, repeated: true },
+    { no: 8, name: "metadata", kind: "message", T: Metadata, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Collection {

@@ -21,7 +21,7 @@ export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
     audioByCategory.audios?.length !== 0 && (
       <Link
         href={PATHS.AUDIO(audioByCategory._id)}
-        className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-secondary-400 h-fit"
+        className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-primary-500 h-fit"
       >
         <div className={`h-32 bg-white/90 shadow-lg rounded-2xl relative`}>
           <Image
@@ -31,9 +31,9 @@ export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
             className="rounded-2xl object-cover"
           />
           <Chip
-            className="absolute bottom-2 start-2 bg-secondary-400/70"
+            className="absolute bottom-2 start-2"
             endContent={<AudioSquare className="w-5 h-5" />}
-            color="secondary"
+            color="primary"
           >
             {convertToPersian(audioByCategory.audios.length)} صوت
           </Chip>

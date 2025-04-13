@@ -47,12 +47,17 @@ export declare class Bookmark extends Message<Bookmark> {
   pageNumber?: number;
 
   /**
-   * @generated from field: optional string notes = 8;
+   * @generated from field: optional string page_label = 8;
+   */
+  pageLabel?: string;
+
+  /**
+   * @generated from field: optional string notes = 9;
    */
   notes?: string;
 
   /**
-   * @generated from field: optional ablibrary.types.Metadata metadata = 9;
+   * @generated from field: optional ablibrary.types.Metadata metadata = 10;
    */
   metadata?: Metadata;
 
@@ -101,12 +106,17 @@ export declare class Collection extends Message<Collection> {
   isPublic: boolean;
 
   /**
-   * @generated from field: repeated ablibrary.types.Bookmark bookmarks = 6;
+   * @generated from field: optional int32 book_count = 6;
+   */
+  bookCount?: number;
+
+  /**
+   * @generated from field: repeated ablibrary.types.Bookmark bookmarks = 7;
    */
   bookmarks: Bookmark[];
 
   /**
-   * @generated from field: optional ablibrary.types.Metadata metadata = 7;
+   * @generated from field: optional ablibrary.types.Metadata metadata = 8;
    */
   metadata?: Metadata;
 

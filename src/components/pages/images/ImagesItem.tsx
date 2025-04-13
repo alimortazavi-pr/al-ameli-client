@@ -14,8 +14,6 @@ interface IProps {
 }
 export const ImagesItem: FC<IProps> = ({ imageByCategory, index }) => {
   const is7 = useMemo(() => {
-    console.log(imageByCategory.name, (index + 1) % 5);
-
     if ((index + 1) % 5 === 4) {
       return true;
     }
@@ -23,8 +21,6 @@ export const ImagesItem: FC<IProps> = ({ imageByCategory, index }) => {
   }, [index]);
 
   const is5 = useMemo(() => {
-    console.log(imageByCategory.name, (index + 1) % 5);
-
     if ((index + 1) % 5 === 0) {
       return true;
     }
@@ -45,8 +41,8 @@ export const ImagesItem: FC<IProps> = ({ imageByCategory, index }) => {
           alt={imageByCategory.name}
           className="rounded-2xl object-cover"
         />
-        <div className="absolute bottom-0 p-3 h-24 w-full rounded-b-2xl bg-secondary-400/60 z-10 flex items-center justify-center">
-          <span className="text-default-50 text-3xl truncate">
+        <div className="absolute bottom-0 p-3 h-24 w-full rounded-b-2xl bg-primary-600/70 backdrop-blur z-10 flex items-center justify-center">
+          <span className="text-default-50 text-xl line-clamp-2 font-semibold">
             {imageByCategory.name}
           </span>
         </div>

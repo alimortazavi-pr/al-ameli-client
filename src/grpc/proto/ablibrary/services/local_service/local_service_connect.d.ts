@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { AddStorageLocationRequest, AddStorageLocationResponse, CheckUpdatesRequest, CheckUpdatesResponse, EventBusRequest, EventBusResponse, GetInfoRequest, GetInfoResponse, ListStorageLocationsRequest, ListStorageLocationsResponse, ReloadRequest, ReloadResponse, RemoveStorageLocationRequest, RemoveStorageLocationResponse, ShutdownRequest, ShutdownResponse, SyncRequest, SyncResponse, UpdateStorageLocationRequest, UpdateStorageLocationResponse } from "./local_service_pb";
+import { CheckUpdatesRequest, CheckUpdatesResponse, EventBusRequest, EventBusResponse, GetInfoRequest, GetInfoResponse, ReloadRequest, ReloadResponse, ShutdownRequest, ShutdownResponse, SyncRequest, SyncResponse } from "./local_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -29,42 +29,6 @@ export declare const LocalService: {
       readonly I: typeof EventBusRequest,
       readonly O: typeof EventBusResponse,
       readonly kind: MethodKind.ServerStreaming,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.ListStorageLocations
-     */
-    readonly listStorageLocations: {
-      readonly name: "ListStorageLocations",
-      readonly I: typeof ListStorageLocationsRequest,
-      readonly O: typeof ListStorageLocationsResponse,
-      readonly kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.AddStorageLocation
-     */
-    readonly addStorageLocation: {
-      readonly name: "AddStorageLocation",
-      readonly I: typeof AddStorageLocationRequest,
-      readonly O: typeof AddStorageLocationResponse,
-      readonly kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.RemoveStorageLocation
-     */
-    readonly removeStorageLocation: {
-      readonly name: "RemoveStorageLocation",
-      readonly I: typeof RemoveStorageLocationRequest,
-      readonly O: typeof RemoveStorageLocationResponse,
-      readonly kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.UpdateStorageLocation
-     */
-    readonly updateStorageLocation: {
-      readonly name: "UpdateStorageLocation",
-      readonly I: typeof UpdateStorageLocationRequest,
-      readonly O: typeof UpdateStorageLocationResponse,
-      readonly kind: MethodKind.Unary,
     },
     /**
      * @generated from rpc ablibrary.services.local_service.LocalService.CheckUpdates

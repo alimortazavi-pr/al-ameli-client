@@ -32,7 +32,7 @@ export const BackToTopButton = () => {
       onPress={scrollToTop}
       className={`${
         isVisible ? "opacity-100" : "opacity-0"
-      } fixed bottom-5 end-5 z-50 transition-opacity duration-300`}
+      } fixed bottom-5 start-5 z-50 transition-opacity duration-300`}
       isIconOnly
       color="primary"
     >

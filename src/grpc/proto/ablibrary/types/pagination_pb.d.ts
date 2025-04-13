@@ -50,3 +50,32 @@ export declare class Pagination extends Message<Pagination> {
   static equals(a: Pagination | PlainMessage<Pagination> | undefined, b: Pagination | PlainMessage<Pagination> | undefined): boolean;
 }
 
+/**
+ * @generated from message ablibrary.types.Paginate
+ */
+export declare class Paginate extends Message<Paginate> {
+  /**
+   * @generated from field: optional int32 page = 1;
+   */
+  page?: number;
+
+  /**
+   * @generated from field: optional int32 per_page = 2;
+   */
+  perPage?: number;
+
+  constructor(data?: PartialMessage<Paginate>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.types.Paginate";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Paginate;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Paginate;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Paginate;
+
+  static equals(a: Paginate | PlainMessage<Paginate> | undefined, b: Paginate | PlainMessage<Paginate> | undefined): boolean;
+}
+

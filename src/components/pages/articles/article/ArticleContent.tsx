@@ -10,6 +10,7 @@ interface IProps {
 export const ArticleContent: FC<IProps> = ({ article }) => {
   return (
     <div
+      className="ckeditor-output"
       dangerouslySetInnerHTML={{
         __html: article?.content || "",
       }}

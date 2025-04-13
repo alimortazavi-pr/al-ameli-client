@@ -11,31 +11,43 @@ import { Message, proto3 } from "@bufbuild/protobuf";
  */
 export declare enum DaemonState {
   /**
+   * Unspecified state.
+   *
    * @generated from enum value: DAEMON_STATE_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
+   * The daemon is idle and all the books are indexed.
+   *
    * @generated from enum value: DAEMON_STATE_IDLE = 1;
    */
   IDLE = 1,
 
   /**
+   * The daemon is checking the books.
+   *
    * @generated from enum value: DAEMON_STATE_CHECKING = 2;
    */
   CHECKING = 2,
 
   /**
+   * The daemon is busy indexing the books.
+   *
    * @generated from enum value: DAEMON_STATE_INDEXING = 3;
    */
   INDEXING = 3,
 
   /**
+   * The daemon is stopped.
+   *
    * @generated from enum value: DAEMON_STATE_STOPPED = 4;
    */
   STOPPED = 4,
 
   /**
+   * The daemon is in error state.
+   *
    * @generated from enum value: DAEMON_STATE_ERROR = 5;
    */
   ERROR = 5,
@@ -342,6 +354,8 @@ export declare class Status extends Message<Status> {
   indexedBooksCount: number;
 
   /**
+   * In bytes
+   *
    * @generated from field: int64 index_size = 4;
    */
   indexSize: bigint;
@@ -371,35 +385,16 @@ export declare class Settings extends Message<Settings> {
   enabled: boolean;
 
   /**
-   * Path to the index directory, must be writable
-   *
-   * @generated from field: string index_path = 2;
-   */
-  indexPath: string;
-
-  /**
-   * @generated from field: ablibrary.services.index_service.Settings.Strategy strategy = 3;
-   */
-  strategy: Settings_Strategy;
-
-  /**
-   * Interval in seconds, used when strategy is AT_INTERVAL
-   *
-   * @generated from field: int32 index_interval = 4;
-   */
-  indexInterval: number;
-
-  /**
    * Min value: 1, Max value: 10000
    *
-   * @generated from field: int32 batch_size = 5;
+   * @generated from field: int32 batch_size = 2;
    */
   batchSize: number;
 
   /**
    * Min value: 1
    *
-   * @generated from field: int32 max_concurrent_workers = 6;
+   * @generated from field: int32 max_concurrent_workers = 3;
    */
   maxConcurrentWorkers: number;
 
@@ -416,35 +411,5 @@ export declare class Settings extends Message<Settings> {
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Settings;
 
   static equals(a: Settings | PlainMessage<Settings> | undefined, b: Settings | PlainMessage<Settings> | undefined): boolean;
-}
-
-/**
- * @generated from enum ablibrary.services.index_service.Settings.Strategy
- */
-export declare enum Settings_Strategy {
-  /**
-   * @generated from enum value: STRATEGY_UNSPECIFIED = 0;
-   */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: STRATEGY_AFTER_DOWNLOAD = 1;
-   */
-  AFTER_DOWNLOAD = 1,
-
-  /**
-   * @generated from enum value: STRATEGY_ON_STARTUP = 2;
-   */
-  ON_STARTUP = 2,
-
-  /**
-   * @generated from enum value: STRATEGY_AT_INTERVAL = 3;
-   */
-  AT_INTERVAL = 3,
-
-  /**
-   * @generated from enum value: STRATEGY_MANUAL = 4;
-   */
-  MANUAL = 4,
 }
 

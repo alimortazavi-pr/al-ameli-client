@@ -186,49 +186,6 @@ export declare class DeleteAllBooksResponse extends Message<DeleteAllBooksRespon
 }
 
 /**
- * @generated from message ablibrary.services.storage_service.DeleteByPathRequest
- */
-export declare class DeleteByPathRequest extends Message<DeleteByPathRequest> {
-  /**
-   * @generated from field: repeated string paths = 1;
-   */
-  paths: string[];
-
-  constructor(data?: PartialMessage<DeleteByPathRequest>);
-
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.storage_service.DeleteByPathRequest";
-  static readonly fields: FieldList;
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteByPathRequest;
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteByPathRequest;
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteByPathRequest;
-
-  static equals(a: DeleteByPathRequest | PlainMessage<DeleteByPathRequest> | undefined, b: DeleteByPathRequest | PlainMessage<DeleteByPathRequest> | undefined): boolean;
-}
-
-/**
- * @generated from message ablibrary.services.storage_service.DeleteByPathResponse
- */
-export declare class DeleteByPathResponse extends Message<DeleteByPathResponse> {
-  constructor(data?: PartialMessage<DeleteByPathResponse>);
-
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.storage_service.DeleteByPathResponse";
-  static readonly fields: FieldList;
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteByPathResponse;
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteByPathResponse;
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteByPathResponse;
-
-  static equals(a: DeleteByPathResponse | PlainMessage<DeleteByPathResponse> | undefined, b: DeleteByPathResponse | PlainMessage<DeleteByPathResponse> | undefined): boolean;
-}
-
-/**
  * @generated from message ablibrary.services.storage_service.ClearTempRequest
  */
 export declare class ClearTempRequest extends Message<ClearTempRequest> {
@@ -405,9 +362,9 @@ export declare class Status extends Message<Status> {
   books?: Status_Books;
 
   /**
-   * @generated from field: int64 temp_bytes_total = 3;
+   * @generated from field: ablibrary.services.storage_service.Status.Temp temp = 3;
    */
-  tempBytesTotal: bigint;
+  temp?: Status_Temp;
 
   /**
    * @generated from field: int64 bytes_total = 4;
@@ -427,40 +384,6 @@ export declare class Status extends Message<Status> {
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status;
 
   static equals(a: Status | PlainMessage<Status> | undefined, b: Status | PlainMessage<Status> | undefined): boolean;
-}
-
-/**
- * @generated from message ablibrary.services.storage_service.Status.DirInfo
- */
-export declare class Status_DirInfo extends Message<Status_DirInfo> {
-  /**
-   * @generated from field: string path = 1;
-   */
-  path: string;
-
-  /**
-   * @generated from field: int32 count = 2;
-   */
-  count: number;
-
-  /**
-   * @generated from field: int64 bytes_total = 3;
-   */
-  bytesTotal: bigint;
-
-  constructor(data?: PartialMessage<Status_DirInfo>);
-
-  static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.storage_service.Status.DirInfo";
-  static readonly fields: FieldList;
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_DirInfo;
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_DirInfo;
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_DirInfo;
-
-  static equals(a: Status_DirInfo | PlainMessage<Status_DirInfo> | undefined, b: Status_DirInfo | PlainMessage<Status_DirInfo> | undefined): boolean;
 }
 
 /**
@@ -512,9 +435,9 @@ export declare class Status_Books extends Message<Status_Books> {
   bytesTotal: bigint;
 
   /**
-   * @generated from field: map<string, ablibrary.services.storage_service.Status.Books.Item> items = 3;
+   * @generated from field: map<string, ablibrary.services.storage_service.Status.Book> items = 3;
    */
-  items: { [key: string]: Status_Books_Item };
+  items: { [key: string]: Status_Book };
 
   constructor(data?: PartialMessage<Status_Books>);
 
@@ -532,42 +455,56 @@ export declare class Status_Books extends Message<Status_Books> {
 }
 
 /**
- * @generated from message ablibrary.services.storage_service.Status.Books.Item
+ * @generated from message ablibrary.services.storage_service.Status.Book
  */
-export declare class Status_Books_Item extends Message<Status_Books_Item> {
+export declare class Status_Book extends Message<Status_Book> {
   /**
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
-   * @generated from field: string path = 2;
-   */
-  path: string;
-
-  /**
-   * @generated from field: optional string hash = 3;
-   */
-  hash?: string;
-
-  /**
-   * @generated from field: int64 size_bytes = 4;
+   * @generated from field: int64 size_bytes = 3;
    */
   sizeBytes: bigint;
 
-  constructor(data?: PartialMessage<Status_Books_Item>);
+  constructor(data?: PartialMessage<Status_Book>);
 
   static readonly runtime: typeof proto3;
-  static readonly typeName = "ablibrary.services.storage_service.Status.Books.Item";
+  static readonly typeName = "ablibrary.services.storage_service.Status.Book";
   static readonly fields: FieldList;
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Books_Item;
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Book;
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_Books_Item;
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_Book;
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_Books_Item;
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_Book;
 
-  static equals(a: Status_Books_Item | PlainMessage<Status_Books_Item> | undefined, b: Status_Books_Item | PlainMessage<Status_Books_Item> | undefined): boolean;
+  static equals(a: Status_Book | PlainMessage<Status_Book> | undefined, b: Status_Book | PlainMessage<Status_Book> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.storage_service.Status.Temp
+ */
+export declare class Status_Temp extends Message<Status_Temp> {
+  /**
+   * @generated from field: int64 bytes_total = 1;
+   */
+  bytesTotal: bigint;
+
+  constructor(data?: PartialMessage<Status_Temp>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.storage_service.Status.Temp";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Temp;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_Temp;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_Temp;
+
+  static equals(a: Status_Temp | PlainMessage<Status_Temp> | undefined, b: Status_Temp | PlainMessage<Status_Temp> | undefined): boolean;
 }
 
 /**
@@ -575,19 +512,29 @@ export declare class Status_Books_Item extends Message<Status_Books_Item> {
  */
 export declare class Settings extends Message<Settings> {
   /**
-   * @generated from field: string storage_path = 1;
+   * @generated from field: string root_path = 1;
    */
-  storagePath: string;
+  rootPath: string;
 
   /**
-   * @generated from field: int32 auto_delete_temp_after_days = 2;
+   * @generated from field: int32 temp_auto_delete_days = 2;
    */
-  autoDeleteTempAfterDays: number;
+  tempAutoDeleteDays: number;
 
   /**
-   * @generated from field: int64 storage_size_warning_threshold = 3;
+   * @generated from field: int64 total_size_bytes_warning_threshold = 3;
    */
-  storageSizeWarningThreshold: bigint;
+  totalSizeBytesWarningThreshold: bigint;
+
+  /**
+   * @generated from field: int64 minimum_free_space_bytes = 4;
+   */
+  minimumFreeSpaceBytes: bigint;
+
+  /**
+   * @generated from field: float minimum_free_space_percent = 5;
+   */
+  minimumFreeSpacePercent: number;
 
   constructor(data?: PartialMessage<Settings>);
 
@@ -625,9 +572,9 @@ export declare class FileTree extends Message<FileTree> {
   /**
    * The kind of the file or directory.
    *
-   * @generated from field: ablibrary.services.storage_service.FileTree.Kind kind = 3;
+   * @generated from field: ablibrary.services.storage_service.FileTree.EntryKind kind = 3;
    */
-  kind: FileTree_Kind;
+  kind: FileTree_EntryKind;
 
   /**
    * @generated from field: int64 size_bytes = 4;
@@ -635,22 +582,27 @@ export declare class FileTree extends Message<FileTree> {
   sizeBytes: bigint;
 
   /**
-   * @generated from field: ablibrary.types.Timestamp created_at = 5;
+   * @generated from field: int64 child_count = 5;
+   */
+  childCount: bigint;
+
+  /**
+   * @generated from field: optional ablibrary.types.Timestamp created_at = 6;
    */
   createdAt?: Timestamp;
 
   /**
-   * @generated from field: ablibrary.types.Timestamp modified_at = 6;
+   * @generated from field: optional ablibrary.types.Timestamp modified_at = 7;
    */
   modifiedAt?: Timestamp;
 
   /**
-   * @generated from field: ablibrary.types.Timestamp last_accessed_at = 7;
+   * @generated from field: optional ablibrary.types.Timestamp last_accessed_at = 8;
    */
   lastAccessedAt?: Timestamp;
 
   /**
-   * @generated from field: repeated ablibrary.services.storage_service.FileTree children = 8;
+   * @generated from field: repeated ablibrary.services.storage_service.FileTree children = 9;
    */
   children: FileTree[];
 
@@ -670,26 +622,26 @@ export declare class FileTree extends Message<FileTree> {
 }
 
 /**
- * @generated from enum ablibrary.services.storage_service.FileTree.Kind
+ * @generated from enum ablibrary.services.storage_service.FileTree.EntryKind
  */
-export declare enum FileTree_Kind {
+export declare enum FileTree_EntryKind {
   /**
-   * @generated from enum value: KIND_UNSPECIFIED = 0;
+   * @generated from enum value: ENTRY_KIND_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: KIND_FILE = 1;
+   * @generated from enum value: ENTRY_KIND_FILE = 1;
    */
   FILE = 1,
 
   /**
-   * @generated from enum value: KIND_DIRECTORY = 2;
+   * @generated from enum value: ENTRY_KIND_DIRECTORY = 2;
    */
   DIRECTORY = 2,
 
   /**
-   * @generated from enum value: KIND_SYMLINK = 3;
+   * @generated from enum value: ENTRY_KIND_SYMLINK = 3;
    */
   SYMLINK = 3,
 }

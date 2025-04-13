@@ -579,3 +579,142 @@ export declare class UpdateAvatarResponse extends Message<UpdateAvatarResponse> 
   static equals(a: UpdateAvatarResponse | PlainMessage<UpdateAvatarResponse> | undefined, b: UpdateAvatarResponse | PlainMessage<UpdateAvatarResponse> | undefined): boolean;
 }
 
+/**
+ * @generated from message ablibrary.services.user_service.ChangeEmailRequest
+ */
+export declare class ChangeEmailRequest extends Message<ChangeEmailRequest> {
+  /**
+   * @generated from field: string email = 1;
+   */
+  email: string;
+
+  /**
+   * @generated from field: string password = 2;
+   */
+  password: string;
+
+  constructor(data?: PartialMessage<ChangeEmailRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.user_service.ChangeEmailRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChangeEmailRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ChangeEmailRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ChangeEmailRequest;
+
+  static equals(a: ChangeEmailRequest | PlainMessage<ChangeEmailRequest> | undefined, b: ChangeEmailRequest | PlainMessage<ChangeEmailRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.ChangeEmailResponse
+ */
+export declare class ChangeEmailResponse extends Message<ChangeEmailResponse> {
+  constructor(data?: PartialMessage<ChangeEmailResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.user_service.ChangeEmailResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChangeEmailResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ChangeEmailResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ChangeEmailResponse;
+
+  static equals(a: ChangeEmailResponse | PlainMessage<ChangeEmailResponse> | undefined, b: ChangeEmailResponse | PlainMessage<ChangeEmailResponse> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.UpdateEmailRequest
+ */
+export declare class UpdateEmailRequest extends Message<UpdateEmailRequest> {
+  /**
+   * @generated from field: string email = 1;
+   */
+  email: string;
+
+  /**
+   * @generated from field: string verification_code = 2;
+   */
+  verificationCode: string;
+
+  constructor(data?: PartialMessage<UpdateEmailRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.user_service.UpdateEmailRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateEmailRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateEmailRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateEmailRequest;
+
+  static equals(a: UpdateEmailRequest | PlainMessage<UpdateEmailRequest> | undefined, b: UpdateEmailRequest | PlainMessage<UpdateEmailRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.UpdateEmailResponse
+ */
+export declare class UpdateEmailResponse extends Message<UpdateEmailResponse> {
+  /**
+   * @generated from field: ablibrary.types.User user = 1;
+   */
+  user?: User;
+
+  constructor(data?: PartialMessage<UpdateEmailResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.user_service.UpdateEmailResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateEmailResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateEmailResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateEmailResponse;
+
+  static equals(a: UpdateEmailResponse | PlainMessage<UpdateEmailResponse> | undefined, b: UpdateEmailResponse | PlainMessage<UpdateEmailResponse> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.DeleteAccountRequest
+ */
+export declare class DeleteAccountRequest extends Message<DeleteAccountRequest> {
+  constructor(data?: PartialMessage<DeleteAccountRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.user_service.DeleteAccountRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteAccountRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteAccountRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteAccountRequest;
+
+  static equals(a: DeleteAccountRequest | PlainMessage<DeleteAccountRequest> | undefined, b: DeleteAccountRequest | PlainMessage<DeleteAccountRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.DeleteAccountResponse
+ */
+export declare class DeleteAccountResponse extends Message<DeleteAccountResponse> {
+  constructor(data?: PartialMessage<DeleteAccountResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.user_service.DeleteAccountResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteAccountResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteAccountResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteAccountResponse;
+
+  static equals(a: DeleteAccountResponse | PlainMessage<DeleteAccountResponse> | undefined, b: DeleteAccountResponse | PlainMessage<DeleteAccountResponse> | undefined): boolean;
+}
+

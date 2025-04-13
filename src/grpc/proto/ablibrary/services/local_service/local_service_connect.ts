@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { AddStorageLocationRequest, AddStorageLocationResponse, CheckUpdatesRequest, CheckUpdatesResponse, EventBusRequest, EventBusResponse, GetInfoRequest, GetInfoResponse, ListStorageLocationsRequest, ListStorageLocationsResponse, ReloadRequest, ReloadResponse, RemoveStorageLocationRequest, RemoveStorageLocationResponse, ShutdownRequest, ShutdownResponse, SyncRequest, SyncResponse, UpdateStorageLocationRequest, UpdateStorageLocationResponse } from "./local_service_pb";
+import { CheckUpdatesRequest, CheckUpdatesResponse, EventBusRequest, EventBusResponse, GetInfoRequest, GetInfoResponse, ReloadRequest, ReloadResponse, ShutdownRequest, ShutdownResponse, SyncRequest, SyncResponse } from "./local_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -29,42 +29,6 @@ export const LocalService = {
       I: EventBusRequest,
       O: EventBusResponse,
       kind: MethodKind.ServerStreaming,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.ListStorageLocations
-     */
-    listStorageLocations: {
-      name: "ListStorageLocations",
-      I: ListStorageLocationsRequest,
-      O: ListStorageLocationsResponse,
-      kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.AddStorageLocation
-     */
-    addStorageLocation: {
-      name: "AddStorageLocation",
-      I: AddStorageLocationRequest,
-      O: AddStorageLocationResponse,
-      kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.RemoveStorageLocation
-     */
-    removeStorageLocation: {
-      name: "RemoveStorageLocation",
-      I: RemoveStorageLocationRequest,
-      O: RemoveStorageLocationResponse,
-      kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.local_service.LocalService.UpdateStorageLocation
-     */
-    updateStorageLocation: {
-      name: "UpdateStorageLocation",
-      I: UpdateStorageLocationRequest,
-      O: UpdateStorageLocationResponse,
-      kind: MethodKind.Unary,
     },
     /**
      * @generated from rpc ablibrary.services.local_service.LocalService.CheckUpdates

@@ -69,3 +69,26 @@
     @apply !text-default-900;
   }
 }
+
+/* ckeditor */
+.ckeditor-output p,
+.ckeditor-output h1,
+.ckeditor-output h2,
+.ckeditor-output h3,
+.ckeditor-output ul,
+.ckeditor-output ol,
+.ckeditor-output li,
+.ckeditor-output blockquote,
+.ckeditor-output strong,
+.ckeditor-output em {
+  all: revert;
+  display: revert;
+}
+
+/* می‌تونی فونت و سایز رو هم سفارشی بدی */
+.ckeditor-output {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  color: #111;
+  line-height: 1.6;
+}

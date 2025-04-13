@@ -287,74 +287,6 @@ export class DeleteAllBooksResponse extends Message<DeleteAllBooksResponse> {
 }
 
 /**
- * @generated from message ablibrary.services.storage_service.DeleteByPathRequest
- */
-export class DeleteByPathRequest extends Message<DeleteByPathRequest> {
-  /**
-   * @generated from field: repeated string paths = 1;
-   */
-  paths: string[] = [];
-
-  constructor(data?: PartialMessage<DeleteByPathRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "ablibrary.services.storage_service.DeleteByPathRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "paths", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteByPathRequest {
-    return new DeleteByPathRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteByPathRequest {
-    return new DeleteByPathRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteByPathRequest {
-    return new DeleteByPathRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: DeleteByPathRequest | PlainMessage<DeleteByPathRequest> | undefined, b: DeleteByPathRequest | PlainMessage<DeleteByPathRequest> | undefined): boolean {
-    return proto3.util.equals(DeleteByPathRequest, a, b);
-  }
-}
-
-/**
- * @generated from message ablibrary.services.storage_service.DeleteByPathResponse
- */
-export class DeleteByPathResponse extends Message<DeleteByPathResponse> {
-  constructor(data?: PartialMessage<DeleteByPathResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "ablibrary.services.storage_service.DeleteByPathResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteByPathResponse {
-    return new DeleteByPathResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteByPathResponse {
-    return new DeleteByPathResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteByPathResponse {
-    return new DeleteByPathResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: DeleteByPathResponse | PlainMessage<DeleteByPathResponse> | undefined, b: DeleteByPathResponse | PlainMessage<DeleteByPathResponse> | undefined): boolean {
-    return proto3.util.equals(DeleteByPathResponse, a, b);
-  }
-}
-
-/**
  * @generated from message ablibrary.services.storage_service.ClearTempRequest
  */
 export class ClearTempRequest extends Message<ClearTempRequest> {
@@ -629,9 +561,9 @@ export class Status extends Message<Status> {
   books?: Status_Books;
 
   /**
-   * @generated from field: int64 temp_bytes_total = 3;
+   * @generated from field: ablibrary.services.storage_service.Status.Temp temp = 3;
    */
-  tempBytesTotal = protoInt64.zero;
+  temp?: Status_Temp;
 
   /**
    * @generated from field: int64 bytes_total = 4;
@@ -648,7 +580,7 @@ export class Status extends Message<Status> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "location", kind: "message", T: Status_Location },
     { no: 2, name: "books", kind: "message", T: Status_Books },
-    { no: 3, name: "temp_bytes_total", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "temp", kind: "message", T: Status_Temp },
     { no: 4, name: "bytes_total", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
@@ -666,55 +598,6 @@ export class Status extends Message<Status> {
 
   static equals(a: Status | PlainMessage<Status> | undefined, b: Status | PlainMessage<Status> | undefined): boolean {
     return proto3.util.equals(Status, a, b);
-  }
-}
-
-/**
- * @generated from message ablibrary.services.storage_service.Status.DirInfo
- */
-export class Status_DirInfo extends Message<Status_DirInfo> {
-  /**
-   * @generated from field: string path = 1;
-   */
-  path = "";
-
-  /**
-   * @generated from field: int32 count = 2;
-   */
-  count = 0;
-
-  /**
-   * @generated from field: int64 bytes_total = 3;
-   */
-  bytesTotal = protoInt64.zero;
-
-  constructor(data?: PartialMessage<Status_DirInfo>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "ablibrary.services.storage_service.Status.DirInfo";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "count", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 3, name: "bytes_total", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_DirInfo {
-    return new Status_DirInfo().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_DirInfo {
-    return new Status_DirInfo().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_DirInfo {
-    return new Status_DirInfo().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: Status_DirInfo | PlainMessage<Status_DirInfo> | undefined, b: Status_DirInfo | PlainMessage<Status_DirInfo> | undefined): boolean {
-    return proto3.util.equals(Status_DirInfo, a, b);
   }
 }
 
@@ -782,9 +665,9 @@ export class Status_Books extends Message<Status_Books> {
   bytesTotal = protoInt64.zero;
 
   /**
-   * @generated from field: map<string, ablibrary.services.storage_service.Status.Books.Item> items = 3;
+   * @generated from field: map<string, ablibrary.services.storage_service.Status.Book> items = 3;
    */
-  items: { [key: string]: Status_Books_Item } = {};
+  items: { [key: string]: Status_Book } = {};
 
   constructor(data?: PartialMessage<Status_Books>) {
     super();
@@ -796,7 +679,7 @@ export class Status_Books extends Message<Status_Books> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "count", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
     { no: 2, name: "bytes_total", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 3, name: "items", kind: "map", K: 9 /* ScalarType.STRING */, V: {kind: "message", T: Status_Books_Item} },
+    { no: 3, name: "items", kind: "map", K: 9 /* ScalarType.STRING */, V: {kind: "message", T: Status_Book} },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Books {
@@ -817,57 +700,82 @@ export class Status_Books extends Message<Status_Books> {
 }
 
 /**
- * @generated from message ablibrary.services.storage_service.Status.Books.Item
+ * @generated from message ablibrary.services.storage_service.Status.Book
  */
-export class Status_Books_Item extends Message<Status_Books_Item> {
+export class Status_Book extends Message<Status_Book> {
   /**
    * @generated from field: string id = 1;
    */
   id = "";
 
   /**
-   * @generated from field: string path = 2;
-   */
-  path = "";
-
-  /**
-   * @generated from field: optional string hash = 3;
-   */
-  hash?: string;
-
-  /**
-   * @generated from field: int64 size_bytes = 4;
+   * @generated from field: int64 size_bytes = 3;
    */
   sizeBytes = protoInt64.zero;
 
-  constructor(data?: PartialMessage<Status_Books_Item>) {
+  constructor(data?: PartialMessage<Status_Book>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "ablibrary.services.storage_service.Status.Books.Item";
+  static readonly typeName = "ablibrary.services.storage_service.Status.Book";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "hash", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
-    { no: 4, name: "size_bytes", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "size_bytes", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Books_Item {
-    return new Status_Books_Item().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Book {
+    return new Status_Book().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_Books_Item {
-    return new Status_Books_Item().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_Book {
+    return new Status_Book().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_Books_Item {
-    return new Status_Books_Item().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_Book {
+    return new Status_Book().fromJsonString(jsonString, options);
   }
 
-  static equals(a: Status_Books_Item | PlainMessage<Status_Books_Item> | undefined, b: Status_Books_Item | PlainMessage<Status_Books_Item> | undefined): boolean {
-    return proto3.util.equals(Status_Books_Item, a, b);
+  static equals(a: Status_Book | PlainMessage<Status_Book> | undefined, b: Status_Book | PlainMessage<Status_Book> | undefined): boolean {
+    return proto3.util.equals(Status_Book, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.storage_service.Status.Temp
+ */
+export class Status_Temp extends Message<Status_Temp> {
+  /**
+   * @generated from field: int64 bytes_total = 1;
+   */
+  bytesTotal = protoInt64.zero;
+
+  constructor(data?: PartialMessage<Status_Temp>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.storage_service.Status.Temp";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "bytes_total", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Status_Temp {
+    return new Status_Temp().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Status_Temp {
+    return new Status_Temp().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Status_Temp {
+    return new Status_Temp().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: Status_Temp | PlainMessage<Status_Temp> | undefined, b: Status_Temp | PlainMessage<Status_Temp> | undefined): boolean {
+    return proto3.util.equals(Status_Temp, a, b);
   }
 }
 
@@ -876,19 +784,29 @@ export class Status_Books_Item extends Message<Status_Books_Item> {
  */
 export class Settings extends Message<Settings> {
   /**
-   * @generated from field: string storage_path = 1;
+   * @generated from field: string root_path = 1;
    */
-  storagePath = "";
+  rootPath = "";
 
   /**
-   * @generated from field: int32 auto_delete_temp_after_days = 2;
+   * @generated from field: int32 temp_auto_delete_days = 2;
    */
-  autoDeleteTempAfterDays = 0;
+  tempAutoDeleteDays = 0;
 
   /**
-   * @generated from field: int64 storage_size_warning_threshold = 3;
+   * @generated from field: int64 total_size_bytes_warning_threshold = 3;
    */
-  storageSizeWarningThreshold = protoInt64.zero;
+  totalSizeBytesWarningThreshold = protoInt64.zero;
+
+  /**
+   * @generated from field: int64 minimum_free_space_bytes = 4;
+   */
+  minimumFreeSpaceBytes = protoInt64.zero;
+
+  /**
+   * @generated from field: float minimum_free_space_percent = 5;
+   */
+  minimumFreeSpacePercent = 0;
 
   constructor(data?: PartialMessage<Settings>) {
     super();
@@ -898,9 +816,11 @@ export class Settings extends Message<Settings> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "ablibrary.services.storage_service.Settings";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "storage_path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "auto_delete_temp_after_days", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 3, name: "storage_size_warning_threshold", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "root_path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "temp_auto_delete_days", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
+    { no: 3, name: "total_size_bytes_warning_threshold", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 4, name: "minimum_free_space_bytes", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 5, name: "minimum_free_space_percent", kind: "scalar", T: 2 /* ScalarType.FLOAT */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Settings {
@@ -941,9 +861,9 @@ export class FileTree extends Message<FileTree> {
   /**
    * The kind of the file or directory.
    *
-   * @generated from field: ablibrary.services.storage_service.FileTree.Kind kind = 3;
+   * @generated from field: ablibrary.services.storage_service.FileTree.EntryKind kind = 3;
    */
-  kind = FileTree_Kind.UNSPECIFIED;
+  kind = FileTree_EntryKind.UNSPECIFIED;
 
   /**
    * @generated from field: int64 size_bytes = 4;
@@ -951,22 +871,27 @@ export class FileTree extends Message<FileTree> {
   sizeBytes = protoInt64.zero;
 
   /**
-   * @generated from field: ablibrary.types.Timestamp created_at = 5;
+   * @generated from field: int64 child_count = 5;
+   */
+  childCount = protoInt64.zero;
+
+  /**
+   * @generated from field: optional ablibrary.types.Timestamp created_at = 6;
    */
   createdAt?: Timestamp;
 
   /**
-   * @generated from field: ablibrary.types.Timestamp modified_at = 6;
+   * @generated from field: optional ablibrary.types.Timestamp modified_at = 7;
    */
   modifiedAt?: Timestamp;
 
   /**
-   * @generated from field: ablibrary.types.Timestamp last_accessed_at = 7;
+   * @generated from field: optional ablibrary.types.Timestamp last_accessed_at = 8;
    */
   lastAccessedAt?: Timestamp;
 
   /**
-   * @generated from field: repeated ablibrary.services.storage_service.FileTree children = 8;
+   * @generated from field: repeated ablibrary.services.storage_service.FileTree children = 9;
    */
   children: FileTree[] = [];
 
@@ -980,12 +905,13 @@ export class FileTree extends Message<FileTree> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "kind", kind: "enum", T: proto3.getEnumType(FileTree_Kind) },
+    { no: 3, name: "kind", kind: "enum", T: proto3.getEnumType(FileTree_EntryKind) },
     { no: 4, name: "size_bytes", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 5, name: "created_at", kind: "message", T: Timestamp },
-    { no: 6, name: "modified_at", kind: "message", T: Timestamp },
-    { no: 7, name: "last_accessed_at", kind: "message", T: Timestamp },
-    { no: 8, name: "children", kind: "message", T: FileTree, repeated: true },
+    { no: 5, name: "child_count", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 6, name: "created_at", kind: "message", T: Timestamp, opt: true },
+    { no: 7, name: "modified_at", kind: "message", T: Timestamp, opt: true },
+    { no: 8, name: "last_accessed_at", kind: "message", T: Timestamp, opt: true },
+    { no: 9, name: "children", kind: "message", T: FileTree, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FileTree {
@@ -1006,34 +932,34 @@ export class FileTree extends Message<FileTree> {
 }
 
 /**
- * @generated from enum ablibrary.services.storage_service.FileTree.Kind
+ * @generated from enum ablibrary.services.storage_service.FileTree.EntryKind
  */
-export enum FileTree_Kind {
+export enum FileTree_EntryKind {
   /**
-   * @generated from enum value: KIND_UNSPECIFIED = 0;
+   * @generated from enum value: ENTRY_KIND_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: KIND_FILE = 1;
+   * @generated from enum value: ENTRY_KIND_FILE = 1;
    */
   FILE = 1,
 
   /**
-   * @generated from enum value: KIND_DIRECTORY = 2;
+   * @generated from enum value: ENTRY_KIND_DIRECTORY = 2;
    */
   DIRECTORY = 2,
 
   /**
-   * @generated from enum value: KIND_SYMLINK = 3;
+   * @generated from enum value: ENTRY_KIND_SYMLINK = 3;
    */
   SYMLINK = 3,
 }
-// Retrieve enum metadata with: proto3.getEnumType(FileTree_Kind)
-proto3.util.setEnumType(FileTree_Kind, "ablibrary.services.storage_service.FileTree.Kind", [
-  { no: 0, name: "KIND_UNSPECIFIED" },
-  { no: 1, name: "KIND_FILE" },
-  { no: 2, name: "KIND_DIRECTORY" },
-  { no: 3, name: "KIND_SYMLINK" },
+// Retrieve enum metadata with: proto3.getEnumType(FileTree_EntryKind)
+proto3.util.setEnumType(FileTree_EntryKind, "ablibrary.services.storage_service.FileTree.EntryKind", [
+  { no: 0, name: "ENTRY_KIND_UNSPECIFIED" },
+  { no: 1, name: "ENTRY_KIND_FILE" },
+  { no: 2, name: "ENTRY_KIND_DIRECTORY" },
+  { no: 3, name: "ENTRY_KIND_SYMLINK" },
 ]);
 

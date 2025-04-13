@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { BooksListSearchHistoryRequest, BooksListSearchHistoryResponse, ClearHistoryRequest, ClearHistoryResponse, DeleteHistoryRecordRequest, DeleteHistoryRecordResponse, FindInBookHistoryRequest, FindInBookHistoryResponse, GetSettingsRequest, GetSettingsResponse, SearchHistoryRequest, SearchHistoryResponse, SetSettingsRequest, SetSettingsResponse, SuggestRequest, SuggestResponse } from "./search_service_pb";
+import { ClearHistoryRequest, ClearHistoryResponse, DeleteHistoryRequest, DeleteHistoryResponse, GetSettingsRequest, GetSettingsResponse, HistoryRequest, HistoryResponse, SearchInBookRequest, SearchInBookResponse, SearchRequest, SearchResponse, SetSettingsRequest, SetSettingsResponse, SuggestRequest, SuggestResponse } from "./search_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -12,6 +12,24 @@ import { MethodKind } from "@bufbuild/protobuf";
 export declare const SearchService: {
   readonly typeName: "ablibrary.services.search_service.SearchService",
   readonly methods: {
+    /**
+     * @generated from rpc ablibrary.services.search_service.SearchService.Search
+     */
+    readonly search: {
+      readonly name: "Search",
+      readonly I: typeof SearchRequest,
+      readonly O: typeof SearchResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.search_service.SearchService.SearchInBook
+     */
+    readonly searchInBook: {
+      readonly name: "SearchInBook",
+      readonly I: typeof SearchInBookRequest,
+      readonly O: typeof SearchInBookResponse,
+      readonly kind: MethodKind.Unary,
+    },
     /**
      * @generated from rpc ablibrary.services.search_service.SearchService.Suggest
      */
@@ -22,39 +40,21 @@ export declare const SearchService: {
       readonly kind: MethodKind.BiDiStreaming,
     },
     /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.BooksListSearchHistory
+     * @generated from rpc ablibrary.services.search_service.SearchService.History
      */
-    readonly booksListSearchHistory: {
-      readonly name: "BooksListSearchHistory",
-      readonly I: typeof BooksListSearchHistoryRequest,
-      readonly O: typeof BooksListSearchHistoryResponse,
+    readonly history: {
+      readonly name: "History",
+      readonly I: typeof HistoryRequest,
+      readonly O: typeof HistoryResponse,
       readonly kind: MethodKind.Unary,
     },
     /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.SearchHistory
+     * @generated from rpc ablibrary.services.search_service.SearchService.DeleteHistory
      */
-    readonly searchHistory: {
-      readonly name: "SearchHistory",
-      readonly I: typeof SearchHistoryRequest,
-      readonly O: typeof SearchHistoryResponse,
-      readonly kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.FindInBookHistory
-     */
-    readonly findInBookHistory: {
-      readonly name: "FindInBookHistory",
-      readonly I: typeof FindInBookHistoryRequest,
-      readonly O: typeof FindInBookHistoryResponse,
-      readonly kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.DeleteHistoryRecord
-     */
-    readonly deleteHistoryRecord: {
-      readonly name: "DeleteHistoryRecord",
-      readonly I: typeof DeleteHistoryRecordRequest,
-      readonly O: typeof DeleteHistoryRecordResponse,
+    readonly deleteHistory: {
+      readonly name: "DeleteHistory",
+      readonly I: typeof DeleteHistoryRequest,
+      readonly O: typeof DeleteHistoryResponse,
       readonly kind: MethodKind.Unary,
     },
     /**

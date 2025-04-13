@@ -78,7 +78,7 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
               {book.categories?.map((category) => (
                 <Chip
                   key={category.id}
-                  className="text-white font-medium"
+                  className="font-medium"
                   size={isMd ? "lg" : "md"}
                 >
                   {category.name}

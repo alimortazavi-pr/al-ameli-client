@@ -25,13 +25,13 @@ export const ArticleCategoriesAndTags: FC<IProps> = ({ article }) => {
   return (
     isClient && (
       <div className="flex flex-wrap items-center gap-1.5">
-        <Chip className="text-white font-medium" size={isLg ? "lg" : "md"}>
+        <Chip className="font-medium" size={isLg ? "lg" : "md"}>
           {article?.category.name}
         </Chip>
         {article?.tags?.map((tag) => (
           <Chip
             key={tag.tag._id}
-            className="text-white font-medium"
+            className="font-medium"
             size={isLg ? "lg" : "md"}
           >
             {tag.tag.name}

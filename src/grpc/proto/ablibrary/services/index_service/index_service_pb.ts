@@ -11,31 +11,43 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
  */
 export enum DaemonState {
   /**
+   * Unspecified state.
+   *
    * @generated from enum value: DAEMON_STATE_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
+   * The daemon is idle and all the books are indexed.
+   *
    * @generated from enum value: DAEMON_STATE_IDLE = 1;
    */
   IDLE = 1,
 
   /**
+   * The daemon is checking the books.
+   *
    * @generated from enum value: DAEMON_STATE_CHECKING = 2;
    */
   CHECKING = 2,
 
   /**
+   * The daemon is busy indexing the books.
+   *
    * @generated from enum value: DAEMON_STATE_INDEXING = 3;
    */
   INDEXING = 3,
 
   /**
+   * The daemon is stopped.
+   *
    * @generated from enum value: DAEMON_STATE_STOPPED = 4;
    */
   STOPPED = 4,
 
   /**
+   * The daemon is in error state.
+   *
    * @generated from enum value: DAEMON_STATE_ERROR = 5;
    */
   ERROR = 5,
@@ -522,6 +534,8 @@ export class Status extends Message<Status> {
   indexedBooksCount = 0;
 
   /**
+   * In bytes
+   *
    * @generated from field: int64 index_size = 4;
    */
   indexSize = protoInt64.zero;
@@ -567,35 +581,16 @@ export class Settings extends Message<Settings> {
   enabled = false;
 
   /**
-   * Path to the index directory, must be writable
-   *
-   * @generated from field: string index_path = 2;
-   */
-  indexPath = "";
-
-  /**
-   * @generated from field: ablibrary.services.index_service.Settings.Strategy strategy = 3;
-   */
-  strategy = Settings_Strategy.UNSPECIFIED;
-
-  /**
-   * Interval in seconds, used when strategy is AT_INTERVAL
-   *
-   * @generated from field: int32 index_interval = 4;
-   */
-  indexInterval = 0;
-
-  /**
    * Min value: 1, Max value: 10000
    *
-   * @generated from field: int32 batch_size = 5;
+   * @generated from field: int32 batch_size = 2;
    */
   batchSize = 0;
 
   /**
    * Min value: 1
    *
-   * @generated from field: int32 max_concurrent_workers = 6;
+   * @generated from field: int32 max_concurrent_workers = 3;
    */
   maxConcurrentWorkers = 0;
 
@@ -608,11 +603,8 @@ export class Settings extends Message<Settings> {
   static readonly typeName = "ablibrary.services.index_service.Settings";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 2, name: "index_path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "strategy", kind: "enum", T: proto3.getEnumType(Settings_Strategy) },
-    { no: 4, name: "index_interval", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 5, name: "batch_size", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 6, name: "max_concurrent_workers", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
+    { no: 2, name: "batch_size", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
+    { no: 3, name: "max_concurrent_workers", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Settings {
@@ -631,42 +623,4 @@ export class Settings extends Message<Settings> {
     return proto3.util.equals(Settings, a, b);
   }
 }
-
-/**
- * @generated from enum ablibrary.services.index_service.Settings.Strategy
- */
-export enum Settings_Strategy {
-  /**
-   * @generated from enum value: STRATEGY_UNSPECIFIED = 0;
-   */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: STRATEGY_AFTER_DOWNLOAD = 1;
-   */
-  AFTER_DOWNLOAD = 1,
-
-  /**
-   * @generated from enum value: STRATEGY_ON_STARTUP = 2;
-   */
-  ON_STARTUP = 2,
-
-  /**
-   * @generated from enum value: STRATEGY_AT_INTERVAL = 3;
-   */
-  AT_INTERVAL = 3,
-
-  /**
-   * @generated from enum value: STRATEGY_MANUAL = 4;
-   */
-  MANUAL = 4,
-}
-// Retrieve enum metadata with: proto3.getEnumType(Settings_Strategy)
-proto3.util.setEnumType(Settings_Strategy, "ablibrary.services.index_service.Settings.Strategy", [
-  { no: 0, name: "STRATEGY_UNSPECIFIED" },
-  { no: 1, name: "STRATEGY_AFTER_DOWNLOAD" },
-  { no: 2, name: "STRATEGY_ON_STARTUP" },
-  { no: 3, name: "STRATEGY_AT_INTERVAL" },
-  { no: 4, name: "STRATEGY_MANUAL" },
-]);
 

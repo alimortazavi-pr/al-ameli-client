@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ChangeLanguageRequest, ChangeLanguageResponse, ChangePasswordRequest, ChangePasswordResponse, ForgotPasswordRequest, ForgotPasswordResponse, LoginRequest, LoginResponse, LogoutRequest, LogoutResponse, ProfileRequest, ProfileResponse, RegisterRequest, RegisterResponse, ResetPasswordRequest, ResetPasswordResponse, UpdateAvatarRequest, UpdateAvatarResponse, UpdateProfileRequest, UpdateProfileResponse, VerifyEmailRequest, VerifyEmailResponse } from "./user_service_pb";
+import { ChangeEmailRequest, ChangeEmailResponse, ChangeLanguageRequest, ChangeLanguageResponse, ChangePasswordRequest, ChangePasswordResponse, DeleteAccountRequest, DeleteAccountResponse, ForgotPasswordRequest, ForgotPasswordResponse, LoginRequest, LoginResponse, LogoutRequest, LogoutResponse, ProfileRequest, ProfileResponse, RegisterRequest, RegisterResponse, ResetPasswordRequest, ResetPasswordResponse, UpdateAvatarRequest, UpdateAvatarResponse, UpdateEmailRequest, UpdateEmailResponse, UpdateProfileRequest, UpdateProfileResponse, VerifyEmailRequest, VerifyEmailResponse } from "./user_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -109,6 +109,33 @@ export declare const UserService: {
       readonly name: "ChangeLanguage",
       readonly I: typeof ChangeLanguageRequest,
       readonly O: typeof ChangeLanguageResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.user_service.UserService.ChangeEmail
+     */
+    readonly changeEmail: {
+      readonly name: "ChangeEmail",
+      readonly I: typeof ChangeEmailRequest,
+      readonly O: typeof ChangeEmailResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.user_service.UserService.UpdateEmail
+     */
+    readonly updateEmail: {
+      readonly name: "UpdateEmail",
+      readonly I: typeof UpdateEmailRequest,
+      readonly O: typeof UpdateEmailResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.user_service.UserService.DeleteAccount
+     */
+    readonly deleteAccount: {
+      readonly name: "DeleteAccount",
+      readonly I: typeof DeleteAccountRequest,
+      readonly O: typeof DeleteAccountResponse,
       readonly kind: MethodKind.Unary,
     },
   }

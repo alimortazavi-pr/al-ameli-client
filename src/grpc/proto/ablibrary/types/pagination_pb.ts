@@ -67,3 +67,46 @@ export class Pagination extends Message<Pagination> {
   }
 }
 
+/**
+ * @generated from message ablibrary.types.Paginate
+ */
+export class Paginate extends Message<Paginate> {
+  /**
+   * @generated from field: optional int32 page = 1;
+   */
+  page?: number;
+
+  /**
+   * @generated from field: optional int32 per_page = 2;
+   */
+  perPage?: number;
+
+  constructor(data?: PartialMessage<Paginate>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.types.Paginate";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "page", kind: "scalar", T: 5 /* ScalarType.INT32 */, opt: true },
+    { no: 2, name: "per_page", kind: "scalar", T: 5 /* ScalarType.INT32 */, opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Paginate {
+    return new Paginate().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Paginate {
+    return new Paginate().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Paginate {
+    return new Paginate().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: Paginate | PlainMessage<Paginate> | undefined, b: Paginate | PlainMessage<Paginate> | undefined): boolean {
+    return proto3.util.equals(Paginate, a, b);
+  }
+}
+

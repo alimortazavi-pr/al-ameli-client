@@ -123,6 +123,11 @@ export class ListRequest extends Message<ListRequest> {
    */
   title?: string;
 
+  /**
+   * @generated from field: repeated string book_ids = 17;
+   */
+  bookIds: string[] = [];
+
   constructor(data?: PartialMessage<ListRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -147,6 +152,7 @@ export class ListRequest extends Message<ListRequest> {
     { no: 14, name: "attachments", kind: "message", T: ListRequest_AttachmentFilter, repeated: true },
     { no: 15, name: "status", kind: "enum", T: proto3.getEnumType(DataState), repeated: true },
     { no: 16, name: "title", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
+    { no: 17, name: "book_ids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListRequest {
@@ -932,6 +938,80 @@ export class FindResponse extends Message<FindResponse> {
 
   static equals(a: FindResponse | PlainMessage<FindResponse> | undefined, b: FindResponse | PlainMessage<FindResponse> | undefined): boolean {
     return proto3.util.equals(FindResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.book_service.CloseBookRequest
+ */
+export class CloseBookRequest extends Message<CloseBookRequest> {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id = "";
+
+  /**
+   * @generated from field: optional string page_id = 2;
+   */
+  pageId?: string;
+
+  constructor(data?: PartialMessage<CloseBookRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.book_service.CloseBookRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "page_id", kind: "scalar", T: 9 /* ScalarType.STRING */, opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CloseBookRequest {
+    return new CloseBookRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CloseBookRequest {
+    return new CloseBookRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CloseBookRequest {
+    return new CloseBookRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: CloseBookRequest | PlainMessage<CloseBookRequest> | undefined, b: CloseBookRequest | PlainMessage<CloseBookRequest> | undefined): boolean {
+    return proto3.util.equals(CloseBookRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.book_service.CloseBookResponse
+ */
+export class CloseBookResponse extends Message<CloseBookResponse> {
+  constructor(data?: PartialMessage<CloseBookResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.book_service.CloseBookResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CloseBookResponse {
+    return new CloseBookResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CloseBookResponse {
+    return new CloseBookResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CloseBookResponse {
+    return new CloseBookResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: CloseBookResponse | PlainMessage<CloseBookResponse> | undefined, b: CloseBookResponse | PlainMessage<CloseBookResponse> | undefined): boolean {
+    return proto3.util.equals(CloseBookResponse, a, b);
   }
 }
 

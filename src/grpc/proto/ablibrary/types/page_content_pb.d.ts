@@ -155,52 +155,52 @@ export declare class PageContent extends Message<PageContent> {
    */
   data: {
     /**
-     * @generated from field: ablibrary.types.PageContentText text = 11;
-     */
-    value: PageContentText;
-    case: "text";
-  } | {
-    /**
-     * @generated from field: ablibrary.types.PageContentParagraph paragraph = 12;
-     */
-    value: PageContentParagraph;
-    case: "paragraph";
-  } | {
-    /**
-     * @generated from field: ablibrary.types.PageContentHeading heading = 13;
-     */
-    value: PageContentHeading;
-    case: "heading";
-  } | {
-    /**
-     * @generated from field: ablibrary.types.PageContentFootnote footnote = 14;
+     * @generated from field: ablibrary.types.PageContentFootnote footnote = 11;
      */
     value: PageContentFootnote;
     case: "footnote";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentTable table = 15;
+     * @generated from field: ablibrary.types.PageContentHeading heading = 12;
      */
-    value: PageContentTable;
-    case: "table";
+    value: PageContentHeading;
+    case: "heading";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentTableRow table_row = 16;
+     * @generated from field: ablibrary.types.PageContentHighlight highlight = 13;
      */
-    value: PageContentTableRow;
-    case: "tableRow";
+    value: PageContentHighlight;
+    case: "highlight";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentTableCell table_cell = 17;
+     * @generated from field: ablibrary.types.PageContentHorizontalLine horizontal_line = 14;
      */
-    value: PageContentTableCell;
-    case: "tableCell";
+    value: PageContentHorizontalLine;
+    case: "horizontalLine";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentImage image = 18;
+     * @generated from field: ablibrary.types.PageContentImage image = 15;
      */
     value: PageContentImage;
     case: "image";
+  } | {
+    /**
+     * @generated from field: ablibrary.types.PageContentLineBreak line_break = 16;
+     */
+    value: PageContentLineBreak;
+    case: "lineBreak";
+  } | {
+    /**
+     * @generated from field: ablibrary.types.PageContentParagraph paragraph = 17;
+     */
+    value: PageContentParagraph;
+    case: "paragraph";
+  } | {
+    /**
+     * @generated from field: ablibrary.types.PageContentPoem poem = 18;
+     */
+    value: PageContentPoem;
+    case: "poem";
   } | {
     /**
      * @generated from field: ablibrary.types.PageContentReference ref = 19;
@@ -209,28 +209,34 @@ export declare class PageContent extends Message<PageContent> {
     case: "ref";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentPoem poem = 20;
-     */
-    value: PageContentPoem;
-    case: "poem";
-  } | {
-    /**
-     * @generated from field: ablibrary.types.PageContentRemark remark = 21;
+     * @generated from field: ablibrary.types.PageContentRemark remark = 20;
      */
     value: PageContentRemark;
     case: "remark";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentHorizontalLine horizontal_line = 22;
+     * @generated from field: ablibrary.types.PageContentTable table = 21;
      */
-    value: PageContentHorizontalLine;
-    case: "horizontalLine";
+    value: PageContentTable;
+    case: "table";
   } | {
     /**
-     * @generated from field: ablibrary.types.PageContentLineBreak line_break = 23;
+     * @generated from field: ablibrary.types.PageContentTableCell table_cell = 22;
      */
-    value: PageContentLineBreak;
-    case: "lineBreak";
+    value: PageContentTableCell;
+    case: "tableCell";
+  } | {
+    /**
+     * @generated from field: ablibrary.types.PageContentTableRow table_row = 23;
+     */
+    value: PageContentTableRow;
+    case: "tableRow";
+  } | {
+    /**
+     * @generated from field: ablibrary.types.PageContentText text = 24;
+     */
+    value: PageContentText;
+    case: "text";
   } | { case: undefined; value?: undefined };
 
   constructor(data?: PartialMessage<PageContent>);
@@ -421,6 +427,25 @@ export declare class PageContentHeading extends Message<PageContentHeading> {
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PageContentHeading;
 
   static equals(a: PageContentHeading | PlainMessage<PageContentHeading> | undefined, b: PageContentHeading | PlainMessage<PageContentHeading> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.types.PageContentHighlight
+ */
+export declare class PageContentHighlight extends Message<PageContentHighlight> {
+  constructor(data?: PartialMessage<PageContentHighlight>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.types.PageContentHighlight";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PageContentHighlight;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PageContentHighlight;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PageContentHighlight;
+
+  static equals(a: PageContentHighlight | PlainMessage<PageContentHighlight> | undefined, b: PageContentHighlight | PlainMessage<PageContentHighlight> | undefined): boolean;
 }
 
 /**

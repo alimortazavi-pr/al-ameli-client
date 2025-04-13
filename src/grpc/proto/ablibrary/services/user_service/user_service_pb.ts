@@ -872,3 +872,219 @@ export class UpdateAvatarResponse extends Message<UpdateAvatarResponse> {
   }
 }
 
+/**
+ * @generated from message ablibrary.services.user_service.ChangeEmailRequest
+ */
+export class ChangeEmailRequest extends Message<ChangeEmailRequest> {
+  /**
+   * @generated from field: string email = 1;
+   */
+  email = "";
+
+  /**
+   * @generated from field: string password = 2;
+   */
+  password = "";
+
+  constructor(data?: PartialMessage<ChangeEmailRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.user_service.ChangeEmailRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "email", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "password", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChangeEmailRequest {
+    return new ChangeEmailRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ChangeEmailRequest {
+    return new ChangeEmailRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ChangeEmailRequest {
+    return new ChangeEmailRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ChangeEmailRequest | PlainMessage<ChangeEmailRequest> | undefined, b: ChangeEmailRequest | PlainMessage<ChangeEmailRequest> | undefined): boolean {
+    return proto3.util.equals(ChangeEmailRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.ChangeEmailResponse
+ */
+export class ChangeEmailResponse extends Message<ChangeEmailResponse> {
+  constructor(data?: PartialMessage<ChangeEmailResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.user_service.ChangeEmailResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChangeEmailResponse {
+    return new ChangeEmailResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ChangeEmailResponse {
+    return new ChangeEmailResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ChangeEmailResponse {
+    return new ChangeEmailResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ChangeEmailResponse | PlainMessage<ChangeEmailResponse> | undefined, b: ChangeEmailResponse | PlainMessage<ChangeEmailResponse> | undefined): boolean {
+    return proto3.util.equals(ChangeEmailResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.UpdateEmailRequest
+ */
+export class UpdateEmailRequest extends Message<UpdateEmailRequest> {
+  /**
+   * @generated from field: string email = 1;
+   */
+  email = "";
+
+  /**
+   * @generated from field: string verification_code = 2;
+   */
+  verificationCode = "";
+
+  constructor(data?: PartialMessage<UpdateEmailRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.user_service.UpdateEmailRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "email", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "verification_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateEmailRequest {
+    return new UpdateEmailRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateEmailRequest {
+    return new UpdateEmailRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateEmailRequest {
+    return new UpdateEmailRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: UpdateEmailRequest | PlainMessage<UpdateEmailRequest> | undefined, b: UpdateEmailRequest | PlainMessage<UpdateEmailRequest> | undefined): boolean {
+    return proto3.util.equals(UpdateEmailRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.UpdateEmailResponse
+ */
+export class UpdateEmailResponse extends Message<UpdateEmailResponse> {
+  /**
+   * @generated from field: ablibrary.types.User user = 1;
+   */
+  user?: User;
+
+  constructor(data?: PartialMessage<UpdateEmailResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.user_service.UpdateEmailResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "user", kind: "message", T: User },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateEmailResponse {
+    return new UpdateEmailResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateEmailResponse {
+    return new UpdateEmailResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateEmailResponse {
+    return new UpdateEmailResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: UpdateEmailResponse | PlainMessage<UpdateEmailResponse> | undefined, b: UpdateEmailResponse | PlainMessage<UpdateEmailResponse> | undefined): boolean {
+    return proto3.util.equals(UpdateEmailResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.DeleteAccountRequest
+ */
+export class DeleteAccountRequest extends Message<DeleteAccountRequest> {
+  constructor(data?: PartialMessage<DeleteAccountRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.user_service.DeleteAccountRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteAccountRequest {
+    return new DeleteAccountRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteAccountRequest {
+    return new DeleteAccountRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteAccountRequest {
+    return new DeleteAccountRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteAccountRequest | PlainMessage<DeleteAccountRequest> | undefined, b: DeleteAccountRequest | PlainMessage<DeleteAccountRequest> | undefined): boolean {
+    return proto3.util.equals(DeleteAccountRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message ablibrary.services.user_service.DeleteAccountResponse
+ */
+export class DeleteAccountResponse extends Message<DeleteAccountResponse> {
+  constructor(data?: PartialMessage<DeleteAccountResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ablibrary.services.user_service.DeleteAccountResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteAccountResponse {
+    return new DeleteAccountResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteAccountResponse {
+    return new DeleteAccountResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteAccountResponse {
+    return new DeleteAccountResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteAccountResponse | PlainMessage<DeleteAccountResponse> | undefined, b: DeleteAccountResponse | PlainMessage<DeleteAccountResponse> | undefined): boolean {
+    return proto3.util.equals(DeleteAccountResponse, a, b);
+  }
+}
+

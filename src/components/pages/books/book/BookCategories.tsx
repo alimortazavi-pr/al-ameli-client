@@ -29,7 +29,7 @@ export const BookCategories: FC = () => {
         {bookDetail?.categories?.map((category) => (
           <Chip
             key={category.id}
-            className="text-white font-medium"
+            className="font-medium"
             size={isLg ? "lg" : "md"}
           >
             {category.name}

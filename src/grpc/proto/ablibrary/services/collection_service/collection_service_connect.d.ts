@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { DeleteBookmarkRequest, DeleteBookmarkResponse, DeleteRequest, DeleteResponse, DetailsRequest, DetailsResponse, ListRequest, ListResponse, UpsertBookmarkRequest, UpsertBookmarkResponse, UpsertRequest, UpsertResponse } from "./collection_service_pb";
+import { AddBookToCollectionRequest, AddBookToCollectionResponse, DeleteBookmarkRequest, DeleteBookmarkResponse, DeleteRequest, DeleteResponse, DetailsRequest, DetailsResponse, ListBookmarksRequest, ListBookmarksResponse, ListRequest, ListResponse, RemoveBookFromCollectionRequest, RemoveBookFromCollectionResponse, UpsertBookmarkRequest, UpsertBookmarkResponse, UpsertRequest, UpsertResponse } from "./collection_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -49,6 +49,24 @@ export declare const CollectionService: {
       readonly kind: MethodKind.Unary,
     },
     /**
+     * @generated from rpc ablibrary.services.collection_service.CollectionService.AddBookToCollection
+     */
+    readonly addBookToCollection: {
+      readonly name: "AddBookToCollection",
+      readonly I: typeof AddBookToCollectionRequest,
+      readonly O: typeof AddBookToCollectionResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.collection_service.CollectionService.RemoveBookFromCollection
+     */
+    readonly removeBookFromCollection: {
+      readonly name: "RemoveBookFromCollection",
+      readonly I: typeof RemoveBookFromCollectionRequest,
+      readonly O: typeof RemoveBookFromCollectionResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
      * @generated from rpc ablibrary.services.collection_service.CollectionService.UpsertBookmark
      */
     readonly upsertBookmark: {
@@ -64,6 +82,15 @@ export declare const CollectionService: {
       readonly name: "DeleteBookmark",
       readonly I: typeof DeleteBookmarkRequest,
       readonly O: typeof DeleteBookmarkResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.collection_service.CollectionService.ListBookmarks
+     */
+    readonly listBookmarks: {
+      readonly name: "ListBookmarks",
+      readonly I: typeof ListBookmarksRequest,
+      readonly O: typeof ListBookmarksResponse,
       readonly kind: MethodKind.Unary,
     },
   }

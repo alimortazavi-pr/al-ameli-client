@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { BooksListSearchHistoryRequest, BooksListSearchHistoryResponse, ClearHistoryRequest, ClearHistoryResponse, DeleteHistoryRecordRequest, DeleteHistoryRecordResponse, FindInBookHistoryRequest, FindInBookHistoryResponse, GetSettingsRequest, GetSettingsResponse, SearchHistoryRequest, SearchHistoryResponse, SetSettingsRequest, SetSettingsResponse, SuggestRequest, SuggestResponse } from "./search_service_pb";
+import { ClearHistoryRequest, ClearHistoryResponse, DeleteHistoryRequest, DeleteHistoryResponse, GetSettingsRequest, GetSettingsResponse, HistoryRequest, HistoryResponse, SearchInBookRequest, SearchInBookResponse, SearchRequest, SearchResponse, SetSettingsRequest, SetSettingsResponse, SuggestRequest, SuggestResponse } from "./search_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -12,6 +12,24 @@ import { MethodKind } from "@bufbuild/protobuf";
 export const SearchService = {
   typeName: "ablibrary.services.search_service.SearchService",
   methods: {
+    /**
+     * @generated from rpc ablibrary.services.search_service.SearchService.Search
+     */
+    search: {
+      name: "Search",
+      I: SearchRequest,
+      O: SearchResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.search_service.SearchService.SearchInBook
+     */
+    searchInBook: {
+      name: "SearchInBook",
+      I: SearchInBookRequest,
+      O: SearchInBookResponse,
+      kind: MethodKind.Unary,
+    },
     /**
      * @generated from rpc ablibrary.services.search_service.SearchService.Suggest
      */
@@ -22,39 +40,21 @@ export const SearchService = {
       kind: MethodKind.BiDiStreaming,
     },
     /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.BooksListSearchHistory
+     * @generated from rpc ablibrary.services.search_service.SearchService.History
      */
-    booksListSearchHistory: {
-      name: "BooksListSearchHistory",
-      I: BooksListSearchHistoryRequest,
-      O: BooksListSearchHistoryResponse,
+    history: {
+      name: "History",
+      I: HistoryRequest,
+      O: HistoryResponse,
       kind: MethodKind.Unary,
     },
     /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.SearchHistory
+     * @generated from rpc ablibrary.services.search_service.SearchService.DeleteHistory
      */
-    searchHistory: {
-      name: "SearchHistory",
-      I: SearchHistoryRequest,
-      O: SearchHistoryResponse,
-      kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.FindInBookHistory
-     */
-    findInBookHistory: {
-      name: "FindInBookHistory",
-      I: FindInBookHistoryRequest,
-      O: FindInBookHistoryResponse,
-      kind: MethodKind.Unary,
-    },
-    /**
-     * @generated from rpc ablibrary.services.search_service.SearchService.DeleteHistoryRecord
-     */
-    deleteHistoryRecord: {
-      name: "DeleteHistoryRecord",
-      I: DeleteHistoryRecordRequest,
-      O: DeleteHistoryRecordResponse,
+    deleteHistory: {
+      name: "DeleteHistory",
+      I: DeleteHistoryRequest,
+      O: DeleteHistoryResponse,
       kind: MethodKind.Unary,
     },
     /**

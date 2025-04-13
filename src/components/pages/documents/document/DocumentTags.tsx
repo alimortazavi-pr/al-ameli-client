@@ -28,7 +28,7 @@ export const DocumentTags: FC<IProps> = ({ document }) => {
         {document?.tags?.map((tag) => (
           <Chip
             key={tag.tag._id}
-            className="text-white font-medium"
+            className="font-medium"
             size={isLg ? "lg" : "md"}
           >
             {tag.tag.name}

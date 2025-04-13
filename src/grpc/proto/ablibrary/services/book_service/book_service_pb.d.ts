@@ -118,6 +118,11 @@ export declare class ListRequest extends Message<ListRequest> {
    */
   title?: string;
 
+  /**
+   * @generated from field: repeated string book_ids = 17;
+   */
+  bookIds: string[];
+
   constructor(data?: PartialMessage<ListRequest>);
 
   static readonly runtime: typeof proto3;
@@ -655,6 +660,54 @@ export declare class FindResponse extends Message<FindResponse> {
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FindResponse;
 
   static equals(a: FindResponse | PlainMessage<FindResponse> | undefined, b: FindResponse | PlainMessage<FindResponse> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.book_service.CloseBookRequest
+ */
+export declare class CloseBookRequest extends Message<CloseBookRequest> {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id: string;
+
+  /**
+   * @generated from field: optional string page_id = 2;
+   */
+  pageId?: string;
+
+  constructor(data?: PartialMessage<CloseBookRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.book_service.CloseBookRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CloseBookRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CloseBookRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CloseBookRequest;
+
+  static equals(a: CloseBookRequest | PlainMessage<CloseBookRequest> | undefined, b: CloseBookRequest | PlainMessage<CloseBookRequest> | undefined): boolean;
+}
+
+/**
+ * @generated from message ablibrary.services.book_service.CloseBookResponse
+ */
+export declare class CloseBookResponse extends Message<CloseBookResponse> {
+  constructor(data?: PartialMessage<CloseBookResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "ablibrary.services.book_service.CloseBookResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CloseBookResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CloseBookResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CloseBookResponse;
+
+  static equals(a: CloseBookResponse | PlainMessage<CloseBookResponse> | undefined, b: CloseBookResponse | PlainMessage<CloseBookResponse> | undefined): boolean;
 }
 
 /**

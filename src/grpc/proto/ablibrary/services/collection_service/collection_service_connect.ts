@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { DeleteBookmarkRequest, DeleteBookmarkResponse, DeleteRequest, DeleteResponse, DetailsRequest, DetailsResponse, ListRequest, ListResponse, UpsertBookmarkRequest, UpsertBookmarkResponse, UpsertRequest, UpsertResponse } from "./collection_service_pb";
+import { AddBookToCollectionRequest, AddBookToCollectionResponse, DeleteBookmarkRequest, DeleteBookmarkResponse, DeleteRequest, DeleteResponse, DetailsRequest, DetailsResponse, ListBookmarksRequest, ListBookmarksResponse, ListRequest, ListResponse, RemoveBookFromCollectionRequest, RemoveBookFromCollectionResponse, UpsertBookmarkRequest, UpsertBookmarkResponse, UpsertRequest, UpsertResponse } from "./collection_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -49,6 +49,24 @@ export const CollectionService = {
       kind: MethodKind.Unary,
     },
     /**
+     * @generated from rpc ablibrary.services.collection_service.CollectionService.AddBookToCollection
+     */
+    addBookToCollection: {
+      name: "AddBookToCollection",
+      I: AddBookToCollectionRequest,
+      O: AddBookToCollectionResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.collection_service.CollectionService.RemoveBookFromCollection
+     */
+    removeBookFromCollection: {
+      name: "RemoveBookFromCollection",
+      I: RemoveBookFromCollectionRequest,
+      O: RemoveBookFromCollectionResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
      * @generated from rpc ablibrary.services.collection_service.CollectionService.UpsertBookmark
      */
     upsertBookmark: {
@@ -64,6 +82,15 @@ export const CollectionService = {
       name: "DeleteBookmark",
       I: DeleteBookmarkRequest,
       O: DeleteBookmarkResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.collection_service.CollectionService.ListBookmarks
+     */
+    listBookmarks: {
+      name: "ListBookmarks",
+      I: ListBookmarksRequest,
+      O: ListBookmarksResponse,
       kind: MethodKind.Unary,
     },
   }

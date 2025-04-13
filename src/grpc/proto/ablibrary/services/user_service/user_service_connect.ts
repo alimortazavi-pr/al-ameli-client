@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ChangeLanguageRequest, ChangeLanguageResponse, ChangePasswordRequest, ChangePasswordResponse, ForgotPasswordRequest, ForgotPasswordResponse, LoginRequest, LoginResponse, LogoutRequest, LogoutResponse, ProfileRequest, ProfileResponse, RegisterRequest, RegisterResponse, ResetPasswordRequest, ResetPasswordResponse, UpdateAvatarRequest, UpdateAvatarResponse, UpdateProfileRequest, UpdateProfileResponse, VerifyEmailRequest, VerifyEmailResponse } from "./user_service_pb";
+import { ChangeEmailRequest, ChangeEmailResponse, ChangeLanguageRequest, ChangeLanguageResponse, ChangePasswordRequest, ChangePasswordResponse, DeleteAccountRequest, DeleteAccountResponse, ForgotPasswordRequest, ForgotPasswordResponse, LoginRequest, LoginResponse, LogoutRequest, LogoutResponse, ProfileRequest, ProfileResponse, RegisterRequest, RegisterResponse, ResetPasswordRequest, ResetPasswordResponse, UpdateAvatarRequest, UpdateAvatarResponse, UpdateEmailRequest, UpdateEmailResponse, UpdateProfileRequest, UpdateProfileResponse, VerifyEmailRequest, VerifyEmailResponse } from "./user_service_pb";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -109,6 +109,33 @@ export const UserService = {
       name: "ChangeLanguage",
       I: ChangeLanguageRequest,
       O: ChangeLanguageResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.user_service.UserService.ChangeEmail
+     */
+    changeEmail: {
+      name: "ChangeEmail",
+      I: ChangeEmailRequest,
+      O: ChangeEmailResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.user_service.UserService.UpdateEmail
+     */
+    updateEmail: {
+      name: "UpdateEmail",
+      I: UpdateEmailRequest,
+      O: UpdateEmailResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc ablibrary.services.user_service.UserService.DeleteAccount
+     */
+    deleteAccount: {
+      name: "DeleteAccount",
+      I: DeleteAccountRequest,
+      O: DeleteAccountResponse,
       kind: MethodKind.Unary,
     },
   }

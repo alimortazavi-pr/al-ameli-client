@@ -26,7 +26,7 @@ export const DocumentsItem: FC<IProps> = ({ document }) => {
         alt={document.category?.name}
         className="rounded-2xl object-cover"
       />
-      <div className="absolute bottom-0 p-3 min-h-52 w-full rounded-b-2xl bg-secondary-400/60 z-10 overflow-hidden">
+      <div className="absolute bottom-0 p-3 min-h-52 w-full rounded-b-2xl bg-primary-600/70 backdrop-blur z-10 overflow-hidden">
         <span className="text-default-50 text-2xl font-semibold truncate mb-3">
           {document.title}
         </span>
@@ -39,7 +39,7 @@ export const DocumentsItem: FC<IProps> = ({ document }) => {
         {document.tags?.length > 0 && (
           <div className="flex items-center gap-2">
             {document.tags?.map((tag) => (
-              <Chip className="font-medium" color="secondary" key={tag.tag._id}>
+              <Chip className="font-medium" color="primary" key={tag.tag._id}>
                 {tag.tag.name}
               </Chip>
             ))}
