@@ -11,7 +11,7 @@ export const HomePage = () => {
   return (
     <div className="w-screen h-[100dvh] flex">
       <AsideContainer />
-      <div className="w-full lg:w-8/12 2xl:w-10/12 h-full bg-blue-300 bg-[url(./../images/bg-hero.jpg)] bg-center bg-cover relative flex flex-col justify-end items-end lg:pe-[10vh] pb-[10vh]">
+      <div className="w-full lg:w-8/12 2xl:w-10/12 h-full bg-blue-300 bg-[url(./../images/bg-hero.jpg)] bg-center bg-cover relative flex flex-col justify-end items-center lg:pe-[10vh] pb-[10vh]">
         <div className="text-white flex items-end gap-2">
           <div className="flex flex-col gap-2 items-center lg:hidden">
             <OpenDrawerBtn />
