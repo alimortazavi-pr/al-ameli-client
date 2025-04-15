@@ -12,4 +12,7 @@ export const PATHS = {
   AUDIO: (audioId: string) => `/audios/${audioId}`,
   BOOKS: "/books",
   BOOK: (bookSlug: string) => `/books/${bookSlug}`,
+  BIOGRAPHY: "/biography",
+  ABOUT_US: "/about-us",
+  CONTACT_US: "/contact-us",
 };

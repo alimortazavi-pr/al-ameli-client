@@ -13,7 +13,7 @@ export const AsideItems = () => {
       <AsideItem title="مقالات" link={PATHS.ARTICLES} />
       <AsideItem title="صوتیات" link={PATHS.AUDIOS} />
       <AsideItem title="محاضرات وبرامج" link={PATHS.PLAYLISTS} />
-      <AsideItem title="السیره الذاتیه" link="#" />
+      <AsideItem title="السیره الذاتیه" link={PATHS.BIOGRAPHY} />
       <AsideBottomItems />
     </div>
   );
