@@ -18,6 +18,7 @@ async function getAboutUs() {
 
   return { aboutUs };
 }
+export const dynamic = "force-dynamic";
 
 export default async function page() {
   const { aboutUs } = await getAboutUs();

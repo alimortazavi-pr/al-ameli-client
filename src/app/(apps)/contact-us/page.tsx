@@ -18,6 +18,7 @@ async function getContactUs() {
 
   return { contactUs };
 }
+export const dynamic = "force-dynamic";
 
 export default async function page() {
   const { contactUs } = await getContactUs();

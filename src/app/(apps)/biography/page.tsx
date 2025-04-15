@@ -18,6 +18,7 @@ async function getBiography() {
 
   return { biography };
 }
+export const dynamic = "force-dynamic";
 
 export default async function page() {
   const { biography } = await getBiography();
