@@ -43,8 +43,8 @@ export const SingleImage: FC<IProps> = ({ image, imageTitle }) => {
           className="object-cover rounded-lg"
         />
         {image?.description && (
-          <div className="absolute w-full bottom-0 rounded-b-lg bg-primary-600/70 backdrop-blur flex items-center justify-center min-h-20 text-default-50 p-2 line-clamp-3">
-            {image.description}
+          <div className="absolute w-full bottom-0 rounded-b-lg bg-primary-600/70 backdrop-blur flex items-center justify-center min-h-[88px] text-default-50 p-2">
+            <span className="line-clamp-3">{image.description}</span>
           </div>
         )}
       </div>
