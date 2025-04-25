@@ -12,3 +12,7 @@ export function isOpenDrawerSelector(state: RootState): boolean {
 export function pageTitleSelector(state: RootState): string {
   return state.layouts.pageTitle;
 }
+
+export function isCompletedLogoSelector(state: RootState): boolean {
+  return state.layouts.isCompletedLogo;
+}

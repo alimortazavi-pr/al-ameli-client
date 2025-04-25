@@ -10,6 +10,7 @@ const initialState: ILayoutsState = {
   darkMode: false,
   isOpenDrawer: false,
   pageTitle: "",
+  isCompletedLogo : false,
 };
 
 export const layoutsReducer = createSlice({

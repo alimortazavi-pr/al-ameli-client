@@ -6,6 +6,7 @@ export interface ILayoutsState {
   darkMode: boolean;
   isOpenDrawer: boolean;
   pageTitle: string;
+  isCompletedLogo: boolean;
 }
 
 export interface INextUIModalProps extends UseDisclosureProps {

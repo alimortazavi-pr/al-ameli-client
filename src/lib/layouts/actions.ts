@@ -6,8 +6,12 @@ import { AppThunk } from "@/lib";
 import { layoutsReducer } from ".";
 
 //Actions from reducer
-export const { setDarkMode, setIsOpenDrawer, setPageTitle } =
-  layoutsReducer.actions;
+export const {
+  setDarkMode,
+  setIsOpenDrawer,
+  setPageTitle,
+  setIsCompletedLogo,
+} = layoutsReducer.actions;
 
 //Interfaces
 

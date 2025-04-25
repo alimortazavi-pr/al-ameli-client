@@ -9,7 +9,7 @@ export const AsideDesktopLogo = () => {
       <Image
         src={desktopMenuLogo}
         alt="Mobile Background Logo"
-        className="w-20 xl:w-28"
+        className="w-28"
       />
     </div>
   );

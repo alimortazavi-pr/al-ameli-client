@@ -32,6 +32,15 @@ const reducers = {
       pageTitle: action.payload,
     };
   },
+  setIsCompletedLogo(
+    state: ILayoutsState,
+    action: PayloadAction<boolean>
+  ): ILayoutsState {
+    return {
+      ...state,
+      isCompletedLogo: action.payload,
+    };
+  },
 };
 
 export default reducers;

@@ -49,6 +49,7 @@ async function getBooks({ searchParams }: IProps) {
     booksAttach: booksAttach,
   };
 }
+export const dynamic = "force-dynamic";
 
 interface IProps {
   searchParams: {

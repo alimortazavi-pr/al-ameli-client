@@ -1,11 +1,12 @@
 "use client";
 
-import { FC, PropsWithChildren, Suspense } from "react";
+import { FC, PropsWithChildren } from "react";
 
 //Components
 import NextUIProvider from "./NextUIProvider";
 import ReduxProvider from "./ReduxProvider";
 import RootProvider from "./RootProvider";
+import { AnimatedProvider } from "./AnimatedProvider";
 
 //Theme
 
@@ -16,9 +17,9 @@ export const ClientProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <ReduxProvider>
       <NextUIProvider>
-        <Suspense fallback={<div></div>}>
+        <AnimatedProvider>
           <RootProvider>{children}</RootProvider>
-        </Suspense>
+        </AnimatedProvider>
         <ProgressBar
           height="3px"
           color="#00898F"
