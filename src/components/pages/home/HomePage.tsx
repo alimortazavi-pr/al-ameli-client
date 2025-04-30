@@ -15,6 +15,28 @@ import { OpenDrawerBtn, MobileBackgroundLogo } from ".";
 import { AsideContainer } from "./aside";
 import { setIsCompletedLogo } from "@/lib/layouts/actions";
 
+function AnimatedText({ text }: { text: string }) {
+  const words = text.split(" ");
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: index * 0.3,
+            duration: 0.8,
+          }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </div>
+  );
+}
+
 export const HomePage = () => {
   //Redux
   const dispatch = useAppDispatch();
@@ -28,7 +50,7 @@ export const HomePage = () => {
   return (
     <div className="w-screen h-[100dvh] flex">
       <AsideContainer />
-      <div className="w-full h-full bg-blue-300 bg-[url(./../images/bg-hero.jpg)] bg-center bg-cover relative flex flex-col justify-end items-end pb-[10vh]">
+      <div className="w-full h-full bg-secondary-200 bg-[url(./../images/bg-hero.jpg)] bg-center bg-cover relative flex flex-col justify-end items-end pb-[10vh]">
         <div className="w-full lg:w-8/12 2xl:w-9/12 flex justify-center">
           <div className="text-white flex items-end gap-2">
             <AnimatePresence>
@@ -37,7 +59,7 @@ export const HomePage = () => {
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 100 }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 1 }}
                   className="flex flex-col gap-2 items-center lg:hidden"
                 >
                   <OpenDrawerBtn />
@@ -49,12 +71,12 @@ export const HomePage = () => {
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -100 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 1 }}
               className="flex flex-col items-center gap-1"
               onAnimationComplete={handleCompleteLogo}
             >
-              <h6 className="text-xl font-normal lg:text-4xl mb-0.5">
-                المرحوم العلامة آية اللّٰه الشيخ
+              <h6 className="text-xl font-normal lg:text-4xl mb-2">
+                <AnimatedText text="المرحوم العلامة آية اللّٰه الشيخ" />
               </h6>
               <Image
                 src={alAmeliLogo}

@@ -20,10 +20,10 @@ export const AsideContainer: FC = () => {
       <AnimatePresence>
         {isCompletedLogo && (
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: 400 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.4 }}
+            exit={{ opacity: 0, x: 400 }}
+            transition={{ duration: 1 }}
             className="w-full h-full hidden lg:flex overflow-visible flex-col gap-2 justify-center bg-secondary px-8 relative"
           >
             <AsideDesktopLogo />
