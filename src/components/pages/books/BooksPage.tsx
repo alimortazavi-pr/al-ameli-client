@@ -47,11 +47,11 @@ export const BooksPage: FC<IProps> = ({ books, booksAttach }) => {
   async function getCategories() {
     const categories: ICategory[] = [];
     for (const book of books) {
-      for (const category of book.categories) {
+      for (const category of book.categories || []) {
         if (!categories.find((c) => c._id === category.id)) {
           categories.push({
-            _id: category.id,
-            name: category.name,
+            _id: category.id as string,
+            name: category.name as string,
             parent: "",
             type: CategoryTypeEnum.BOOK,
           });

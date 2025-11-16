@@ -4,7 +4,8 @@ import { FC, useEffect } from "react";
 import { useDisclosure } from "@heroui/react";
 
 //Interfaces
-import { IBook, IBookAttach, IPage } from "@/common/interfaces";
+import { IBookAttach, IPage } from "@/common/interfaces";
+import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
@@ -23,7 +24,7 @@ import { ContentContainer } from "./content";
 
 interface IProps {
   book: IPage[];
-  bookDetail: IBook | undefined;
+  bookDetail: Book | undefined;
   bookAttach: IBookAttach | undefined;
 }
 export const BookPage: FC<IProps> = ({ book, bookDetail, bookAttach }) => {

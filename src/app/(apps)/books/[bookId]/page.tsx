@@ -5,28 +5,35 @@ import { FC } from "react";
 import { bookServiceClient } from "@/grpc/services/book/book.service";
 
 //Types
-import { IBook, IBookAttach, IPage } from "@/common/interfaces";
+import { IBookAttach, IPage } from "@/common/interfaces";
+import type { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 
 //Components
 import { BookPage } from "@/components/pages/books/book";
 import { axiosInstance } from "@/common/axiosInstance";
+import { ContentsResponse_ABXPages } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 //Constants
 
 async function getBook({ params }: IProps) {
   let book: IPage[] = [];
-  let bookDetail: IBook | undefined = undefined;
+  let bookDetail: Book | undefined = undefined;
   let bookAttach: IBookAttach | undefined = undefined;
 
   try {
-    const { pages } = await bookServiceClient.contents({
+    const { content } = await bookServiceClient.contents({
       bookId: params.bookId,
     });
     const { book: bookDetailResult } = await bookServiceClient.details({
       id: params.bookId,
     });
 
-    book = pages;
+    book = (
+      content as {
+        value: ContentsResponse_ABXPages;
+        case: "abx";
+      }
+    ).value.pages as IPage[];
     bookDetail = bookDetailResult;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {

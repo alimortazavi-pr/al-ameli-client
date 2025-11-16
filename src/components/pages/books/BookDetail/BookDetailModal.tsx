@@ -48,7 +48,7 @@ export const BookDetailModal: FC<INextUIModalProps> = ({
     } else {
       (onClose as () => void)();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBookIdForBookDetail]);
 
   //Functions
@@ -60,7 +60,7 @@ export const BookDetailModal: FC<INextUIModalProps> = ({
       });
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const bookDetail = (res.toJson as any)().book as Book;
+      const bookDetail = res.book as Book;
       dispatch(setSelectedBookDetail(bookDetail));
       dispatch(setIsLoadingBookDetail(false));
     } catch (error) {

@@ -2,7 +2,11 @@ import { FC } from "react";
 
 //gRPC
 import { bookServiceClient } from "@/grpc/services/book/book.service";
-import { ListRequest_Sort } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
+import {
+  ListRequest_Sort,
+  ListResponseSchema,
+} from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
+import { toJson } from "@bufbuild/protobuf";
 
 //Types
 import { IBook, IBookAttach } from "@/common/interfaces";
@@ -19,7 +23,7 @@ async function getBooks({ searchParams }: IProps) {
   let booksAttach: IBookAttach[] = [];
 
   try {
-    const { books: booksResult } = await bookServiceClient.list({
+    const res = await bookServiceClient.list({
       page: 1,
       perPage: 250,
       sortBy: searchParams["sort-by"]
@@ -37,7 +41,7 @@ async function getBooks({ searchParams }: IProps) {
     });
     const booksAttachResult = await axiosInstance.get("/books");
 
-    books = booksResult;
+    books = toJson(ListResponseSchema, res).books as IBook[];
     booksAttach = booksAttachResult.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
@@ -62,12 +66,7 @@ const Home: FC<IProps> = async ({ searchParams }) => {
   //Fetch Data
   const { books, booksAttach } = await getBooks({ searchParams });
 
-  return (
-    <BooksPage
-      books={JSON.parse(JSON.stringify(books)) || []}
-      booksAttach={booksAttach || []}
-    />
-  );
+  return <BooksPage books={books || []} booksAttach={booksAttach || []} />;
 };
 
 export default Home;

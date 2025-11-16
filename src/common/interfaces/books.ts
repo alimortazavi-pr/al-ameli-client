@@ -1,10 +1,5 @@
 //gRPC types
-import {
-  ListRequest,
-  ListRequest_Sort,
-} from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
-import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
-import { SortDirection } from "@/grpc/proto/ablibrary/types/common_pb";
+import { Book, BookJson } from "@/grpc/proto/ablibrary/types/book_pb";
 
 export interface IBooksState {
   books: IBook[];
@@ -14,7 +9,7 @@ export interface IBooksState {
   selectedBookDetail: Book | undefined;
 }
 
-export interface IBook extends Book {
+export interface IBook extends BookJson {
   id: string;
 }
 
@@ -23,12 +18,6 @@ export interface IBookAttach {
   thumbnail: string;
   pdfAttach: string;
   wordAttach: string;
-}
-
-export interface IListBooksRequest extends ListRequest {
-  sortBy: ListRequest_Sort;
-  sortDir: SortDirection;
-  query?: string;
 }
 
 export interface IBookItemProps {

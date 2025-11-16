@@ -22,7 +22,7 @@ export const BooksItems = () => {
       {books?.map((book) => {
         if (
           query.get("category") &&
-          !book.categories.find(
+          !book.categories?.find(
             (category) => category.id === query.get("category")
           )
         ) {

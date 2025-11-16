@@ -5,8 +5,10 @@ import { Spinner } from "@heroui/react";
 import useQuery from "next-app-use-query";
 
 //Types
-import { PageContentRef } from "@/grpc/proto/ablibrary/types/page_content_pb";
+import {  PageContentRefJson } from "@/grpc/proto/ablibrary/types/page_content_pb";
 import { IPageContentRef } from "@/common/interfaces";
+import { toJson } from "@bufbuild/protobuf";
+import { TableOfContentsResponseSchema } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 //gRPC
 import { bookServiceClientWeb } from "@/grpc/services/book/book-web.service";
@@ -115,7 +117,8 @@ export const TableOfContentBody: FC<IProps> = ({ isOpen, onClose }) => {
         bookId: bookId,
       });
 
-      const tableOfContents = (res.toJson as any)().items as PageContentRef[];
+      const tableOfContents = (await toJson(TableOfContentsResponseSchema, res))
+        .items as PageContentRefJson[];
       const itemsRendered = renderItems(tableOfContents);
       setItems(itemsRendered);
       // await dispatch(setIsLoadingTableOfContent(false));
@@ -126,7 +129,7 @@ export const TableOfContentBody: FC<IProps> = ({ isOpen, onClose }) => {
   }
 
   function renderItems(
-    items: PageContentRef[],
+    items: PageContentRefJson[],
     parentNextPage?: number
   ): IPageContentRef[] {
     return items.map((item, i) => {

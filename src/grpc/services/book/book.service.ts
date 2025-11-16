@@ -1,8 +1,8 @@
-import { createPromiseClient } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
 import { createGrpcTransport } from "@connectrpc/connect-node";
 
 //Proto Services
-import { BookService } from "@/grpc/proto/ablibrary/services/book_service/book_service_connect";
+import { BookService } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 //Config
 import { hostname } from "@/grpc/config";
@@ -10,6 +10,5 @@ import { hostname } from "@/grpc/config";
 //SERVER
 const transport = createGrpcTransport({
   baseUrl: hostname,
-  httpVersion: "2",
 });
-export const bookServiceClient = createPromiseClient(BookService, transport);
+export const bookServiceClient = createClient(BookService, transport);
