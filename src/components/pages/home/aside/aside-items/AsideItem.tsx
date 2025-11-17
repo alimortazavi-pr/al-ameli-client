@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { FC } from "react";
@@ -16,7 +16,9 @@ export const AsideItem: FC<IProps> = ({ link, title }) => {
     <Link
       href={link}
       className={`${
-        pathname.includes(link) ? "text-primary-500" : "text-default-600"
+        pathname.includes(link) && title !== "الصفحة الرئيسية"
+          ? "text-primary-500"
+          : "text-default-600"
       } font-bold text-3xl hover:text-primary-400 duration-300 rounded-xl p-2 w-full flex mb-1`}
     >
       {title}

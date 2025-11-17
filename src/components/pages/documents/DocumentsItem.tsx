@@ -27,17 +27,16 @@ export const DocumentsItem: FC<IProps> = ({ document }) => {
         className="rounded-2xl object-cover"
       />
       <div className="absolute bottom-0 p-3 min-h-52 w-full rounded-b-2xl bg-primary-600/70 backdrop-blur z-10 overflow-hidden">
-        <span className="text-default-50 text-2xl font-semibold truncate mb-3">
+        <span className="text-default-50 text-2xl font-semibold line-clamp-2 mb-3">
           {document.title}
         </span>
         {document.description && (
-          <p className="text-default-50 whitespace-pre-wrap text-sm mb-3">
-            {document.description.slice(0, 200) +
-              (document.description.length > 200 && "...")}
+          <p className="text-default-50 whitespace-pre-wrap text-sm mb-3 line-clamp-3">
+            {document.description}
           </p>
         )}
         {document.tags?.length > 0 && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             {document.tags?.map((tag) => (
               <Chip className="font-medium" color="primary" key={tag.tag._id}>
                 {tag.tag.name}

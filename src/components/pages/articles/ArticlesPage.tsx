@@ -27,7 +27,7 @@ export const ArticlesPage: FC<IProps> = ({ articles, categories, tags }) => {
 
   //Lifecycle
   useEffect(()=>{
-    dispatch(setPageTitle('مقالات'))
+    dispatch(setPageTitle('أبحاث ومقالات'))
   },[])
 
   useEffect(() => {

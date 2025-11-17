@@ -7,7 +7,7 @@ interface IProps {
 export const BiographyContent: FC<IProps> = ({ biography }) => {
   return (
     <div
-      className="ckeditor-output"
+      className="ckeditor-output min-w-[900px]"
       dangerouslySetInnerHTML={{
         __html: biography || "",
       }}

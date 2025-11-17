@@ -42,11 +42,11 @@ export const ArticlesItem: FC<IProps> = ({ article }) => {
           <div className="">
             <Link
               href={`${PATHS.ARTICLE(article.slug)}`}
-              className="text-xl md:text-4xl font-bold break-words"
+              className="text-xl md:text-3xl font-bold break-words"
             >
               {article.title}
             </Link>
-            <div className="mb-3 md:mb-16 text-default-500 md:text-2xl mb-t md:mt-7 break-words">
+            <div className="mb-3 md:mb-16 text-default-500 md:text-xl mb-t md:mt-7 break-words">
               {article.description}
             </div>
             <div className="flex flex-wrap items-center gap-1">

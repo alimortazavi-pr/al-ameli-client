@@ -22,7 +22,7 @@ export const AudioDescriptionModal: FC<INextUIModalProps & IProps> = ({
       <ModalContent className="bg-secondary-100">
         {() => (
           <>
-            <ModalHeader>توضیحات کامل</ModalHeader>
+            <ModalHeader>النص الكامل - {audio.title}</ModalHeader>
             <ModalBody>
               <p className="whitespace-pre-wrap">{audio.description}</p>
             </ModalBody>

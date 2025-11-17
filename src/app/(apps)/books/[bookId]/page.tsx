@@ -3,6 +3,7 @@ import { FC } from "react";
 
 //gRPC
 import { bookServiceClient } from "@/grpc/services/book/book.service";
+import { ContentsResponse_ABXPages } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 //Types
 import { IBookAttach, IPage } from "@/common/interfaces";
@@ -10,10 +11,9 @@ import type { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 
 //Components
 import { BookPage } from "@/components/pages/books/book";
-import { axiosInstance } from "@/common/axiosInstance";
-import { ContentsResponse_ABXPages } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
-//Constants
+//Common
+import { axiosInstance } from "@/common/axiosInstance";
 
 async function getBook({ params }: IProps) {
   let book: IPage[] = [];
@@ -64,8 +64,8 @@ const Book: FC<IProps> = async ({ params }) => {
 
   return (
     <BookPage
-      book={JSON.parse(JSON.stringify(book)) || []}
-      bookDetail={JSON.parse(JSON.stringify(bookDetail)) || undefined}
+      book={book || []}
+      bookDetail={bookDetail || undefined}
       bookAttach={bookAttach}
     />
   );

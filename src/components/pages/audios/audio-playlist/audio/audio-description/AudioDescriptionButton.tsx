@@ -18,7 +18,7 @@ export const AudioDescriptionButton: FC<IProps> = ({ audio }) => {
     audio.description && (
       <>
         <Button onPress={onOpen} size="sm" color="primary" variant="light">
-          توضیحات کامل
+          النص الكامل
         </Button>
         <AudioDescriptionModal
           isOpen={isOpen}

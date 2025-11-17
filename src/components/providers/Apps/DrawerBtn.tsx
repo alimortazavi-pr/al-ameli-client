@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@heroui/react";
-import { More } from "iconsax-react";
+import { HambergerMenu } from "iconsax-react";
 import { useEffect, useState } from "react";
 
 //Redux
@@ -39,11 +39,12 @@ export const DrawerBtn = () => {
       isIconOnly
       className={`rounded-s-none fixed ${
         isVisible ? "opacity-100" : "opacity-0"
-      } start-0 top-14 lg:top-20 z-10 duration-400`}
+      } start-0 top-14 lg:top-20 z-10 duration-400 h-[52px]`}
       color="primary"
       onPress={onOpenHandler}
+      size="lg"
     >
-      <More className="rotate-90" />
+      <HambergerMenu className="w-7 h-7" />
     </Button>
   );
 };

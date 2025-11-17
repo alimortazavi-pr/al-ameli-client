@@ -35,7 +35,7 @@ export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
             endContent={<AudioSquare className="w-5 h-5" />}
             color="primary"
           >
-            {convertToPersian(audioByCategory.audios.length)} صوت
+            {convertToPersian(audioByCategory.audios.length)} مقطع صوتي
           </Chip>
         </div>
         <div className="p-3">

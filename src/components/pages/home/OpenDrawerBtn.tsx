@@ -18,7 +18,7 @@ export const OpenDrawerBtn = () => {
   return (
     <Button
       isIconOnly
-      className="w-11 h-11 rounded-full"
+      className="w-11 h-11 rounded-full z-20"
       color="primary"
       onPress={onOpenHandler}
     >

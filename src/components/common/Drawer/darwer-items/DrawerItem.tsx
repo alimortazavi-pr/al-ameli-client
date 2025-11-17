@@ -14,7 +14,9 @@ export const DrawerItem: FC<IProps> = ({ link, title }) => {
     <Link
       href={link}
       className={`${
-        pathname.includes(link) ? "text-primary-500" : "text-default-600"
+        pathname.includes(link) && title !== "الصفحة الرئيسية"
+          ? "text-primary-500"
+          : "text-default-600"
       } font-bold text-2xl hover:text-primary-400 duration-300 rounded-xl p-2 w-full flex`}
     >
       {title}
