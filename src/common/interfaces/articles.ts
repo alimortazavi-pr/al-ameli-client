@@ -13,4 +13,5 @@ export interface IArticle {
   content: string;
   category: ICategory;
   tags: { tag: ITag }[];
+  pdfAttach?: string;
 }

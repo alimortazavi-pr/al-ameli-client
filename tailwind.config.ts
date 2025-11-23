@@ -11,6 +11,11 @@ const config: Config = {
   theme: {
     extend: {},
   },
+  safelist: [
+    "swiper-button-prev",
+    "swiper-button-next",
+    "swiper-pagination-bullet-active",
+  ],
   plugins: [
     heroui({
       themes: {

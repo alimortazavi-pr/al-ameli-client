@@ -4,7 +4,10 @@ import type { Metadata } from "next";
 import "@/assets/css/globals.css";
 import "@fontsource-variable/noto-sans-arabic";
 import "react-modern-drawer/dist/index.css";
-import 'react-photo-view/dist/react-photo-view.css';
+import "react-photo-view/dist/react-photo-view.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import 'swiper/css/pagination';
 
 //Components
 import { ClientProvider } from "@/components/providers/ClientProvider";

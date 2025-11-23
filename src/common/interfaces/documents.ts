@@ -7,7 +7,8 @@ export interface IDocumentsState {
 export interface IDocument {
   _id: string;
   title: string;
-  url: string;
+  url?: string;
+  urls: string[];
   description: string;
   category: ICategory;
   tags: { tag: ITag }[];

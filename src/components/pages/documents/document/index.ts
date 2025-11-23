@@ -1,5 +1,5 @@
 export * from "./DocumentPage";
 export * from "./DocumentTitle";
-export * from "./DocumentImage";
+export * from "./DocumentImages";
 export * from "./DocumentTags";
 export * from "./DocumentDescription";

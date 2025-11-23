@@ -1,18 +1,22 @@
 "use client";
 
 import { Button } from "@heroui/react";
-import { Document } from "iconsax-react";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { FC } from "react";
 
-//Interface
+//Interfaces
 import { IArticle } from "@/common/interfaces";
+
+//Components
+import { PDFIcon } from "@/components/common/Icons";
+import FileSaver from "file-saver";
+import { BASE_API_URL } from "@/common/constants";
 
 interface IProps {
   article: IArticle | undefined;
 }
-export const ArticleAttach: FC<IProps> = ({}) => {
+export const ArticleAttach: FC<IProps> = ({ article }) => {
   //Responsive
   const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
 
@@ -24,24 +28,26 @@ export const ArticleAttach: FC<IProps> = ({}) => {
     setIsClient(true);
   }, []);
 
+  //Functions
+  function downloadPdfAttach() {
+    FileSaver.saveAs(
+      `${BASE_API_URL}${article?.pdfAttach}`,
+      `${article?.title}.${article?.pdfAttach?.split(".").pop()}`
+    );
+  }
+
   return (
-    isClient && (
+    isClient &&
+    article?.pdfAttach && (
       <div className="flex items-center gap-1.5">
         <Button
           isIconOnly
           size={isLg ? "lg" : "sm"}
           color="primary"
           variant="flat"
+          onPress={downloadPdfAttach}
         >
-          <Document className="w-5 h-5 lg:w-7 lg:h-7" />
-        </Button>
-        <Button
-          isIconOnly
-          size={isLg ? "lg" : "sm"}
-          color="primary"
-          variant="flat"
-        >
-          <Document className="w-5 h-5 lg:w-7 lg:h-7" />
+          <PDFIcon className="w-6 h-6 lg:w-8 lg:h-8" filled />
         </Button>
       </div>
     )
