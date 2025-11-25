@@ -15,13 +15,13 @@ export const AsideItems = () => {
       {pathname !== "/" && (
         <AsideItem title="الصفحة الرئيسية" link={PATHS.HOME} />
       )}
-      <AsideItem title="الکـتب" link={PATHS.BOOKS} />
+      <AsideItem title="الکــتب" link={PATHS.BOOKS} />
       <AsideItem title="صــــور" link={PATHS.IMAGES} />
-      <AsideItem title="وثائق" link={PATHS.DOCUMENTS} />
-      <AsideItem title="أبحاث ومقالات" link={PATHS.ARTICLES} />
-      <AsideItem title="صوتیات" link={PATHS.AUDIOS} />
-      <AsideItem title="محاضرات وبرامج" link={PATHS.PLAYLISTS} />
-      <AsideItem title="السیره الذاتیه" link={PATHS.BIOGRAPHY} />
+      <AsideItem title="وثـائــق" link={PATHS.DOCUMENTS} />
+      <AsideItem title="أبـحـاث ومقـالات" link={PATHS.ARTICLES} />
+      <AsideItem title="محاضرات صوتية" link={PATHS.AUDIOS} />
+      <AsideItem title="فيديوهات وبرامج" link={PATHS.PLAYLISTS} />
+      <AsideItem title="السـیـرة الـذاتیــة" link={PATHS.BIOGRAPHY} />
       <AsideBottomItems />
     </div>
   );

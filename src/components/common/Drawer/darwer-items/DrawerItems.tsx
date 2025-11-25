@@ -15,13 +15,13 @@ export const DrawerItems = () => {
       {pathname !== "/" && (
         <DrawerItem title="الصفحة الرئيسية" link={PATHS.HOME} />
       )}
-      <DrawerItem title="الکـتب" link={PATHS.BOOKS} />
+      <DrawerItem title="الکــتب" link={PATHS.BOOKS} />
       <DrawerItem title="صــــور" link={PATHS.IMAGES} />
-      <DrawerItem title="وثائق" link={PATHS.DOCUMENTS} />
-      <DrawerItem title="أبحاث ومقالات" link={PATHS.ARTICLES} />
-      <DrawerItem title="صوتیات" link={PATHS.AUDIOS} />
-      <DrawerItem title="محاضرات وبرامج" link={PATHS.PLAYLISTS} />
-      <DrawerItem title="السیره الذاتیه" link={PATHS.BIOGRAPHY} />
+      <DrawerItem title="وثـائــق" link={PATHS.DOCUMENTS} />
+      <DrawerItem title="أبـحـاث ومقـالات" link={PATHS.ARTICLES} />
+      <DrawerItem title="محاضرات صوتية" link={PATHS.AUDIOS} />
+      <DrawerItem title="فيديوهات وبرامج" link={PATHS.PLAYLISTS} />
+      <DrawerItem title="السـیـرة الـذاتیــة" link={PATHS.BIOGRAPHY} />
       <DrawerBottomItems />
     </div>
   );
