@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react";
 
-//gRPC
-import { bookServiceClient } from "@/grpc/services/book/book.service";
-import { ContentsResponse_ABXPages } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
-
 //Types
-import { IBookAttach, IPage } from "@/common/interfaces";
+import { IBookAttach } from "@/common/interfaces";
 import type { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 
 //Components
@@ -16,29 +12,7 @@ import { BookPage } from "@/components/pages/books/book";
 import { axiosInstance } from "@/common/axiosInstance";
 
 async function getBook({ params }: IProps) {
-  let book: IPage[] = [];
-  let bookDetail: Book | undefined = undefined;
   let bookAttach: IBookAttach | undefined = undefined;
-
-  try {
-    const { content } = await bookServiceClient.contents({
-      bookId: params.bookId,
-    });
-    const { book: bookDetailResult } = await bookServiceClient.details({
-      id: params.bookId,
-    });
-
-    book = (
-      content as {
-        value: ContentsResponse_ABXPages;
-        case: "abx";
-      }
-    ).value.pages as IPage[];
-    bookDetail = bookDetailResult;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    console.log(error);
-  }
 
   try {
     const bookAttachRes = await axiosInstance.get(`/books/${params.bookId}`);
@@ -49,8 +23,6 @@ async function getBook({ params }: IProps) {
   }
 
   return {
-    book: book,
-    bookDetail: bookDetail,
     bookAttach: bookAttach,
   };
 }
@@ -60,15 +32,9 @@ interface IProps {
 }
 const Book: FC<IProps> = async ({ params }) => {
   //Fetch Data
-  const { book, bookDetail, bookAttach } = await getBook({ params });
+  const { bookAttach } = await getBook({ params });
 
-  return (
-    <BookPage
-      book={book || []}
-      bookDetail={bookDetail || undefined}
-      bookAttach={bookAttach}
-    />
-  );
+  return <BookPage bookAttach={bookAttach} />;
 };
 
 export default Book;

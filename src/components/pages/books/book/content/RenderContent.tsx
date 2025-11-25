@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { FC } from "react";
 
 //Types
 import { IPageContent } from "@/common/interfaces";
@@ -17,23 +17,17 @@ import {
 
 interface IProps {
   content: IPageContent;
-  pageIndex: number;
   contentType?: ContentTypes;
-  addFootnotesFunc?: (footnote: IPageContent) => void;
-  addRemarksFunc?: (remark: IPageContent) => void;
-  setCurrentPageIndex?: Dispatch<SetStateAction<number>>;
   headingLevel?: number;
+  footnoteOrRemark?: boolean;
 }
 export const RenderContent: FC<IProps> = ({
   content,
-  pageIndex,
   contentType,
-  addFootnotesFunc,
-  addRemarksFunc,
-  setCurrentPageIndex,
   headingLevel,
+  footnoteOrRemark,
 }) => {
-  if (Object.keys(content).includes("text")) {
+  if (content.data.case === "text") {
     switch (contentType) {
       case "heading":
         return (
@@ -41,93 +35,87 @@ export const RenderContent: FC<IProps> = ({
             pageNumber={content.pageNumber || 0}
             level={headingLevel as number}
           >
-            {content.text?.text}
+            {content.data.value.text}
           </HeadingContent>
         );
       case "poem":
         return (
           <PoemContent pageNumber={content.pageNumber || 0}>
-            {content.text?.text}
+            {content.data.value.text}
           </PoemContent>
         );
       case "ref":
         return (
           <RefContent pageNumber={content.pageNumber || 0}>
-            {content.text?.text}
+            {content.data.value.text}
           </RefContent>
         );
       case "footnote":
         return (
           <FootNoteContent pageNumber={content.pageNumber || 0}>
-            {content.text?.text}
+            {content.data.value.text}
           </FootNoteContent>
         );
       case "remark":
         return (
           <RemarkContent pageNumber={content.pageNumber || 0}>
-            {content.text?.text}
+            {content.data.value.text}
           </RemarkContent>
         );
       default:
         return (
-          <SimpleTextContent pageNumber={content.pageNumber || 0}>
-            {content.text?.text}
+          <SimpleTextContent
+            pageNumber={content.pageNumber || 0}
+            footnoteOrRemark={footnoteOrRemark}
+          >
+            {content.data.value.text}
           </SimpleTextContent>
         );
     }
-  } else if (Object.keys(content).includes("heading")) {
+  } else if (content.data.case === "heading") {
     return content.children?.map((content: IPageContent, i: number) => (
       <RenderContent
         key={i}
         content={content}
-        pageIndex={pageIndex}
         contentType="heading"
-        headingLevel={content.heading?.level}
+        headingLevel={content.weight}
       />
     ));
-  } else if (Object.keys(content).includes("image")) {
+  } else if (content.data.case === "image") {
     return (
-      content.image?.url && (
+      content.data.value.url && (
         <ImageContent
-          caption={content.image?.caption || ""}
-          url={content.image?.url}
+          caption={content.data.value.caption || ""}
+          url={content.data.value.url}
         />
       )
     );
-  } else if (Object.keys(content).includes("footnote")) {
-    if (addFootnotesFunc && setCurrentPageIndex) {
-      content.children?.map((content: IPageContent) => {
-        addFootnotesFunc(content);
-      });
-      setCurrentPageIndex(pageIndex);
-    }
-    return "";
-  } else if (Object.keys(content).includes("poem")) {
+  } else if (content.data.case === "poem") {
+    return content.children?.map((content: IPageContent, i: number) => (
+      <RenderContent key={i} content={content} contentType="poem" />
+    ));
+  } else if (content.data.case === "ref") {
+    return content.children?.map((content: IPageContent, i: number) => (
+      <RenderContent key={i} content={content} contentType="ref" />
+    ));
+  } else if (content.data.case === "footnote") {
     return content.children?.map((content: IPageContent, i: number) => (
       <RenderContent
         key={i}
         content={content}
-        pageIndex={pageIndex}
-        contentType="poem"
+        contentType="footnote"
+        footnoteOrRemark={true}
       />
     ));
-  } else if (Object.keys(content).includes("ref")) {
+  } else if (content.data.case === "remark") {
     return content.children?.map((content: IPageContent, i: number) => (
       <RenderContent
         key={i}
         content={content}
-        pageIndex={pageIndex}
-        contentType="ref"
+        contentType="remark"
+        footnoteOrRemark={true}
       />
     ));
-  } else if (Object.keys(content).includes("remark")) {
-    if (addRemarksFunc && setCurrentPageIndex) {
-      content.children?.map((content: IPageContent) => {
-        addRemarksFunc(content);
-      });
-      setCurrentPageIndex(pageIndex);
-    }
-    return "";
   } else {
     return "";
   }

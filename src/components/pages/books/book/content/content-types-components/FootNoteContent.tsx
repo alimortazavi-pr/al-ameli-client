@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react";
 
 interface IProps {
@@ -7,8 +6,10 @@ interface IProps {
 }
 export const FootNoteContent: FC<IProps> = ({ children, pageNumber }) => {
   return (
-    <span id={`content-${pageNumber}`} className="text-[0.8em] block">
-      {children}
-    </span>
+    <>
+      <span tabIndex={0} id={`content-${pageNumber}`} className="text-[0.8em] whitespace-pre-line">
+        {children}
+      </span>{" "}
+    </>
   );
 };

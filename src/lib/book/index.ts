@@ -9,10 +9,19 @@ import reducers from "@/lib/book/reducers";
 const initialState: IBookState = {
   isOpenTableOfContent: false,
   isOpenBookInfo: false,
+  isOpenPDF: false,
   selectedBook: [],
+  selectedOCRBook: [],
+  selectedPDFBook: [],
   bookDetail: undefined,
   bookAttach: undefined,
   scrollToPage: false,
+  isOCR: false,
+  dimensionPDFPages: {
+    width: 0,
+    height: 0,
+    aspectRatio: 0,
+  },
 };
 
 export const bookReducer = createSlice({

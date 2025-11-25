@@ -16,6 +16,11 @@ export const {
   setBookDetail,
   setBookAttach,
   setScrollToPage,
+  setDimensionPDFPages,
+  setIsOCR,
+  setIsOpenPDF,
+  setSelectedOCRBook,
+  setSelectedPDFBook,
 } = bookReducer.actions;
 
 //Interfaces

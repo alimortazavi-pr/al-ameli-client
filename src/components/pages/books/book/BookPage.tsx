@@ -4,49 +4,28 @@ import { FC, useEffect } from "react";
 import { useDisclosure } from "@heroui/react";
 
 //Interfaces
-import { IBookAttach, IPage } from "@/common/interfaces";
-import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
+import { IBookAttach } from "@/common/interfaces";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
-import {
-  setBookAttach,
-  setBookDetail,
-  setSelectedBook,
-} from "@/lib/book/actions";
+import { setBookAttach } from "@/lib/book/actions";
 
 //Components
 import { BookDetailModal } from "./book-detail";
 import { BookAttach, BookCategories, BookTitle } from ".";
 import { ContentContainer } from "./content";
 
-//Responsive
-
 interface IProps {
-  book: IPage[];
-  bookDetail: Book | undefined;
   bookAttach: IBookAttach | undefined;
 }
-export const BookPage: FC<IProps> = ({ book, bookDetail, bookAttach }) => {
+export const BookPage: FC<IProps> = ({ bookAttach }) => {
   //Redux
   const dispatch = useAppDispatch();
-
-  //States
-
-  //Responsive
 
   //NextUI
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   //Life cycle
-  useEffect(() => {
-    dispatch(setSelectedBook(book));
-  }, [book]);
-
-  useEffect(() => {
-    dispatch(setBookDetail(bookDetail));
-  }, [bookDetail]);
-
   useEffect(() => {
     if (bookAttach) {
       dispatch(setBookAttach(bookAttach));
@@ -64,7 +43,6 @@ export const BookPage: FC<IProps> = ({ book, bookDetail, bookAttach }) => {
               <BookAttach />
             </div>
           </div>
-          {/* <BookContent /> */}
           <ContentContainer />
         </div>
       </div>

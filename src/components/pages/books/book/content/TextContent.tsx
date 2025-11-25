@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef } from "react";
 import { Divider } from "@heroui/react";
 import { useInView } from "react-intersection-observer";
 import convertToPersian from "num-to-persian";
@@ -7,7 +7,8 @@ import useQuery from "next-app-use-query";
 import mergeRefs from "merge-refs";
 
 //Interfaces
-import { IPage, IPageContent } from "@/common/interfaces";
+import { Page } from "@/grpc/proto/ablibrary/types/page_pb";
+import { PageContent } from "@/grpc/proto/ablibrary/types/page_content_pb";
 
 //Redux
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
@@ -21,12 +22,19 @@ import { setScrollToPage } from "@/lib/book/actions";
 import { RenderContent } from ".";
 
 interface IProps {
-  pageData: IPage;
+  pageData: Page;
+  footnotes: PageContent[];
+  remarks: PageContent[];
   pageIndex: number;
 }
-export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
+export const TextContent: FC<IProps> = ({
+  pageData,
+  pageIndex,
+  footnotes,
+  remarks,
+}) => {
   //Redux
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const scrollToPage = useAppSelector(scrollToPageSelector);
 
   //Translation
@@ -39,15 +47,6 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
   //Refs
   const contentRef = useRef<HTMLDivElement>(null);
 
-  //States
-  const [footnotes, setFootnotes] = useState<IPageContent[]>([]);
-  const [remarks, setRemarks] = useState<IPageContent[]>([]);
-  const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
-
-  //Variables
-  const footnotesVar: IPageContent[] = [];
-  const remarksVar: IPageContent[] = [];
-
   //Refs
   const { ref } = useInView({
     threshold: 0,
@@ -57,13 +56,6 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
   });
 
   //Life cycle
-  useEffect(() => {
-    if (currentPageIndex >= pageData.contents?.length) {
-      setFootnotes(footnotesVar);
-      setRemarks(remarksVar);
-    }
-  }, [currentPageIndex]);
-
   useEffect(() => {
     goToPageHandler();
   }, [scrollToPage]);
@@ -76,7 +68,7 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
         behavior: "smooth",
         block: "center",
       });
-      dispatch(setScrollToPage(false))
+      dispatch(setScrollToPage(false));
     }
   }
 
@@ -90,14 +82,6 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
         })
       );
     }
-  }
-
-  function addFootnotesFunc(footnoteChildren: IPageContent) {
-    footnotesVar.push(footnoteChildren);
-  }
-
-  function addRemarksFunc(remarkChildren: IPageContent) {
-    remarksVar.push(remarkChildren);
   }
 
   return (
@@ -114,38 +98,45 @@ export const TextContent: FC<IProps> = ({ pageData, pageIndex }) => {
             {convertToPersian(pageData.label || "0")}
           </span>
         </div>
-        {pageData?.contents?.map((content, i) => (
-          <RenderContent
-            key={i}
-            content={content}
-            pageIndex={pageIndex}
-            addFootnotesFunc={addFootnotesFunc}
-            addRemarksFunc={addRemarksFunc}
-            setCurrentPageIndex={setCurrentPageIndex}
-          />
-        ))}
+        {pageData?.contents?.map(
+          (content, i) =>
+            content.data.case != "footnote" &&
+            content.data.case != "remark" && (
+              <RenderContent key={i} content={content} />
+            )
+        )}
         {remarks.length > 0 && (
-          <div className="px-3 mt-1">
-            <Divider className="w-1/2 mb-2 mt-7 bg-default-300" />
+          <div className={`px-3 mt-1`}>
+            <div className="flex items-center gap-2 mb-2 mt-7">
+              <span className="text-xs text-default-700">
+                شرح
+              </span>
+              <Divider className="w-1/2 bg-default-700" />
+            </div>
             {remarks.map((remark, i) => (
               <RenderContent
                 key={i}
                 content={remark}
-                pageIndex={pageIndex}
                 contentType="remark"
+                footnoteOrRemark={true}
               />
             ))}
           </div>
         )}
         {footnotes.length > 0 && (
-          <div className="px-3 mt-1">
-            <Divider className="w-1/2 mb-2 mt-7 bg-default-300" />
+          <div className={`px-3 mt-1`}>
+            <div className="flex items-center gap-2 mb-2 mt-7">
+              <span className="text-xs text-default-700">
+                هامش
+              </span>
+              <Divider className="w-1/2 bg-default-700" />
+            </div>
             {footnotes.map((footnote, i) => (
               <RenderContent
                 key={i}
                 content={footnote}
-                pageIndex={pageIndex}
                 contentType="footnote"
+                footnoteOrRemark={true}
               />
             ))}
           </div>

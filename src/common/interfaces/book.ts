@@ -19,14 +19,24 @@ import {
 } from "@/grpc/proto/ablibrary/types/page_content_pb";
 import { Page } from "@/grpc/proto/ablibrary/types/page_pb";
 import { IBookAttach } from "./books";
+import { OCRPage } from "@/grpc/proto/ablibrary/types/ocr_pb";
 
 export interface IBookState {
   isOpenTableOfContent: boolean;
   isOpenBookInfo: boolean;
+  isOpenPDF: boolean;
   selectedBook: Page[];
+  selectedOCRBook: OCRPage[];
+  selectedPDFBook: string[];
   bookDetail: Book | undefined;
   bookAttach: IBookAttach | undefined;
   scrollToPage: boolean;
+  isOCR: boolean;
+  dimensionPDFPages: {
+    width: number;
+    height: number;
+    aspectRatio: number;
+  };
 }
 
 export interface IBookRequest {

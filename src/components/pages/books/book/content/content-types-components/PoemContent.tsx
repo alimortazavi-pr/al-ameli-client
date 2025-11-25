@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react";
 
 interface IProps {
@@ -7,7 +6,7 @@ interface IProps {
 }
 export const PoemContent: FC<IProps> = ({ children, pageNumber }) => {
   return (
-    <span id={`content-${pageNumber}`} className="text-center block">
+    <span tabIndex={0} id={`content-${pageNumber}`} className="text-center block whitespace-pre-line">
       {children}
     </span>
   );
