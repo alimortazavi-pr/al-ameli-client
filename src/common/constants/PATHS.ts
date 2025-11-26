@@ -15,4 +15,5 @@ export const PATHS = {
   BIOGRAPHY: "/biography",
   ABOUT_US: "/about-us",
   CONTACT_US: "/contact-us",
+  PUBLISH_LICENSE: "/publish-license",
 };

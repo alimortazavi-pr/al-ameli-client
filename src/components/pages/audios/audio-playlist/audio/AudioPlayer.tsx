@@ -97,41 +97,43 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
         />
         <span className="text-sm">{formatTime(duration)}</span>
       </div>
-      <div className="flex items-center justify-center gap-1">
-        <Button
-          isIconOnly
-          onPress={downloadAudio}
-          className=""
-          color="primary"
-          variant="flat"
-          size="sm"
-        >
-          <DocumentDownload className="w-5 h-5" />
-        </Button>
-        <Button
-          isIconOnly
-          onPress={togglePlayPause}
-          className=""
-          color="primary"
-          variant="flat"
-          size="sm"
-        >
-          {isPlaying ? (
-            <Pause className="w-5 h-5" />
-          ) : (
-            <Play className="w-5 h-5" />
-          )}
-        </Button>
-        <Button
-          isIconOnly
-          onPress={stopAudio}
-          className=""
-          color="primary"
-          variant="flat"
-          size="sm"
-        >
-          <Stop className="w-5 h-5" />
-        </Button>
+      <div className="flex justify-center">
+        <div className="flex items-center justify-center gap-1 max-w-fit bg-primary-100 p-2 rounded-xl">
+          <Button
+            isIconOnly
+            onPress={downloadAudio}
+            className=""
+            color="primary"
+            variant="shadow"
+            size="md"
+          >
+            <DocumentDownload className="w-6 h-6" />
+          </Button>
+          <Button
+            isIconOnly
+            onPress={togglePlayPause}
+            className=""
+            color="primary"
+            variant="shadow"
+            size="md"
+          >
+            {isPlaying ? (
+              <Pause className="w-6 h-6" />
+            ) : (
+              <Play className="w-6 h-6" />
+            )}
+          </Button>
+          <Button
+            isIconOnly
+            onPress={stopAudio}
+            className=""
+            color="primary"
+            variant="shadow"
+            size="md"
+          >
+            <Stop className="w-6 h-6" />
+          </Button>
+        </div>
       </div>
     </div>
   );
