@@ -23,6 +23,7 @@
     "ap-to-english": "^0.0.4",
     "axios": "^1.7.7",
     "file-saver": "^2.0.5",
+    "formik": "^2.4.9",
     "framer-motion": "^11.5.4",
     "iconsax-react": "^0.0.8",
     "js-cookie": "^3.0.5",
@@ -46,7 +47,8 @@
     "react-toastify": "^10.0.5",
     "react-virtuoso": "^4.12.3",
     "sharp": "^0.33.5",
-    "swiper": "^12.0.3"
+    "swiper": "^12.0.3",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",

@@ -17,6 +17,8 @@ export const {
 
 //Utils
 import { storage } from "@/common/utils";
+import { axiosInstance } from "@/common/axiosInstance";
+import { IContactUsForm } from "@/common/interfaces";
 
 //Actions from actions
 export function darkModeCheckerAction(): AppThunk {
@@ -64,6 +66,16 @@ export function darkModeToggleAction(): AppThunk {
       dispatch(setDarkMode(!darkMode));
     } catch (error) {
       console.log(error);
+    }
+  };
+}
+
+export function sentContactUsMessage(form: IContactUsForm): AppThunk {
+  return async () => {
+    try {
+      await axiosInstance.post("/telegram/contact-us", form);
+    } catch (error: any) {
+      throw new Error(error.response.data.message);
     }
   };
 }

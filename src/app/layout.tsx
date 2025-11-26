@@ -7,7 +7,8 @@ import "react-modern-drawer/dist/index.css";
 import "react-photo-view/dist/react-photo-view.css";
 import "swiper/css";
 import "swiper/css/navigation";
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
+import "react-toastify/dist/ReactToastify.css";
 
 //Components
 import { ClientProvider } from "@/components/providers/ClientProvider";
