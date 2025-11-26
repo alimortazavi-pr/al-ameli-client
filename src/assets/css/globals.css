@@ -69,3 +69,7 @@
   color: #111;
   line-height: 1.6;
 }
+
+.ckeditor-output img {
+  object-fit: contain;
+}
