@@ -1,7 +1,6 @@
 import { Chip } from "@heroui/react";
 import { useRouter } from "next-nprogress-bar";
 import useQuery from "next-app-use-query";
-import { TickCircle } from "iconsax-react";
 
 //Redux
 import { categoriesSelector } from "@/lib/categories/selectors";
@@ -60,7 +59,7 @@ export const FilterSectionChips = () => {
           onClick={() => selectCategory(category._id)}
           startContent={
             category._id === query.get("category") ? (
-              <TickCircle className="w-5 h-5" variant="Bulk" />
+              <span className="material-symbols-outlined">check</span>
             ) : undefined
           }
         >
@@ -78,7 +77,7 @@ export const FilterSectionChips = () => {
           onClick={() => selectTags(tag._id)}
           startContent={
             checkTag(tag._id) ? (
-              <TickCircle className="w-5 h-5" variant="Bulk" />
+              <span className="material-symbols-outlined">check</span>
             ) : undefined
           }
         >

@@ -5,7 +5,6 @@ import { FC } from "react";
 import Image from "next/image";
 import { Chip } from "@heroui/react";
 import convertToPersian from "num-to-persian";
-import { VideoVertical } from "iconsax-react";
 
 //Interfaces
 import { IPlaylist } from "@/common/interfaces";
@@ -19,7 +18,10 @@ interface IProps {
 export const PlaylistsItem: FC<IProps> = ({ playlist }) => {
   return (
     playlist.contentDetails.itemCount > 0 && (
-      <Link href={PATHS.PLAYLIST(playlist.id)} className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-primary-500">
+      <Link
+        href={PATHS.PLAYLIST(playlist.id)}
+        className="col-span-6 md:col-span-4 lg:col-span-4 xl:col-span-3 rounded-2xl bg-primary-500"
+      >
         <div className={`h-32 bg-white/90 shadow-lg rounded-2xl relative`}>
           <Image
             src={playlist.snippet.thumbnails.high.url}
@@ -29,7 +31,9 @@ export const PlaylistsItem: FC<IProps> = ({ playlist }) => {
           />
           <Chip
             className="absolute bottom-2 start-2"
-            endContent={<VideoVertical className="w-5 h-5" />}
+            endContent={
+              <span className="material-symbols-outlined">video_library</span>
+            }
             color="primary"
           >
             {convertToPersian(playlist.contentDetails.itemCount)} فيديو

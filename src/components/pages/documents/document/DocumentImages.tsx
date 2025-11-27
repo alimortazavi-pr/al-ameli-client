@@ -4,7 +4,6 @@ import { FC } from "react";
 import Image from "next/image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Button, Spinner } from "@heroui/react";
-import { DocumentDownload, SearchZoomIn } from "iconsax-react";
 import FileSaver from "file-saver";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -57,7 +56,9 @@ export const DocumentImages: FC<IProps> = ({ document }) => {
                         variant="flat"
                         size="lg"
                       >
-                        <SearchZoomIn className="w-7 h-7" />
+                        <span className="material-symbols-outlined lg:!text-3xl">
+                          zoom_in
+                        </span>
                       </Button>
                     </PhotoView>
                   </div>
@@ -69,7 +70,7 @@ export const DocumentImages: FC<IProps> = ({ document }) => {
                   size="lg"
                   onPress={downloadDocument}
                 >
-                  <DocumentDownload className="w-7 h-7" />
+                  <span className="material-symbols-outlined lg:!text-3xl">download</span>
                 </Button>
               </div>
             </SwiperSlide>
@@ -92,7 +93,7 @@ export const DocumentImages: FC<IProps> = ({ document }) => {
               <div>
                 <PhotoView src={`${BASE_API_URL}${document?.url}`}>
                   <Button isIconOnly color="primary" variant="flat" size="lg">
-                    <SearchZoomIn className="w-7 h-7" />
+                    <span className="material-symbols-outlined lg:!text-3xl">zoom_in</span>
                   </Button>
                 </PhotoView>
               </div>
@@ -104,7 +105,7 @@ export const DocumentImages: FC<IProps> = ({ document }) => {
               size="lg"
               onPress={downloadDocument}
             >
-              <DocumentDownload className="w-7 h-7" />
+              <span className="material-symbols-outlined lg:!text-3xl">download</span>
             </Button>
           </div>
         </>

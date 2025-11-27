@@ -3,7 +3,6 @@
 import { Button, Tooltip, useDisclosure } from "@heroui/react";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
-import { TableDocument } from "iconsax-react";
 
 //Components
 import { TableOfContentModal } from ".";
@@ -44,7 +43,7 @@ export const TableOfContentsIcon = () => {
             aria-label="table of contents"
             onPress={onOpen}
           >
-            <TableDocument className="w-5 h-5 lg:w-7 lg:h-7" />
+            <span className="material-symbols-outlined lg:!text-3xl">toc</span>
           </Button>
         </Tooltip>
         <TableOfContentModal

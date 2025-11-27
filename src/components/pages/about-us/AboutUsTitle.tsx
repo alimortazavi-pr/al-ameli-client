@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Button } from "@heroui/react";
-import { ArrowRight } from "iconsax-react";
 import { useRouter } from "next-nprogress-bar";
 
 export const AboutUsTitle: FC = () => {
@@ -15,7 +14,7 @@ export const AboutUsTitle: FC = () => {
   return (
     <div className="flex items-center gap-2 lg:max-w-[50%]">
       <Button isIconOnly variant="light" onPress={onBackHandler}>
-        <ArrowRight className="w-7 h-7 xl:w-9 xl:h-9 text-default-900" />
+        <span className="material-symbols-outlined !text-3xl">arrow_right_alt</span>
       </Button>
       <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate py-3">
         حول الموقع

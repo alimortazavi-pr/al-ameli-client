@@ -6,7 +6,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { DocumentDownload, Pause, Play, Stop } from "iconsax-react";
 import { Button, Progress } from "@heroui/react";
 import FileSaver from "file-saver";
 
@@ -107,7 +106,7 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
             variant="shadow"
             size="md"
           >
-            <DocumentDownload className="w-6 h-6" />
+            <span className="material-symbols-outlined">download</span>
           </Button>
           <Button
             isIconOnly
@@ -118,9 +117,9 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
             size="md"
           >
             {isPlaying ? (
-              <Pause className="w-6 h-6" />
+              <span className="material-symbols-outlined">pause_circle</span>
             ) : (
-              <Play className="w-6 h-6" />
+              <span className="material-symbols-outlined">play_circle</span>
             )}
           </Button>
           <Button
@@ -131,7 +130,7 @@ export const AudioPlayer: FC<IProps> = ({ audio, duration, setDuration }) => {
             variant="shadow"
             size="md"
           >
-            <Stop className="w-6 h-6" />
+            <span className="material-symbols-outlined">stop_circle</span>
           </Button>
         </div>
       </div>

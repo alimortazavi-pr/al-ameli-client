@@ -5,7 +5,6 @@ import { FC } from "react";
 import Image from "next/image";
 import convertToPersian from "num-to-persian";
 import { Chip } from "@heroui/react";
-import { AudioSquare } from "iconsax-react";
 
 //Interfaces
 import { ICategoryAudio } from "@/common/interfaces";
@@ -32,7 +31,9 @@ export const AudiosItem: FC<IProps> = ({ audioByCategory }) => {
           />
           <Chip
             className="absolute bottom-2 start-2"
-            endContent={<AudioSquare className="w-5 h-5" />}
+            endContent={
+              <span className="material-symbols-outlined">music_note</span>
+            }
             color="primary"
           >
             {convertToPersian(audioByCategory.audios.length)} مقطع صوتي

@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@heroui/react";
-import { ArrowUp } from "iconsax-react";
 import { useState, useEffect } from "react";
 
 export const BackToTopButton = () => {
@@ -36,7 +35,7 @@ export const BackToTopButton = () => {
       isIconOnly
       color="primary"
     >
-      <ArrowUp size={24} />
+      <span className="material-symbols-outlined">north</span>
     </Button>
   );
 };

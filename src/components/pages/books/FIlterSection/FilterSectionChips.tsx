@@ -1,6 +1,5 @@
 import { Chip } from "@heroui/react";
 import useQuery from "next-app-use-query";
-import { TickCircle } from "iconsax-react";
 
 //Redux
 import { useAppSelector } from "@/lib/hooks";
@@ -44,7 +43,7 @@ export const FilterSectionChips = () => {
           onClick={() => selectCategory(category._id)}
           startContent={
             category._id === query.get("category") ? (
-              <TickCircle className="w-5 h-5" variant="Bulk" />
+              <span className="material-symbols-outlined">check</span>
             ) : undefined
           }
         >

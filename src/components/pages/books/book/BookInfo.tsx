@@ -3,7 +3,6 @@
 import { Button, Tooltip } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { InfoCircle } from "iconsax-react";
 
 //Redux
 import { useAppDispatch } from "@/lib/hooks";
@@ -49,7 +48,7 @@ export const BookInfo = () => {
           onPress={onPressHandler}
           aria-label="Book Info"
         >
-          <InfoCircle className="w-5 h-5 lg:w-7 lg:h-7" />
+          <span className="material-symbols-outlined lg:!text-3xl">info</span>
         </Button>
       </Tooltip>
     )

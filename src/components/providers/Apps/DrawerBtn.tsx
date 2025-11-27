@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@heroui/react";
-import { HambergerMenu } from "iconsax-react";
 import { useEffect, useState } from "react";
 
 //Redux
@@ -44,7 +43,7 @@ export const DrawerBtn = () => {
       onPress={onOpenHandler}
       size="lg"
     >
-      <HambergerMenu className="w-7 h-7" />
+      <span className="material-symbols-outlined lg:!text-3xl">menu</span>
     </Button>
   );
 };

@@ -4,8 +4,7 @@ import { FC } from "react";
 import { IVideo } from "@/common/interfaces";
 import moment from "moment";
 import convertToPersian from "num-to-persian";
-import { Button } from "@heroui/react";
-import { ArrowDown } from "iconsax-react";
+// import { Button } from "@heroui/react";
 
 interface IProps {
   video: IVideo;
@@ -33,9 +32,9 @@ export const VideoItem: FC<IProps> = ({ video }) => {
               moment(video.snippet.publishedAt).format("YYYY, DD MMM")
             )}
           </span>
-          <Button isIconOnly size="sm">
-            <ArrowDown className="w-5 h-5" />
-          </Button>
+          {/* <Button isIconOnly size="sm">
+            <span className="material-symbols-outlined">download</span>
+          </Button> */}
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { Chip } from "@heroui/react";
 import { useRouter } from "next-nprogress-bar";
 import useQuery from "next-app-use-query";
-import { TickCircle } from "iconsax-react";
 
 //Redux
 import { categoriesSelector } from "@/lib/categories/selectors";
@@ -37,7 +36,9 @@ export const FilterSectionChips = () => {
       ? tagsQuery.filter((t) => t !== tag)
       : [...tagsQuery, tag];
 
-    router.replace(`${PATHS.ARTICLES}${query.add("tags", newTagsQuery.join(","))}`);
+    router.replace(
+      `${PATHS.ARTICLES}${query.add("tags", newTagsQuery.join(","))}`
+    );
   }
 
   function checkTag(tag: string) {
@@ -58,7 +59,7 @@ export const FilterSectionChips = () => {
           onClick={() => selectCategory(category._id)}
           startContent={
             category._id === query.get("category") ? (
-              <TickCircle className="w-5 h-5" variant="Bulk" />
+              <span className="material-symbols-outlined">check</span>
             ) : undefined
           }
         >
@@ -70,11 +71,13 @@ export const FilterSectionChips = () => {
           key={tag._id}
           variant={checkTag(tag._id) ? "faded" : "light"}
           color="primary"
-          className={`cursor-pointer ${checkTag(tag._id) ? "" : "text-primary-50"}`}
+          className={`cursor-pointer ${
+            checkTag(tag._id) ? "" : "text-primary-50"
+          }`}
           onClick={() => selectTags(tag._id)}
           startContent={
             checkTag(tag._id) ? (
-              <TickCircle className="w-5 h-5" variant="Bulk" />
+              <span className="material-symbols-outlined">check</span>
             ) : undefined
           }
         >
