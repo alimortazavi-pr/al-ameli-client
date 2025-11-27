@@ -26,7 +26,11 @@ export const FilterSectionFilterInput = () => {
 
   //Functions
   function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value);
+    if (e.target.value) {
+      setValue(e.target.value);
+    } else {
+      handleClear();
+    }
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
@@ -46,7 +50,7 @@ export const FilterSectionFilterInput = () => {
 
   function handleClear() {
     setValue("");
-    router.replace(`${PATHS.BOOKS}${query.delete("search")}`);
+    router.replace(`${PATHS.BOOKS}${query.delete("query")}`);
   }
 
   return (

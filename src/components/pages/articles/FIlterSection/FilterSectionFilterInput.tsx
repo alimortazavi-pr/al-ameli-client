@@ -26,7 +26,11 @@ export const FilterSectionFilterInput = () => {
 
   //Functions
   function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value);
+    if (e.target.value) {
+      setValue(e.target.value);
+    } else {
+      handleClear();
+    }
   }
 
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
