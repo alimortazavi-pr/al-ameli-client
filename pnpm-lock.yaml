@@ -83,6 +83,9 @@ importers:
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      num-to-arabic:
+        specifier: ^0.0.3
+        version: 0.0.3
       num-to-persian:
         specifier: ^0.0.3
         version: 0.0.3
@@ -2888,6 +2891,9 @@ packages:
 
   nprogress-v2@1.0.4:
     resolution: {integrity: sha512-HPhTEgqsQMFXXuaftvu6bevqEXvcQ/hogvkAswlcNyS9eRGjvo7wZY1O4H3aZS4Uq8oWSO6sL3dOj6Oq/ZJN5A==}
+
+  num-to-arabic@0.0.3:
+    resolution: {integrity: sha512-pr6ThxBQztoipq1xI+oFXKiVc78q5EQnX0gMAhVXeA4xkxjav6ytPos6Xm9wXYF3oM/COr88l916P7LR9u9V3Q==}
 
   num-to-persian@0.0.3:
     resolution: {integrity: sha512-owV8RGgHKgyR39X5MWqQUebGdYw3hZLyML1cxWglTI4PmA42jHAaK5/HIdZgTRCi1CsCU1eDQ90UiwGfBiDdEQ==}
@@ -7411,6 +7417,8 @@ snapshots:
   normalize-path@3.0.0: {}
 
   nprogress-v2@1.0.4: {}
+
+  num-to-arabic@0.0.3: {}
 
   num-to-persian@0.0.3: {}
 

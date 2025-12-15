@@ -18,7 +18,7 @@ export const AudiosPlaylistTitle: FC<IProps> = ({ audiosByCategory }) => {
   }
 
   return (
-    <div className="flex items-center gap-2 lg:max-w-[50%]">
+    <div className="flex items-center gap-2 lg:max-w-[50%] mb-2">
       <Button isIconOnly variant="light" onPress={onBackHandler}>
         <span className="material-symbols-outlined !text-3xl">
           arrow_right_alt

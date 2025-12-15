@@ -39,7 +39,7 @@ export const BookInfo = () => {
 
   return (
     isClient && (
-      <Tooltip content={"اطلاعات کتاب"}>
+      <Tooltip content={"معلومات الكتاب"}>
         <Button
           size={isLg ? "lg" : "sm"}
           isIconOnly

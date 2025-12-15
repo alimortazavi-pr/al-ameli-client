@@ -15,7 +15,8 @@ import { ClientProvider } from "@/components/providers/ClientProvider";
 
 export const metadata: Metadata = {
   title: "Al Ameli",
-  description: "Developed by alimor.ir",
+  description:
+    "المنصة الرسمية لنشر التراث العلمي والفكري لسماحة العلامة الشيخ علي الكوراني العاملي(قده). يضم الموقع أرشيفاً شاملاً من المؤلفات والكتب الإلكترونية، المقالات والبحوث، المحاضرات الصوتية والمرئية وسيرة سماحته ومحطات من حياته المباركة.",
 };
 
 export default function RootLayout({

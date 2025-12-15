@@ -34,7 +34,7 @@ export const TableOfContentsIcon = () => {
   return (
     isClient && (
       <>
-        <Tooltip content={"فهرست"}>
+        <Tooltip content={"فهرس الموضوعات"}>
           <Button
             isIconOnly
             size={isLg ? "lg" : "sm"}

@@ -46,9 +46,9 @@ export const SingleAudio: FC<IProps> = ({ audio }) => {
             {audio.description}
           </p>
           <div className="flex items-center justify-between gap-2">
-            <p className="hidden md:flex items-center gap-1 text-sm">
+            <p className="hidden md:flex items-center gap-1 text-xs">
               تاريخ الإضافة
-              <span>{moment(audio.createdAt).format("DD MMM")}</span> -
+              <span>{moment(audio.createdAt).format("YYYY DD MMM")}</span> -
               <span>{formatTime(duration)}</span>
             </p>
             <AudioDescriptionButton audio={audio} />

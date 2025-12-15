@@ -18,11 +18,13 @@ export const ArticleTitle: FC<IProps> = ({ article }) => {
   }
 
   return (
-    <div className="flex items-center gap-2 lg:max-w-[50%]">
+    <div className="flex items-center gap-2 ">
       <Button isIconOnly variant="light" onPress={onBackHandler}>
-        <span className="material-symbols-outlined !text-3xl">arrow_right_alt</span>
+        <span className="material-symbols-outlined !text-3xl">
+          arrow_right_alt
+        </span>
       </Button>
-      <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold truncate py-3">
+      <h6 className="text-xl lg:text-3xl xl:text-4xl font-semibold py-3">
         {article?.title}
       </h6>
     </div>

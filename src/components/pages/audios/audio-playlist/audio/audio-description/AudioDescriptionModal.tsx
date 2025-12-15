@@ -3,6 +3,7 @@ import { FC } from "react";
 
 //Interfaces
 import { IAudio, INextUIModalProps } from "@/common/interfaces";
+import { AudioAiHint } from "../../AudioAiHint";
 
 interface IProps {
   audio: IAudio;
@@ -24,6 +25,7 @@ export const AudioDescriptionModal: FC<INextUIModalProps & IProps> = ({
           <>
             <ModalHeader>النص الكامل - {audio.title}</ModalHeader>
             <ModalBody>
+              <AudioAiHint />
               <p className="whitespace-pre-wrap">{audio.description}</p>
             </ModalBody>
           </>

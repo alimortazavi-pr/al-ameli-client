@@ -6,6 +6,7 @@ import { FC, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 import FileSaver from "file-saver";
+import convertToArabic from "num-to-arabic";
 
 //Interfaces
 import { IBook, IBookAttach } from "@/common/interfaces";
@@ -65,6 +66,11 @@ export const BooksItem: FC<IProps> = ({ book, bookAttach }) => {
               className="text-xl md:text-3xl font-bold break-words"
             >
               {book.title}
+              {book.volumeLabel || book.volumeNumber
+                ? ` - ج${convertToArabic(
+                    book.volumeNumber || book.volumeLabel || ""
+                  )}`
+                : ""}
             </Link>
             <div className="mb-3 md:mb-16 text-default-500 md:text-2xl mb-t md:mt-7 break-words">
               {book.contributors
