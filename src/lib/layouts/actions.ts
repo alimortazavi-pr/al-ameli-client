@@ -11,6 +11,7 @@ export const {
   setIsOpenDrawer,
   setPageTitle,
   setIsCompletedLogo,
+  setPDFQualityInBook,
 } = layoutsReducer.actions;
 
 //Interfaces

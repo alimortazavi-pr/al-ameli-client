@@ -4,11 +4,12 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { IBookAttach, IBookState, IPage } from "@/common/interfaces";
 import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 import { OCRPage } from "@/grpc/proto/ablibrary/types/ocr_pb";
+import { PDFPageMeta } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 const reducers = {
   setIsOpenTableOfContent(
     state: any,
-    action: PayloadAction<boolean>
+    action: PayloadAction<boolean>,
   ): IBookState {
     return {
       ...state,
@@ -39,7 +40,10 @@ const reducers = {
       selectedOCRBook: action.payload,
     };
   },
-  setSelectedPDFBook(state: any, action: PayloadAction<string[]>): IBookState {
+  setSelectedPDFBook(
+    state: any,
+    action: PayloadAction<PDFPageMeta[]>,
+  ): IBookState {
     return {
       ...state,
       selectedPDFBook: action.payload,
@@ -47,7 +51,7 @@ const reducers = {
   },
   setBookDetail(
     state: any,
-    action: PayloadAction<Book | undefined>
+    action: PayloadAction<Book | undefined>,
   ): IBookState {
     return {
       ...state,
@@ -80,11 +84,20 @@ const reducers = {
   },
   setDimensionPDFPages(
     state: any,
-    action: PayloadAction<IBookState["dimensionPDFPages"]>
+    action: PayloadAction<IBookState["dimensionPDFPages"]>,
   ): IBookState {
     return {
       ...state,
       dimensionPDFPages: action.payload,
+    };
+  },
+  setSelectedPage(
+    state: any,
+    action: PayloadAction<number | undefined>,
+  ): IBookState {
+    return {
+      ...state,
+      selectedPage: action.payload,
     };
   },
 };

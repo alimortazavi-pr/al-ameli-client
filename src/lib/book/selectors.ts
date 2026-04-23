@@ -1,5 +1,6 @@
 //Types
 import { IBookAttach, IBookState } from "@/common/interfaces";
+import { PDFPageMeta } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 import { Book } from "@/grpc/proto/ablibrary/types/book_pb";
 import { OCRPage } from "@/grpc/proto/ablibrary/types/ocr_pb";
 import { Page } from "@/grpc/proto/ablibrary/types/page_pb";
@@ -21,7 +22,7 @@ export function selectedOCRBookSelector(state: RootState): OCRPage[] {
   return state.book.selectedOCRBook;
 }
 
-export function selectedPDFBookSelector(state: RootState): string[] {
+export function selectedPDFBookSelector(state: RootState): PDFPageMeta[] {
   return state.book.selectedPDFBook;
 }
 
@@ -42,11 +43,15 @@ export function isOCRSelector(state: RootState): boolean {
 }
 
 export function dimensionPDFPagesSelector(
-  state: RootState
+  state: RootState,
 ): IBookState["dimensionPDFPages"] {
   return state.book.dimensionPDFPages;
 }
 
 export function isOpenPDFSelector(state: RootState): boolean {
   return state.book.isOpenPDF;
+}
+
+export function selectedPageSelector(state: RootState): number | undefined {
+  return state.book.selectedPage;
 }

@@ -11,6 +11,7 @@ const initialState: ILayoutsState = {
   isOpenDrawer: false,
   pageTitle: "",
   isCompletedLogo : false,
+  pdfQualityInBook: undefined,
 };
 
 export const layoutsReducer = createSlice({

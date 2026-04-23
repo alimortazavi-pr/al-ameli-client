@@ -1,4 +1,5 @@
 import { UseDisclosureProps } from "@heroui/react";
+import { pdfQualityType } from "../types";
 
 //Types
 
@@ -7,6 +8,7 @@ export interface ILayoutsState {
   isOpenDrawer: boolean;
   pageTitle: string;
   isCompletedLogo: boolean;
+  pdfQualityInBook: pdfQualityType | undefined;
 }
 
 export interface INextUIModalProps extends UseDisclosureProps {

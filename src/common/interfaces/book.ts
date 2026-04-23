@@ -20,6 +20,7 @@ import {
 import { Page } from "@/grpc/proto/ablibrary/types/page_pb";
 import { IBookAttach } from "./books";
 import { OCRPage } from "@/grpc/proto/ablibrary/types/ocr_pb";
+import { PDFPageMeta } from "@/grpc/proto/ablibrary/services/book_service/book_service_pb";
 
 export interface IBookState {
   isOpenTableOfContent: boolean;
@@ -27,7 +28,7 @@ export interface IBookState {
   isOpenPDF: boolean;
   selectedBook: Page[];
   selectedOCRBook: OCRPage[];
-  selectedPDFBook: string[];
+  selectedPDFBook: PDFPageMeta[];
   bookDetail: Book | undefined;
   bookAttach: IBookAttach | undefined;
   scrollToPage: boolean;
@@ -37,6 +38,7 @@ export interface IBookState {
     height: number;
     aspectRatio: number;
   };
+  selectedPage: undefined;
 }
 
 export interface IBookRequest {

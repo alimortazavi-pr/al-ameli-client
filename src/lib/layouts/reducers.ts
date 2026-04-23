@@ -7,7 +7,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 const reducers = {
   setDarkMode(
     state: ILayoutsState,
-    action: PayloadAction<boolean>
+    action: PayloadAction<boolean>,
   ): ILayoutsState {
     return {
       ...state,
@@ -16,7 +16,7 @@ const reducers = {
   },
   setIsOpenDrawer(
     state: ILayoutsState,
-    action: PayloadAction<boolean>
+    action: PayloadAction<boolean>,
   ): ILayoutsState {
     return {
       ...state,
@@ -25,7 +25,7 @@ const reducers = {
   },
   setPageTitle(
     state: ILayoutsState,
-    action: PayloadAction<string>
+    action: PayloadAction<string>,
   ): ILayoutsState {
     return {
       ...state,
@@ -34,11 +34,20 @@ const reducers = {
   },
   setIsCompletedLogo(
     state: ILayoutsState,
-    action: PayloadAction<boolean>
+    action: PayloadAction<boolean>,
   ): ILayoutsState {
     return {
       ...state,
       isCompletedLogo: action.payload,
+    };
+  },
+  setPDFQualityInBook(
+    state: ILayoutsState,
+    action: PayloadAction<ILayoutsState["pdfQualityInBook"]>,
+  ): ILayoutsState {
+    return {
+      ...state,
+      pdfQualityInBook: action.payload,
     };
   },
 };

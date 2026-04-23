@@ -1,4 +1,5 @@
 //Types
+import { ILayoutsState } from "@/common/interfaces";
 import { RootState } from "@/lib/index";
 
 export function darkModeSelector(state: RootState): boolean {
@@ -15,4 +16,10 @@ export function pageTitleSelector(state: RootState): string {
 
 export function isCompletedLogoSelector(state: RootState): boolean {
   return state.layouts.isCompletedLogo;
+}
+
+export function pdfQualityInBookSelector(
+  state: RootState,
+): ILayoutsState["pdfQualityInBook"] {
+  return state.layouts.pdfQualityInBook;
 }

@@ -22,6 +22,7 @@ const initialState: IBookState = {
     height: 0,
     aspectRatio: 0,
   },
+  selectedPage: undefined,
 };
 
 export const bookReducer = createSlice({
